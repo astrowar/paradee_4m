@@ -26,14 +26,26 @@ SENTS_PT = [
 def load_teacher(device="cpu", voice="af_heart", lang_code="a", fuse=True):
     pipe = KPipeline(lang_code=lang_code, device=device, repo_id="hexgrad/Kokoro-82M")
     model = pipe.model.eval()
-    if isinstance(voice, str) and (voice.endswith(".pt") or os.path.exists(voice)):
+    if isinstance(voice, str) and voice.endswith(".pt") and not os.path.exists(voice):
+        voice_name = os.path.basename(voice)
+        from huggingface_hub import hf_hub_download
+        import shutil
+        try:
+            p = hf_hub_download("hexgrad/Kokoro-82M", f"voices/{voice_name}")
+            shutil.copy(p, voice)
+            pack = torch.load(voice, map_location=device)
+        except Exception:
+            pack = pipe.load_voice(voice_name.replace(".pt", ""))
+    elif isinstance(voice, str) and os.path.exists(voice):
         pack = torch.load(voice, map_location=device)
     else:
         pack = pipe.load_voice(voice)
     items = []
     sents = SENTS_PT if lang_code == "p" else SENTS
     for s in sents:
-        ps, _ = pipe.g2p(s); items.append((ps, pack[len(ps) - 1]))
+        ps, _ = pipe.g2p(s)
+        idx = min(max(0, len(ps) - 1), pack.shape[0] - 1)
+        items.append((ps, pack[idx]))
     if fuse:
         for _, m in model.named_modules():
             try: remove_weight_norm(m)

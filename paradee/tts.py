@@ -6,7 +6,7 @@ from huggingface_hub import hf_hub_download
 
 REPOS = {"1.2": "sahilmahendrakar/Paradee-8M-v1.2", "1.1": "sahilmahendrakar/Paradee-8M-v1.1", "1.0": "sahilmahendrakar/Paradee-8M-v1.0"}
 # the voices of each version, in the order the 1.2 model numbers them. 1.0 and 1.1 have af_heart only.
-VOICES = {"1.2": ["af_heart", "bf_isabella", "am_puck", "bm_fable"], "1.1": ["af_heart"], "1.0": ["af_heart"], "pt-br": ["pf_dora"]}
+VOICES = {"1.2": ["af_heart", "bf_isabella", "am_puck", "bm_fable"], "1.1": ["af_heart"], "1.0": ["af_heart"], "pt-br": ["pf_dora", "pm_alex"]}
 SAMPLE_RATE = 24000
 MAX_PHONEMES = 510   # the text side has 512 positions, two of which are the pad tokens at each end
 # Inside every released graph (1.0, 1.1, 1.2): each token's length in frames of 600 samples, rounded. The frames
@@ -126,7 +126,7 @@ class Paradee:
         self.lang = lang.lower()
         if model_path is not None:
             self.version = version
-            self.voices = voices or (["pf_dora"] if self.lang in ("pt", "pt-br", "p") else VOICES.get(version, ["af_heart"]))
+            self.voices = voices or (["pf_dora", "pm_alex"] if self.lang in ("pt", "pt-br", "p") else VOICES.get(version, ["af_heart"]))
             config_file = config_path or "config.json"
             self.vocab = json.load(open(config_file, encoding="utf-8"))["vocab"]
         else:
@@ -161,14 +161,14 @@ class Paradee:
     def phonemize(self, text, voice=None):
         """Phonemize text according to the selected language and voice."""
         voice = voice or (self.voices[0] if self.voices else "af_heart")
-        if self.lang in ("pt", "pt-br", "p") or voice == "pf_dora":
+        if self.lang in ("pt", "pt-br", "p") or voice in ("pf_dora", "pm_alex") or (voice and voice.startswith("p")):
             phonemes, _ = self.g2p()(text)
             return phonemes
         phonemes, _ = self.g2p(british=voice.startswith("b"))(text)
         return phonemes
 
     def check_voice(self, voice):
-        if voice not in self.voices and not (self.lang in ("pt", "pt-br", "p") and voice == "pf_dora"):
+        if voice not in self.voices and not (self.lang in ("pt", "pt-br", "p") or (voice and voice.startswith("p"))):
             raise ValueError(f"Paradee {self.version} has no voice {voice!r}; its voices are {', '.join(self.voices)}")
 
     def generate_from_phonemes(self, phonemes, speed=1.0, voice=None):
