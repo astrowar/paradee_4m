@@ -4,11 +4,11 @@
 > 
 > *(An 8M-parameter Brazilian Portuguese text-to-speech model distilled from Kokoro-82M. 8.5 MB, runs 25x real time on one CPU thread.)*
 
-Este repositório é um fork do [Paradee](https://github.com/sahilmahendrakar/paradee) adaptado e treinado para **Português Brasileiro (pt-BR)** com a voz feminina **Dora (`pf_dora`)**.
+Este repositório é um fork do [Paradee](https://github.com/sahilmahendrakar/paradee) adaptado e treinado para **Português Brasileiro (pt-BR)** com suporte às vozes **Dora (`pf_dora` - feminina)** e **Alex (`pm_alex` - masculina)**.
 
 - **Extremamente Pequeno:** O modelo int8 quantizado é um único arquivo ONNX de **8,46 MB**, comparado aos ~325 MB do Kokoro original.
 - **Ultra-Rápido:** Executa a **~25x tempo real** em uma única thread de CPU (x86_64), sem necessidade de GPU.
-- **Fidelidade ao Professor:** Destilado diretamente do `Kokoro-82M` (código de idioma `"p"` e vetor de estilo `pf_dora`).
+- **Fidelidade ao Professor:** Destilado diretamente do `Kokoro-82M` (código de idioma `"p"` com vetores de estilo `pf_dora` e `pm_alex`).
 - **Nativo para Navegador e Edge:** Totalmente compatível com ONNX Runtime Web, mobile e CPU padrão.
 
 ---
@@ -28,9 +28,9 @@ Para adaptar o Paradee (originalmente concebido para inglês) para o português 
      - **Clarice Lispector:** Prosódia literária, diálogos e cadência natural da língua falada.
      - **Project Gutenberg (pt):** Obras clássicas em domínio público.
 
-3. **Voz e Estilo:**
+3. **Vozes e Estilo:**
    - *Original:* Vozes em inglês (`af_heart`, `am_puck`, `bf_isabella`, `bm_fable`).
-   - *Versão pt-BR:* Treinado exclusivamente no voicepack **`pf_dora.pt`** do Kokoro-82M.
+   - *Versão pt-BR:* Modelos treinados com as vozes brasileiras **`pf_dora.pt`** (feminina) e **`pm_alex.pt`** (masculina) do Kokoro-82M.
 
 4. **Infraestrutura e Aceleração de Hardware:**
    - *Original:* Hardcoded para Apple Silicon utilizando o backend `mps` do PyTorch.
