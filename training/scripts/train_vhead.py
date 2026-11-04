@@ -16,7 +16,8 @@ ap.add_argument("--fine-stft", action="store_true", help="add STFT losses with 6
 ap.add_argument("--flat-weight", type=float, default=0.0, help="match the teacher's spectral flatness (how tonal vs noise-like) per 750 Hz band and frame above 1.5 kHz; a statistic, so noise is not penalised for being random")
 ap.add_argument("--harm-weight", type=float, default=0.0, help="match the teacher's harmonicity (energy at multiples of the pitch vs halfway between them, log ratio) per 1 kHz band and voiced frame, 1-9 kHz")
 ap.add_argument("--mod-weight", type=float, default=0.0, help="match how each upper band's loudness pulses with the pitch (depth and timing, at 1x and 2x the pitch) in 50 ms windows; v2 head only")
-ap.add_argument("--head", default="v1"); ap.add_argument("--dim", type=int, default=160); ap.add_argument("--blocks", type=int, default=4)
+ap.add_argument("--preset", default="D", help="VDecoder preset (D, 4M, nano for 4MB model; A for 8MB)")
+ap.add_argument("--head", default="v2"); ap.add_argument("--dim", type=int, default=160); ap.add_argument("--blocks", type=int, default=4)
 ap.add_argument("--utmos", action="store_true"); ap.add_argument("--eval-every", type=int, default=2500); ap.add_argument("--eval-only", action="store_true")
 DEFAULT_DEV = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
 ap.add_argument("--device", default=DEFAULT_DEV); ap.add_argument("--shards", type=int, default=8); ap.add_argument("--tag", default="")
@@ -61,7 +62,7 @@ def spec_losses(y, t):
         ls = ls + (T - Y).norm() / T.norm().clamp_min(1e-5) + F.l1_loss(torch.log(Y.clamp_min(1e-5)), torch.log(T.clamp_min(1e-5)))
     return lm, ls / len(SZ)
 
-model = VDecoder(head=A.head, dim=A.dim, blocks=A.blocks).to(DEV); step = 0; last = f"{RUN}/last.pt"
+model = VDecoder(preset=A.preset, head=A.head, dim=A.dim, blocks=A.blocks).to(DEV); step = 0; last = f"{RUN}/last.pt"
 opt = torch.optim.AdamW(model.parameters(), lr=A.lr, betas=(0.8, 0.99), weight_decay=0.01)
 sched = lambda s: min(1, s / 500) * 0.5 * (1 + math.cos(math.pi * min(s, A.steps) / A.steps))
 if A.gan:
@@ -78,7 +79,10 @@ elif A.init_from:
         p = hf_hub_download("sahilmahendrakar/Paradee-8M-v1.2", "pytorch/decoder.pt")
         shutil.copy(p, A.init_from)
     model.load_ckpt(A.init_from, DEV); print(f"initialised from {A.init_from}", flush=True)
-else: model.load_trunk(A.trunk); print(f"trunk from {A.trunk}, head from scratch", flush=True)
+elif A.trunk and os.path.exists(A.trunk):
+    model.load_trunk(A.trunk); print(f"trunk from {A.trunk}, head from scratch", flush=True)
+else:
+    print(f"Treinando VDecoder completo ({A.preset} + {A.head}) do zero (sem trunk pré-existente)", flush=True)
 
 def flat_loss(y, t, n=2048, bw=64):
     w = torch.hann_window(n, device=DEV); out = []

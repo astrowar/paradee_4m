@@ -10,6 +10,8 @@ DEC_PRESETS = {  # name: (adain width, upsample_initial_channel, resblock kernel
     "B": (256, 128, [3, 7]),
     "C": (192, 96, [3, 7]),
     "D": (128, 64, [3, 7]),
+    "4M": (128, 64, [3, 7]),
+    "nano": (128, 64, [3, 7]),
     "E": (128, 64, [3, 5]),
     "F": (96, 48, [3, 5]),
     "W": (192, 256, [3, 7, 11]),   # wider vocoder final stage (64 ch), thinner AdaIN blocks
@@ -80,7 +82,7 @@ class BandGenerator(Generator):
         return self.stft.inverse(spec, phase)
 
 class StudentDecoder(Decoder):
-    def __init__(self, preset="C", dim_in=512, style_dim=16, dim_out=80, disable_complex=False, harmonics=9, bands=False, full_phase=False):
+    def __init__(self, preset="D", dim_in=512, style_dim=16, dim_out=80, disable_complex=False, harmonics=9, bands=False, full_phase=False):
         W, uic, kernels = DEC_PRESETS[preset]
         nn.Module.__init__(self)
         self.encode = AdainResBlk1d(dim_in + 2, W, style_dim)

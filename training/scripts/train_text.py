@@ -7,7 +7,7 @@ import torch, torch.nn.functional as F, numpy as np, soundfile as sf
 sys.path.insert(0, "scripts")
 from student import TextStudent, alignment
 DEFAULT_DEV = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
-ap = argparse.ArgumentParser(); ap.add_argument("preset"); ap.add_argument("--steps", type=int, default=20000)
+ap = argparse.ArgumentParser(); ap.add_argument("preset", nargs="?", default="xs+mlp"); ap.add_argument("--steps", type=int, default=20000)
 ap.add_argument("--bs", type=int, default=32); ap.add_argument("--lr", type=float, default=5e-4)
 ap.add_argument("--eval-only", action="store_true"); ap.add_argument("--device", default=DEFAULT_DEV)
 ap.add_argument("--shards", type=int, default=999); ap.add_argument("--tag", default="")
@@ -15,7 +15,7 @@ ap.add_argument("--through-decoder", action="store_true", help="add a log-mel lo
 ap.add_argument("--td-bs", type=int, default=8); ap.add_argument("--seg", type=int, default=48); ap.add_argument("--td-weight", type=float, default=1.0)
 ap.add_argument("--asr-weight", type=float, default=1.0)
 ap.add_argument("--through-student-decoder", default="", help="checkpoint of a StudentDecoder to use as the frozen decoder (preset from --dec-preset) instead of the teacher decoder")
-ap.add_argument("--dec-preset", default="A")
+ap.add_argument("--dec-preset", default="D")
 ap.add_argument("--voice", default="ef_dora.pt")
 ap.add_argument("--lang", default="p")
 A = ap.parse_args(); DEV = A.device

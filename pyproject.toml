@@ -1,10 +1,10 @@
 [project]
-name = "paradee"
-version = "1.2.1"
-description = "An 8M-parameter Brazilian Portuguese text-to-speech model distilled from Kokoro-82M"
+name = "paradee_4m"
+version = "0.1.0"
+description = "A 4M-parameter Brazilian Portuguese text-to-speech model (~4 MB) distilled from Kokoro-82M"
 readme = "README.md"
 license = "Apache-2.0"
-authors = [{ name = "Sahil Mahendrakar" }]
+authors = [{ name = "Eraldo M R Jr" }]
 requires-python = ">=3.10"
 dependencies = [
     "numpy",

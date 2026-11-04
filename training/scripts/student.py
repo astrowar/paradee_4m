@@ -8,14 +8,16 @@ from kokoro.modules import CustomAlbert, ProsodyPredictor, TextEncoder
 
 PRESETS = {  # name: (albert hidden, albert layers, albert heads, hidden_dim, style_dim, n_layer)
     # "<name>+mlp" variants use a 2-layer nonlinear asr projection (the teacher asr features are rank ~430 for 99% variance)
-    "xs": (128, 4, 4, 128, 16, 2),
-    "s":  (256, 6, 4, 192, 32, 3),
-    "m":  (384, 6, 6, 256, 32, 3),
-    "l":  (512, 8, 8, 384, 64, 3),
+    "xs":   (128, 4, 4, 128, 16, 2),
+    "4m":   (128, 4, 4, 128, 16, 2),
+    "nano": (128, 4, 4, 128, 16, 2),
+    "s":    (256, 6, 4, 192, 32, 3),
+    "m":    (384, 6, 6, 256, 32, 3),
+    "l":    (512, 8, 8, 384, 64, 3),
 }
 
 class TextStudent(nn.Module):
-    def __init__(self, preset="s", n_token=178, teacher_dim=512, max_dur=50, n_voices=1):
+    def __init__(self, preset="xs+mlp", n_token=178, teacher_dim=512, max_dur=50, n_voices=1):
         super().__init__()
         mlp = preset.endswith("+mlp"); preset = preset.replace("+mlp", "")
         ah, al, an, hd, sd, nl = PRESETS[preset]

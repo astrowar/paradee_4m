@@ -113,8 +113,8 @@ class SourceFilterHead2(SourceFilterHead):
         return y
 
 class VDecoder(nn.Module):
-    """Decoder A's AdaIN trunk + the frame-rate head."""
-    def __init__(self, preset="A", head="v1", n_voices=1, **kw):
+    """Decoder trunk + the frame-rate head."""
+    def __init__(self, preset="D", head="v2", n_voices=1, **kw):
         super().__init__(); t = StudentDecoder(preset); uic = t.generator.conv_post.in_channels * 4
         for k in ("encode", "decode", "F0_conv", "N_conv", "asr_res"): setattr(self, k, getattr(t, k))
         self.style = nn.Parameter(t.style.data.repeat(n_voices, 1)); self.head = (SourceFilterHead2 if head == "v2" else SourceFilterHead)(in_ch=uic, **kw)
