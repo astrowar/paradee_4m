@@ -1,22 +1,16 @@
-"""Export the whole Paradee pipeline (text student + stage-two decoder + locked33 phase filter) as ONE
-ONNX graph for the browser: input_ids [1,T] int64 (with the 0 pad token at both ends), speed [1] float
--> waveform [1,S] float at 24 kHz. The phase filter is rewritten with conv1d DFT bases (band bins only)
-so it needs no complex ops, then checked against scripts/phase_lock.py on the same waveform.
-Also writes a weight-only int8 copy (int8 weights + DequantizeLinear), which is what the extension ships.
-usage: export_paradee.py [--text checkpoints/text_s+mlp/last.pt] [--dec checkpoints/dec_A_gan3/last.pt] [--out models/paradee]"""
+"""Export the Paradee pipeline with the frame-rate head (vhead.py, head v2) as ONE ONNX graph for the browser:
+input_ids [1,T] int64, speed [1] float -> waveform [1,S] float at 24 kHz. Same interface as export_paradee.py; no
+phase filter. The head is rewritten without complex numbers (conv1d DFT bases), checked against the torch head on the
+same noise, then written as fp32 and as the small copy (int8 weights, fp16 vectors, DFT bases generated at load time).
+usage: export_paradee_v1_1.py DEC_CKPT [--text checkpoints/text_s+mlp/last.pt] [--out models/paradee_v1.1]"""
 import sys, glob, os, time, argparse, warnings, torch, numpy as np, torch.nn as nn, torch.nn.functional as F
 warnings.filterwarnings("ignore"); sys.path.insert(0, "scripts")
-from student import TextStudent
-from student_decoder import load_student_decoder
+from student import TextStudent, alignment
+from vhead import VDecoder, SR, FHOP
 from torch.nn.utils import remove_weight_norm
 from torch.nn.utils.parametrize import is_parametrized, remove_parametrizations
-import phase_lock
-
-ap = argparse.ArgumentParser(); ap.add_argument("--text", default="checkpoints/text_s+mlp/last.pt"); ap.add_argument("--dec", default="checkpoints/dec_A_gan3/last.pt")
-ap.add_argument("--out", default="models/paradee"); ap.add_argument("--L", type=int, default=33)
+ap = argparse.ArgumentParser(); ap.add_argument("dec"); ap.add_argument("--text", default="checkpoints/text_s+mlp/last.pt"); ap.add_argument("--out", default="models/paradee_v1.1")
 A = ap.parse_args(); os.makedirs(A.out, exist_ok=True)
-N_FFT, HOP, SR = 1024, 256, 24000
-BINS = torch.nonzero(phase_lock.BAND[:, 0]).squeeze(1)          # 2-8 kHz: bins 86..341
 
 def strip(m):
     for x in m.modules():
@@ -26,169 +20,152 @@ def strip(m):
             try: remove_parametrizations(x, "weight", leave_parametrized=True)
             except Exception: pass
 
-class Lock(nn.Module):
-    """phase_lock.lock() without complex numbers. Output = s + iSTFT(change inside the band), so bins outside
-    2-8 kHz and unvoiced frames pass through untouched."""
-    def __init__(self, L):
-        super().__init__()
-        w = torch.hann_window(N_FFT); n = torch.arange(N_FFT).float(); k = BINS.float()[:, None]
-        ang = 2 * torch.pi * k * n / N_FFT
-        self.register_buffer("fwd", torch.cat([torch.cos(ang) * w, -torch.sin(ang) * w])[:, None])      # [2K,1,N]
-        self.register_buffer("inv", (torch.cat([torch.cos(ang), -torch.sin(ang)]) * (2 / N_FFT) * w)[:, None])  # [2K,1,N] (band bins have weight 2)
-        self.register_buffer("w2", (w ** 2)[None, None])
-        sk = torch.hann_window(L + 2)[1:-1]; self.register_buffer("sk", (sk / sk.sum())[None, None]); self.pad = L // 2
-    def stft(self, x):   # x [1,S] -> re, im [K, frames], reflect-padded like torch.stft(center=True)
-        y = F.conv1d(F.pad(x[:, None], (N_FFT // 2, N_FFT // 2), mode="reflect"), self.fwd, stride=HOP)[0]
-        return y[:len(BINS)], y[len(BINS):]
-    def forward(self, s, src, f0):
-        k = torch.minimum(torch.tensor(s.shape[1]), torch.tensor(src.shape[1])); s = s[:, :k]; src = src[:, :k]
-        Sr, Si = self.stft(s); Er, Ei = self.stft(src)
-        nf = Sr.shape[1]; j = torch.clamp(torch.arange(nf) * HOP // 300, max=f0.shape[1] - 1)
-        v = (f0[0, j] > 60).float()[None]                                                   # voiced frames
-        Em = torch.sqrt(Er ** 2 + Ei ** 2).clamp_min(1e-6)
-        Rr, Ri = (Sr * Er + Si * Ei) / Em, (Si * Er - Sr * Ei) / Em                          # S * conj(E) / |E|
-        sm = lambda z: F.conv1d(z[:, None], self.sk, padding=self.pad)[:, 0]
-        Rr, Ri = sm(Rr), sm(Ri); Rm = torch.sqrt(Rr ** 2 + Ri ** 2).clamp_min(1e-12)
-        Sm = torch.sqrt(Sr ** 2 + Si ** 2)
-        ur, ui = (Er * Rr - Ei * Ri) / (Em * Rm), (Er * Ri + Ei * Rr) / (Em * Rm)            # unit(E) * unit(smoothed)
-        Dr, Di = (Sm * ur - Sr) * v, (Sm * ui - Si) * v
-        ola = F.conv_transpose1d(torch.cat([Dr, Di])[None], self.inv, stride=HOP)[0]       # inverse DFT, window, overlap-add
-        env = F.conv_transpose1d(torch.ones(1, 1, nf), self.w2, stride=HOP)[0]
-        d = (ola / env.clamp_min(1e-8))[:, N_FFT // 2: N_FFT // 2 + k]
-        return s + d
-
 class ConvSTFT(nn.Module):
-    """Stand-in for kokoro's CustomSTFT (the ONNX-friendly one) that matches torch.stft / torch.istft, which the
-    decoder was trained with. CustomSTFT costs about 0.5 UTMOS here, for three reasons: replicate instead of reflect
-    padding, float noise in the DC and Nyquist imaginary parts whose random sign flips the phase feature between +pi
-    and -pi (~2.5% of strong bins), and an inverse that neither halves DC/Nyquist nor divides by the window overlap."""
+    """torch.stft / torch.istft (hann, centre, reflect) as conv1d / conv_transpose1d with real and imaginary parts kept apart."""
     def __init__(self, n, hop):
-        super().__init__(); self.n, self.hop = n, hop; w = torch.hann_window(n); k = torch.arange(n // 2 + 1).float()[:, None]
-        ang = 2 * torch.pi * k * torch.arange(n).float() / n
-        re, im = torch.cos(ang) * w, -torch.sin(ang) * w; im[0] = 0; im[-1] = 0
-        self.register_buffer("fwd", torch.cat([re, im])[:, None])
-        c = torch.full((n // 2 + 1, 1), 2.0); c[0] = c[-1] = 1
-        self.register_buffer("inv", (torch.cat([torch.cos(ang) * c, -torch.sin(ang) * c]) / n * w)[:, None])
-        self.register_buffer("w2", (w ** 2)[None, None])
-    def transform(self, x):
-        y = F.conv1d(F.pad(x[:, None], (self.n // 2, self.n // 2), mode="reflect"), self.fwd, stride=self.hop); K = self.n // 2 + 1
-        re, im = y[:, :K], y[:, K:]
-        ph = torch.where((im == 0) & (re < 0), torch.full_like(re, torch.pi), torch.atan2(im, re))   # torch.angle gives +pi there
-        return torch.sqrt(re ** 2 + im ** 2), ph
-    def inverse(self, mag, phase):
-        z = torch.cat([mag * torch.cos(phase), mag * torch.sin(phase)], 1)
-        y = F.conv_transpose1d(z, self.inv, stride=self.hop)[:, 0]
-        env = F.conv_transpose1d(torch.ones(1, 1, mag.shape[-1]), self.w2, stride=self.hop)[:, 0]
-        return (y / env.clamp_min(1e-8))[:, self.n // 2: -(self.n // 2)][:, None]
+        super().__init__(); self.n, self.hop, self.K = n, hop, n // 2 + 1; w = torch.hann_window(n, dtype=torch.float64); k = torch.arange(self.K, dtype=torch.float64)[:, None]
+        ang = 2 * torch.pi * ((k * torch.arange(n, dtype=torch.float64)) % n) / n; c = torch.full((self.K, 1), 2.0, dtype=torch.float64); c[0] = c[-1] = 1
+        self.register_buffer("fwd", (torch.cat([torch.cos(ang), -torch.sin(ang)]) * w).float()[:, None])
+        self.register_buffer("inv", (torch.cat([torch.cos(ang) * c, -torch.sin(ang) * c]) / n * w).float()[:, None]); self.register_buffer("w2", (w ** 2).float()[None, None])
+    def transform(self, x):   # [B,S] -> re, im [B,K,frames]
+        y = F.conv1d(F.pad(x[:, None], (self.n // 2, self.n // 2), mode="reflect"), self.fwd, stride=self.hop); return y[:, :self.K], y[:, self.K:]
+    def inverse(self, re, im):
+        y = F.conv_transpose1d(torch.cat([re, im], 1), self.inv, stride=self.hop)[:, 0]
+        env = F.conv_transpose1d(torch.ones_like(re[:1, :1]), self.w2, stride=self.hop)[:, 0]
+        return (y / env.clamp_min(1e-8))[:, self.n // 2: -(self.n // 2)]
 
-class Paradee(nn.Module):
-    def __init__(self, ts, ds, L):
-        super().__init__(); self.ts, self.ds, self.lock = ts, ds, Lock(L); self.cap = {}
-        ds.generator.m_source.register_forward_hook(lambda m, i, o: self.cap.__setitem__("src", o[0]))
+class HeadX(nn.Module):
+    """SourceFilterHead2.forward without complex ops, float64 on-device tricks or repeat_interleave."""
+    def __init__(self, h):
+        super().__init__(); self.h = h; self.st = ConvSTFT(h.n_fft, h.hop); self.sb = ConvSTFT(150, 75)
+        self.register_buffer("k", torch.arange(1, h.K + 1).float()[None, :, None]); self.register_buffer("fr", torch.linspace(0, SR / 2, h.nb)[None, :, None])
+    def forward(self, x, f0, noise=None):
+        h = self.h; n = x.shape[2]; T = n * h.up; S = n * FHOP
+        z = h.norm0(h.inp(x).transpose(1, 2)).transpose(1, 2)
+        for b in h.blocks: z = b(z)
+        hn = h.norm1(z.transpose(1, 2)); o = h.out(hn).view(1, T, h.C * h.G + 1); o = torch.cat([o, o[:, -1:]], 1)
+        g = (o[..., :-1].reshape(1, T + 1, h.C, h.G) @ h.M.T).permute(0, 2, 3, 1)
+        gh, gn = torch.exp(g[:, 0].clamp(max=6)), torch.exp(g[:, 3].clamp(max=6)); um = torch.sqrt(g[:, 1] ** 2 + g[:, 2] ** 2).clamp_min(1e-4); ur, ui = g[:, 1] / um, g[:, 2] / um
+        # sine bank (vhead.sine_bank): running phase in float64 at frame rate, wrapped, then interpolated between frame centres
+        r = f0.double() * FHOP / SR; c = torch.cumsum(r, 1); c = (c - torch.floor(c)).float(); d = torch.cat([r[:, 1:], torch.zeros_like(r[:, :1])], 1).float()
+        t = torch.arange(S, device=x.device); p = (t.float() + 0.5) / FHOP - 0.5; i = torch.clamp(torch.floor(p), min=0).long(); i = torch.minimum(i, (n - 1) * torch.ones_like(i)); frac = torch.clamp(p - i.float(), 0, 1)
+        cyc = c[:, i] + frac * d[:, i]; f0s = f0[:, t // FHOP]; uv = (f0s > 10).float()
+        amp = ((f0s[:, None] * self.k < 11000).float() * uv[:, None])
+        e = (torch.sin(2 * torch.pi * self.k * cyc[:, None]) * amp).sum(1) * 0.1
+        nz = torch.randn_like(e) if noise is None else noise
+        Er, Ei = self.st.transform(e); Nr, Ni = self.st.transform(nz); j = 0
+        for m in range(1, h.mod + 1):
+            for fn in (torch.cos, torch.sin):
+                a = g[:, 4 + j]; mr, mi = self.st.transform(nz * uv * fn(2 * torch.pi * m * cyc)); Nr = Nr + a * mr; Ni = Ni + a * mi; j += 1
+        f0f = torch.cat([f0[:, torch.arange(T, device=x.device) // h.up], f0[:, -1:]], 1).clamp_min(60); ang = 2 * torch.pi * (self.fr / f0f[:, None]) * (0.5 * torch.tanh(o[..., -1])[:, None])
+        Hr = gh * (ur * torch.cos(ang) - ui * torch.sin(ang)); Hi = gh * (ur * torch.sin(ang) + ui * torch.cos(ang))
+        y = self.st.inverse(Er * Hr - Ei * Hi + Nr * gn, Er * Hi + Ei * Hr + Ni * gn)
+        if h.burst:
+            gb = torch.exp((h.out_b(hn).view(1, n * 4, h.Gb) @ h.Mb.T).clamp(max=6)).transpose(1, 2); gb = torch.cat([gb, gb[..., -1:]], -1)
+            br, bi = self.sb.transform(nz.flip(-1)); y = y + self.sb.inverse(br * gb, bi * gb)
+        return y
+
+class Paradee2(nn.Module):
+    def __init__(self, ts, vd): super().__init__(); self.ts, self.vd, self.head = ts, vd, HeadX(vd.head)
     def text(self, ids):
-        """TextStudent.forward for one unpadded sentence, without masks or packed sequences."""
         t = self.ts; p = t.predictor; s = t.style
         d_en = t.bert_encoder(t.bert(ids, attention_mask=torch.ones_like(ids))).transpose(-1, -2)
-        x = d_en; T = ids.shape[1]; sx = s[:, :, None].expand(-1, -1, T)
-        x = torch.cat([x, sx], 1)
+        x = d_en; T = ids.shape[1]; sx = s[:, :, None].expand(-1, -1, T); x = torch.cat([x, sx], 1)
         for b in p.text_encoder.lstms:
             if isinstance(b, nn.LSTM): x = b(x.transpose(-1, -2))[0].transpose(-1, -2)
             else: x = torch.cat([b(x.transpose(-1, -2), s).transpose(-1, -2), sx], 1)
-        d = x.transpose(-1, -2)                                            # [1,T,hd+sd]
-        dur = torch.sigmoid(p.duration_proj(p.lstm(d)[0])).sum(-1)[0]      # [T]
+        d = x.transpose(-1, -2); dur = torch.sigmoid(p.duration_proj(p.lstm(d)[0])).sum(-1)[0]
         e = t.text_encoder; h = e.embedding(ids).transpose(1, 2)
         for c in e.cnn: h = c(h)
-        t_en = e.lstm(h.transpose(1, 2))[0]
-        asr_tok = t.asr_proj(t_en).transpose(-1, -2)                       # [1,512,T]
-        return d, dur, asr_tok
+        return d, dur, t.asr_proj(e.lstm(h.transpose(1, 2))[0]).transpose(-1, -2)
+    def trunk(self, asr, F0_curve, N):
+        v = self.vd; s = v.style; F0 = v.F0_conv(F0_curve.unsqueeze(1)); Nn = v.N_conv(N.unsqueeze(1))
+        x = v.encode(torch.cat([asr, F0, Nn], 1), s); asr_res = v.asr_res(asr); res = True
+        for block in v.decode:
+            if res: x = torch.cat([x, asr_res, F0, Nn], 1)
+            x = block(x, s)
+            if block.upsample_type != "none": res = False
+        return x
     def forward(self, input_ids, speed):
         d, dur, asr_tok = self.text(input_ids)
         n = torch.clamp(torch.round(dur / speed), min=1).long()
         end = torch.cumsum(n, 0); start = end - n; f = torch.arange(end[-1])[None]
-        aln = ((f >= start[:, None]) & (f < end[:, None])).float()[None]   # [1,T,F]
+        aln = ((f >= start[:, None]) & (f < end[:, None])).float()[None]
         F0, N = self.ts.predictor.F0Ntrain(d.transpose(-1, -2) @ aln, self.ts.style)
-        s = self.ds(asr_tok @ aln, F0, N).squeeze(1)
-        return self.lock(s, self.cap["src"].squeeze(-1), F0)
+        return self.head(self.trunk(asr_tok @ aln, F0, N), F0)
 
-def load(disable_complex=True):
-    ts = TextStudent("s+mlp").eval(); ts.load_state_dict(torch.load(A.text, map_location="cpu")["model"])
-    ds = load_student_decoder("A", A.dec, disable_complex=disable_complex); strip(ts); strip(ds)
-    if disable_complex: ds.generator.stft = ConvSTFT(ds.generator.stft.filter_length, ds.generator.stft.hop_length)
-    return Paradee(ts, ds, A.L).eval()
-
+ts = TextStudent("s+mlp").eval(); ts.load_state_dict(torch.load(A.text, map_location="cpu")["model"])
+vd = VDecoder(head="v2").eval(); vd.load_ckpt(A.dec); strip(ts); strip(vd); m = Paradee2(ts, vd).eval()
 held = torch.load(sorted(glob.glob("data/teacher/shard_*.pt"))[0])[:4]
 
-# 1. the rewritten filter matches phase_lock.lock() on the same student waveform and source
-pm = load(disable_complex=False)
+# 1. the rewritten head matches the torch head on the same inputs and noise
 with torch.no_grad():
-    ids = held[0]["ids"][None]; torch.manual_seed(0); _ = pm(ids, torch.ones(1))
-    d, dur, asr_tok = pm.text(ids); n = torch.clamp(torch.round(dur), min=1).long()
-    from student import alignment; aln = alignment(n)[None]
-    F0, N = pm.ts.predictor.F0Ntrain(d.transpose(-1, -2) @ aln, pm.ts.style)
-    torch.manual_seed(0); s = pm.ds(asr_tok @ aln, F0, N).squeeze(); src = pm.cap["src"].squeeze()
-    ref = phase_lock.lock(s, src, F0[0], A.L); mine = pm.lock(s[None], src[None], F0)[0]
-print(f"filter check: max |mine - phase_lock| = {(mine - ref).abs().max():.2e} (signal peak {ref.abs().max():.2f}), "
-      f"filter changed the signal by rms {(ref - s[:len(ref)]).pow(2).mean().sqrt():.4f}")
+    r = held[0]; aln = alignment(r["pred_dur"]); Fr = aln.shape[1]; asr = (r["t_en"].float() @ aln)[None]; F0 = r["F0"][None, :2 * Fr]; N = r["N"][None, :2 * Fr]
+    nz = torch.randn(1, 2 * Fr * FHOP); ref = vd(asr, F0, N, noise=nz); mine = m.head(m.trunk(asr, F0, N), F0, noise=nz)
+print(f"head check: max |export - torch| = {(mine - ref).abs().max():.2e} (signal peak {ref.abs().max():.2f})")
 
 # 2. export
-m = load(disable_complex=True)
-path = f"{A.out}/paradee.onnx"
-ids = held[1]["ids"][None]; torch.manual_seed(0)
+path = f"{A.out}/paradee.onnx"; ids = held[1]["ids"][None]
 torch.onnx.export(m, (ids, torch.ones(1)), path, input_names=["input_ids", "speed"], output_names=["waveform"],
                   dynamic_axes={"input_ids": {1: "tokens"}, "waveform": {1: "samples"}}, opset_version=17, dynamo=False)
 print(f"exported {path}: {os.path.getsize(path)/1e6:.1f} MB")
 
-# 3. small copy (what the extension ships, and what the paper's 8.45 MB refers to): every weight matrix in int8 per
-# output channel (int8 + DequantizeLinear), other float vectors in fp16 (+ Cast), and the phase filter's DFT bases
-# (4 MB in fp32) rebuilt at load time from a few ops instead of stored
+cfg_path = f"{A.out}/config.json"
+if not os.path.exists(cfg_path):
+    try:
+        from kokoro import KPipeline
+        p = KPipeline(lang_code="p", device="cpu", repo_id="hexgrad/Kokoro-82M")
+        json.dump({"vocab": p.model.vocab}, open(cfg_path, "w"), indent=2)
+        print(f"saved {cfg_path}")
+    except Exception:
+        pass
+
+# 3. small copy: weight matrices int8 per output channel, other float vectors fp16, DFT bases generated from a few ops
 import onnx
 from onnx import numpy_helper, helper, TensorProto
-g = onnx.load(path); nq = nh = 0
-fwd = torch.cat([torch.cos(2 * torch.pi * BINS.double()[:, None] * torch.arange(N_FFT).double() / N_FFT),
-                 -torch.sin(2 * torch.pi * BINS.double()[:, None] * torch.arange(N_FFT).double() / N_FFT)]) * torch.hann_window(N_FFT, dtype=torch.float64)
-def basis_nodes(name, scale):
-    """[2K,1,N] = cat(cos, -sin)(2 pi k n / N) * hann(n) * scale, with k*n reduced mod N in int64 so fp32 cos stays exact"""
-    p = name + "_gen_"; K = len(BINS)
-    g.graph.initializer.extend([numpy_helper.from_array(BINS.numpy().astype(np.int64)[:, None], p + "k"), numpy_helper.from_array(np.arange(N_FFT, dtype=np.int64)[None], p + "n"),
-        numpy_helper.from_array(np.array(N_FFT, np.int64), p + "N"), numpy_helper.from_array(np.array(2 * np.pi / N_FFT, np.float32), p + "c"),
-        numpy_helper.from_array((torch.hann_window(N_FFT) * scale).numpy().astype(np.float32), p + "w")])
+g = onnx.load(path); nq = nh = nb = 0; new_nodes = []
+def basis(n, inverse):
+    w = torch.hann_window(n, dtype=torch.float64); k = torch.arange(n // 2 + 1, dtype=torch.float64)[:, None]; ang = 2 * torch.pi * ((k * torch.arange(n, dtype=torch.float64)) % n) / n
+    c = torch.full((n // 2 + 1, 1), 2.0, dtype=torch.float64); c[0] = c[-1] = 1
+    return ((torch.cat([torch.cos(ang) * c, -torch.sin(ang) * c]) / n * w) if inverse else (torch.cat([torch.cos(ang), -torch.sin(ang)]) * w)).float()[:, None].numpy()
+def basis_nodes(name, n, inverse):
+    """[2K,1,n] = cat(cos, -sin)(2 pi k t / n) * per-row scale * hann(t), with k*t reduced mod n in int64 so fp32 cos stays exact"""
+    p = name + "_gen_"; K = n // 2 + 1; row = np.ones((2 * K, 1), np.float32)
+    if inverse: row[:] = 2 / n; row[[0, K - 1, K, 2 * K - 1]] = 1 / n
+    g.graph.initializer.extend([numpy_helper.from_array(np.arange(K, dtype=np.int64)[:, None], p + "k"), numpy_helper.from_array(np.arange(n, dtype=np.int64)[None], p + "n"),
+        numpy_helper.from_array(np.array(n, np.int64), p + "N"), numpy_helper.from_array(np.array(2 * np.pi / n, np.float32), p + "c"),
+        numpy_helper.from_array(torch.hann_window(n).numpy()[None], p + "w"), numpy_helper.from_array(row, p + "row"), numpy_helper.from_array(np.array([1], np.int64), p + "ax")])
     return [helper.make_node("Mul", [p + "k", p + "n"], [p + "kn"]), helper.make_node("Mod", [p + "kn", p + "N"], [p + "m"]),
             helper.make_node("Cast", [p + "m"], [p + "mf"], to=TensorProto.FLOAT), helper.make_node("Mul", [p + "mf", p + "c"], [p + "a"]),
             helper.make_node("Cos", [p + "a"], [p + "cos"]), helper.make_node("Sin", [p + "a"], [p + "sin"]), helper.make_node("Neg", [p + "sin"], [p + "nsin"]),
-            helper.make_node("Concat", [p + "cos", p + "nsin"], [p + "cs"], axis=0), helper.make_node("Mul", [p + "cs", p + "w"], [p + "b"]),
-            helper.make_node("Unsqueeze", [p + "b", p + "ax"], [name])], numpy_helper.from_array(np.array([1], np.int64), p + "ax")
-new_nodes = []
+            helper.make_node("Concat", [p + "cos", p + "nsin"], [p + "cs"], axis=0), helper.make_node("Mul", [p + "cs", p + "w"], [p + "b0"]), helper.make_node("Mul", [p + "b0", p + "row"], [p + "b"]),
+            helper.make_node("Unsqueeze", [p + "b", p + "ax"], [name])]
 for init in list(g.graph.initializer):
     w = numpy_helper.to_array(init); name = init.name
     if w.dtype != np.float32: continue
-    if w.shape == (2 * len(BINS), 1, N_FFT):                                          # a DFT basis: forward (scale 1) or inverse (2/N)
-        scale = float(np.abs(w).max() / fwd.abs().max()); scale = 1.0 if abs(scale - 1) < 1e-3 else 2 / N_FFT
-        assert np.abs(w - fwd[:, None].numpy() * scale).max() < 1e-3 * scale, name   # the stored fp32 bases carry ~1e-4 error from cos of angles up to 2000 rad; the rebuilt ones are exact
-        g.graph.initializer.remove(init); nodes, ax = basis_nodes(name, scale); g.graph.initializer.append(ax); new_nodes += nodes
+    hit = [(n, inv) for n in (600, 150) for inv in (False, True) if w.shape == (n + 2, 1, n) and np.abs(w - basis(n, inv)).max() < 1e-4 * np.abs(w).max()]
+    if hit: g.graph.initializer.remove(init); new_nodes += basis_nodes(name, *hit[0]); nb += 1
     elif w.ndim >= 2 and w.size >= 1024:
         sc = np.abs(w).reshape(w.shape[0], -1).max(1) / 127; sc[sc == 0] = 1
-        q = np.clip(np.round(w / sc.reshape((-1,) + (1,) * (w.ndim - 1))), -127, 127).astype(np.int8)
-        g.graph.initializer.remove(init)
-        g.graph.initializer.extend([numpy_helper.from_array(q, name + "_q"), numpy_helper.from_array(sc.astype(np.float16), name + "_s16"),
-                                    numpy_helper.from_array(np.zeros(len(sc), np.int8), name + "_z")])
-        new_nodes += [helper.make_node("Cast", [name + "_s16"], [name + "_s"], to=TensorProto.FLOAT),
-                      helper.make_node("DequantizeLinear", [name + "_q", name + "_s", name + "_z"], [name], axis=0)]; nq += 1
-    elif w.size >= 64 and np.abs(w).max() < 6e4:                                      # biases, norms: fp16 (scalars stay fp32, e.g. the 1e-8 clamps)
+        q = np.clip(np.round(w / sc.reshape((-1,) + (1,) * (w.ndim - 1))), -127, 127).astype(np.int8); g.graph.initializer.remove(init)
+        g.graph.initializer.extend([numpy_helper.from_array(q, name + "_q"), numpy_helper.from_array(sc.astype(np.float16), name + "_s16"), numpy_helper.from_array(np.zeros(len(sc), np.int8), name + "_z")])
+        new_nodes += [helper.make_node("Cast", [name + "_s16"], [name + "_s"], to=TensorProto.FLOAT), helper.make_node("DequantizeLinear", [name + "_q", name + "_s", name + "_z"], [name], axis=0)]; nq += 1
+    elif w.size >= 64 and np.abs(w).max() < 6e4:
         g.graph.initializer.remove(init); g.graph.initializer.append(numpy_helper.from_array(w.astype(np.float16), name + "_16"))
         new_nodes.append(helper.make_node("Cast", [name + "_16"], [name], to=TensorProto.FLOAT)); nh += 1
-for n in reversed(new_nodes): g.graph.node.insert(0, n)
+for n_ in reversed(new_nodes): g.graph.node.insert(0, n_)
 qpath = f"{A.out}/paradee_int8.onnx"; onnx.checker.check_model(g); onnx.save(g, qpath)
-print(f"int8 weights for {nq} tensors, fp16 for {nh}, DFT bases generated -> {qpath}: {os.path.getsize(qpath)/1e6:.2f} MB")
+print(f"int8 weights for {nq} tensors, fp16 for {nh}, {nb} DFT bases generated -> {qpath}: {os.path.getsize(qpath)/1e6:.2f} MB")
 
-# 4. ORT vs torch, speed on one thread
+# 4. ORT: length vs torch, speed on one thread, listening files
 import onnxruntime as ort, soundfile as sf
 so = ort.SessionOptions(); so.intra_op_num_threads = 1; so.inter_op_num_threads = 1
 for p in (path, qpath):
     sess = ort.InferenceSession(p, so, providers=["CPUExecutionProvider"]); tot = secs = 0
-    for i, r in enumerate(held):
-        feed = {"input_ids": r["ids"][None].numpy(), "speed": np.ones(1, np.float32)}
-        t = time.perf_counter(); y = sess.run(None, feed)[0]; tot += time.perf_counter() - t; secs += y.shape[1] / SR
-        sf.write(f"{A.out}/held_{i + 1}_{os.path.basename(p)[:-5]}.wav", y[0], SR)
-    with torch.no_grad(): torch.manual_seed(0); yt = m(held[0]["ids"][None], torch.ones(1))
-    print(f"{os.path.basename(p)}: length vs torch {sess.run(None, {'input_ids': held[0]['ids'][None].numpy(), 'speed': np.ones(1, np.float32)})[0].shape[1]} vs {yt.shape[1]}, "
-          f"{secs:.1f}s audio in {tot:.2f}s -> {secs / tot:.1f}x realtime on 1 thread")
+    for rep in range(2):
+        for i, r in enumerate(held):
+            feed = {"input_ids": r["ids"][None].numpy(), "speed": np.ones(1, np.float32)}
+            t = time.perf_counter(); y = sess.run(None, feed)[0]; dt = time.perf_counter() - t
+            if rep: tot += dt; secs += y.shape[1] / SR; sf.write(f"{A.out}/held_{i + 1}_{os.path.basename(p)[:-5]}.wav", y[0], SR)
+    with torch.no_grad(): yt = m(held[0]["ids"][None], torch.ones(1))
+    print(f"{os.path.basename(p)}: length vs torch {sess.run(None, {'input_ids': held[0]['ids'][None].numpy(), 'speed': np.ones(1, np.float32)})[0].shape[1]} vs {yt.shape[1]}, {secs:.1f}s audio in {tot:.2f}s -> {secs / tot:.1f}x realtime on 1 thread")
