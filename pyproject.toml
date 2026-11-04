@@ -1,7 +1,7 @@
 [project]
 name = "paradee"
 version = "1.2.1"
-description = "An 8M-parameter English text-to-speech model distilled from Kokoro-82M"
+description = "An 8M-parameter Brazilian Portuguese text-to-speech model distilled from Kokoro-82M"
 readme = "README.md"
 license = "Apache-2.0"
 authors = [{ name = "Sahil Mahendrakar" }]

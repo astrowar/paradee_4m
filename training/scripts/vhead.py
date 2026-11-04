@@ -132,8 +132,11 @@ class VDecoder(nn.Module):
         res = self.load_state_dict(sd, strict=False); assert all(k.startswith("head.") for k in res.missing_keys) and not res.unexpected_keys, res
     def load_ckpt(self, path, device="cpu"):
         """Load a vhead checkpoint; one from before the pulsing-noise sources gets them zero-initialised (same function)."""
-        st = torch.load(path, map_location=device)["model"]; w = st["style"]
-        if w.shape[0] < self.style.shape[0]: st["style"] = torch.cat([w, w[:1].repeat(self.style.shape[0] - w.shape[0], 1)])   # new voices start from voice 0
+        st = dict(torch.load(path, map_location=device)["model"]); w = st["style"]
+        if w.shape[0] < self.style.shape[0]:
+            st["style"] = torch.cat([w, w[:1].repeat(self.style.shape[0] - w.shape[0], 1)])   # new voices start from voice 0
+        elif w.shape[0] > self.style.shape[0]:
+            st["style"] = w[:self.style.shape[0]]
         res = self.load_state_dict(st, strict=False); assert all("out_mod" in k or "out_b" in k for k in res.missing_keys) and not res.unexpected_keys, res
         if any("out_b" in k for k in res.missing_keys): self.head.burst = False   # checkpoint from before the short-window noise path
 

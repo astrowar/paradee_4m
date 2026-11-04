@@ -6,6 +6,7 @@ from kokoro import KPipeline
 from torch.nn.utils import remove_weight_norm
 from torch.nn.utils.parametrize import is_parametrized, remove_parametrizations
 
+import os
 SENTS = [
  "The chickadee is a small songbird found across North America.",
  "In 1998, the company reported revenue of 4.2 billion dollars, up 17 percent from the year before.",
@@ -14,12 +15,24 @@ SENTS = [
  "Dr. Smith arrived at 3 p.m. on Tuesday, carrying an umbrella, a laptop, and a very large sandwich.",
 ]
 
-def load_teacher(device="cpu", voice="af_heart", fuse=True):
-    pipe = KPipeline(lang_code="a", device=device, repo_id="hexgrad/Kokoro-82M")
+SENTS_PT = [
+ "O modelo Paradee é um sintetizador de voz leve e rápido.",
+ "Em 1998, a empresa reportou um faturamento de mais de quatro bilhões de reais.",
+ "Você prefere ouvir o artigo agora ou prefere que eu salve para depois?",
+ "Apesar do tamanho reduzido, o modelo mantém uma excelente qualidade de áudio.",
+ "O pesquisador chegou às três horas da tarde trazendo um laptop e anotações.",
+]
+
+def load_teacher(device="cpu", voice="af_heart", lang_code="a", fuse=True):
+    pipe = KPipeline(lang_code=lang_code, device=device, repo_id="hexgrad/Kokoro-82M")
     model = pipe.model.eval()
-    pack = pipe.load_voice(voice)
+    if isinstance(voice, str) and (voice.endswith(".pt") or os.path.exists(voice)):
+        pack = torch.load(voice, map_location=device)
+    else:
+        pack = pipe.load_voice(voice)
     items = []
-    for s in SENTS:
+    sents = SENTS_PT if lang_code == "p" else SENTS
+    for s in sents:
         ps, _ = pipe.g2p(s); items.append((ps, pack[len(ps) - 1]))
     if fuse:
         for _, m in model.named_modules():

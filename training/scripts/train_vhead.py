@@ -18,7 +18,8 @@ ap.add_argument("--harm-weight", type=float, default=0.0, help="match the teache
 ap.add_argument("--mod-weight", type=float, default=0.0, help="match how each upper band's loudness pulses with the pitch (depth and timing, at 1x and 2x the pitch) in 50 ms windows; v2 head only")
 ap.add_argument("--head", default="v1"); ap.add_argument("--dim", type=int, default=160); ap.add_argument("--blocks", type=int, default=4)
 ap.add_argument("--utmos", action="store_true"); ap.add_argument("--eval-every", type=int, default=2500); ap.add_argument("--eval-only", action="store_true")
-ap.add_argument("--device", default="mps"); ap.add_argument("--shards", type=int, default=8); ap.add_argument("--tag", default="")
+DEFAULT_DEV = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
+ap.add_argument("--device", default=DEFAULT_DEV); ap.add_argument("--shards", type=int, default=8); ap.add_argument("--tag", default="")
 A = ap.parse_args(); DEV = A.device; RUN = f"checkpoints/vh{A.tag}"; os.makedirs(RUN, exist_ok=True)
 
 def load_rows():

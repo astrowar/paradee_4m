@@ -6,7 +6,7 @@ from huggingface_hub import hf_hub_download
 
 REPOS = {"1.2": "sahilmahendrakar/Paradee-8M-v1.2", "1.1": "sahilmahendrakar/Paradee-8M-v1.1", "1.0": "sahilmahendrakar/Paradee-8M-v1.0"}
 # the voices of each version, in the order the 1.2 model numbers them. 1.0 and 1.1 have af_heart only.
-VOICES = {"1.2": ["af_heart", "bf_isabella", "am_puck", "bm_fable"], "1.1": ["af_heart"], "1.0": ["af_heart"]}
+VOICES = {"1.2": ["af_heart", "bf_isabella", "am_puck", "bm_fable"], "1.1": ["af_heart"], "1.0": ["af_heart"], "pt-br": ["pf_dora"]}
 SAMPLE_RATE = 24000
 MAX_PHONEMES = 510   # the text side has 512 positions, two of which are the pad tokens at each end
 # Inside every released graph (1.0, 1.1, 1.2): each token's length in frames of 600 samples, rounded. The frames
@@ -122,15 +122,22 @@ class Paradee:
     threads: CPU threads for onnxruntime. One thread already runs about 60x faster than real time.
     """
 
-    def __init__(self, version="1.2", quantized=True, model_path=None, config_path=None, threads=1):
-        if version not in REPOS:
-            raise ValueError(f"unknown version {version!r}; choose one of {', '.join(REPOS)}")
-        repo, revision = REPOS[version], f"v{version}"
-        self.version, self.voices = version, VOICES[version]
-        name = "onnx/paradee_int8.onnx" if quantized else "onnx/paradee.onnx"
-        model_path = model_path or hf_hub_download(repo, name, revision=revision)
-        config_path = config_path or hf_hub_download(repo, "config.json", revision=revision)
-        self.vocab = json.load(open(config_path, encoding="utf-8"))["vocab"]
+    def __init__(self, version="1.2", quantized=True, model_path=None, config_path=None, threads=1, lang="en", voices=None):
+        self.lang = lang.lower()
+        if model_path is not None:
+            self.version = version
+            self.voices = voices or (["pf_dora"] if self.lang in ("pt", "pt-br", "p") else VOICES.get(version, ["af_heart"]))
+            config_file = config_path or "config.json"
+            self.vocab = json.load(open(config_file, encoding="utf-8"))["vocab"]
+        else:
+            if version not in REPOS:
+                raise ValueError(f"unknown version {version!r}; choose one of {', '.join(REPOS)}")
+            repo, revision = REPOS[version], f"v{version}"
+            self.version, self.voices = version, VOICES[version]
+            name = "onnx/paradee_int8.onnx" if quantized else "onnx/paradee.onnx"
+            model_path = hf_hub_download(repo, name, revision=revision)
+            config_path = config_path or hf_hub_download(repo, "config.json", revision=revision)
+            self.vocab = json.load(open(config_path, encoding="utf-8"))["vocab"]
         so = ort.SessionOptions()
         so.intra_op_num_threads = threads
         so.inter_op_num_threads = 1
@@ -140,23 +147,32 @@ class Paradee:
         self._g2p = {}
 
     def g2p(self, british=False):
-        """The same G2P setup as kokoro.KPipeline, which made the training data: lang_code "a" (American) for
-        the af_/am_ voices, "b" (British) for the bf_/bm_ ones. Each is loaded the first time it is needed."""
+        """The G2P setup: lang_code "p" (pt-BR) for Portuguese voices, "a" for American, "b" for British."""
+        if self.lang in ("pt", "pt-br", "p"):
+            if "pt" not in self._g2p:
+                from misaki import espeak
+                self._g2p["pt"] = espeak.EspeakG2P(language="pt-br")
+            return self._g2p["pt"]
         if british not in self._g2p:
             from misaki import en, espeak
             self._g2p[british] = en.G2P(trf=False, british=british, fallback=espeak.EspeakFallback(british=british), unk="")
         return self._g2p[british]
 
-    def phonemize(self, text, voice="af_heart"):
-        """British phonemes for the British voices (bf_isabella, bm_fable), American for the rest."""
+    def phonemize(self, text, voice=None):
+        """Phonemize text according to the selected language and voice."""
+        voice = voice or (self.voices[0] if self.voices else "af_heart")
+        if self.lang in ("pt", "pt-br", "p") or voice == "pf_dora":
+            phonemes, _ = self.g2p()(text)
+            return phonemes
         phonemes, _ = self.g2p(british=voice.startswith("b"))(text)
         return phonemes
 
     def check_voice(self, voice):
-        if voice not in self.voices:
+        if voice not in self.voices and not (self.lang in ("pt", "pt-br", "p") and voice == "pf_dora"):
             raise ValueError(f"Paradee {self.version} has no voice {voice!r}; its voices are {', '.join(self.voices)}")
 
-    def generate_from_phonemes(self, phonemes, speed=1.0, voice="af_heart"):
+    def generate_from_phonemes(self, phonemes, speed=1.0, voice=None):
+        voice = voice or self.voices[0]
         return self._run(phonemes, speed, voice)[0]
 
     def _run(self, phonemes, speed, voice):
@@ -169,16 +185,18 @@ class Paradee:
         waveform, durations = self.session.run(None, feed)
         return waveform[0], np.rint(durations.reshape(-1)).astype(np.int64)
 
-    def __call__(self, text, speed=1.0, voice="af_heart"):
+    def __call__(self, text, speed=1.0, voice=None):
         """speed > 1 speaks faster. voice is one of self.voices. Long text is read one sentence at a time."""
+        voice = voice or self.voices[0]
         self.check_voice(voice)
         parts = [self.generate_from_phonemes(ps, speed, voice) for ps in self._chunks(text, voice)]
         return np.concatenate(parts) if parts else np.zeros(0, dtype=np.float32)
 
-    def with_timestamps(self, text, speed=1.0, voice="af_heart"):
+    def with_timestamps(self, text, speed=1.0, voice=None):
         """Like calling the model, but also says when each word is spoken, for captions or for highlighting the
         word being read. Returns (audio, words): each word is (text, start, end) in seconds of that audio, and
         punctuation is left out. The times come from the durations the model made the audio from."""
+        voice = voice or self.voices[0]
         self.check_voice(voice)
         g2p = self.g2p(british=voice.startswith("b"))
         parts, words, offset = [], [], 0.0

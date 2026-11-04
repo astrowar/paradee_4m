@@ -6,15 +6,18 @@ warnings.filterwarnings("ignore")
 import torch, torch.nn.functional as F, numpy as np, soundfile as sf
 sys.path.insert(0, "scripts")
 from student import TextStudent, alignment
+DEFAULT_DEV = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
 ap = argparse.ArgumentParser(); ap.add_argument("preset"); ap.add_argument("--steps", type=int, default=20000)
 ap.add_argument("--bs", type=int, default=32); ap.add_argument("--lr", type=float, default=5e-4)
-ap.add_argument("--eval-only", action="store_true"); ap.add_argument("--device", default="mps")
+ap.add_argument("--eval-only", action="store_true"); ap.add_argument("--device", default=DEFAULT_DEV)
 ap.add_argument("--shards", type=int, default=999); ap.add_argument("--tag", default="")
 ap.add_argument("--through-decoder", action="store_true", help="add a log-mel loss through the frozen teacher decoder on a random segment")
 ap.add_argument("--td-bs", type=int, default=8); ap.add_argument("--seg", type=int, default=48); ap.add_argument("--td-weight", type=float, default=1.0)
 ap.add_argument("--asr-weight", type=float, default=1.0)
 ap.add_argument("--through-student-decoder", default="", help="checkpoint of a StudentDecoder to use as the frozen decoder (preset from --dec-preset) instead of the teacher decoder")
 ap.add_argument("--dec-preset", default="A")
+ap.add_argument("--voice", default="ef_dora.pt")
+ap.add_argument("--lang", default="p")
 A = ap.parse_args(); DEV = A.device
 RUN = f"checkpoints/text_{A.preset}{A.tag}"; os.makedirs(RUN, exist_ok=True)
 
@@ -72,7 +75,11 @@ model = TextStudent(A.preset).to(DEV)
 if A.through_decoder:
     import torchaudio
     from common import load_teacher, cpu_source_stft
-    _pipe, _teacher, _ = load_teacher(device=DEV, fuse=False); TD_REF = _pipe.load_voice("af_heart")
+    _pipe, _teacher, _ = load_teacher(device=DEV, voice=A.voice, lang_code=A.lang, fuse=False)
+    if os.path.exists(A.voice):
+        TD_REF = torch.load(A.voice, map_location=DEV)
+    else:
+        TD_REF = _pipe.load_voice(A.voice)
     if A.through_student_decoder:
         from student_decoder import StudentDecoder
         _sd = StudentDecoder(A.dec_preset).to(DEV); _sd.load_state_dict(torch.load(A.through_student_decoder, map_location=DEV)["model"])
@@ -98,14 +105,21 @@ def evaluate(n_audio=8, save=False):
         ls = np.array([l.item() for l in losses(model, collate(held[i:i + 32]))]); acc = ls if acc is None else acc + ls; nb += 1
     acc /= nb
     from common import load_teacher, compare, cpu_source_stft
-    pipe, teacher, _ = load_teacher(device=DEV, fuse=False); ref = pipe.load_voice("af_heart"); cpu_source_stft(teacher.decoder)
+    pipe, teacher, _ = load_teacher(device=DEV, voice=A.voice, lang_code=A.lang, fuse=False)
+    if os.path.exists(A.voice):
+        ref = torch.load(A.voice, map_location=DEV)
+    else:
+        ref = pipe.load_voice(A.voice)
+    cpu_source_stft(teacher.decoder)
     outs, refs, dmae, f0r = [], [], [], []
     for r in held[:n_audio]:
         ids = r["ids"][None].to(DEV); L = torch.tensor([len(r["ids"])], device=DEV)
         pd, _, _, pasr = model(ids, L)
         pred_dur = torch.round(pd[0]).clamp(min=1).long(); aln = alignment(pred_dur)[None]
         pd2, pF0, pN, _ = model(ids, L, aln)
-        asr = pasr @ aln; s = ref[len(r["ids"]) - 3].to(DEV)
+        asr = pasr @ aln
+        idx_ref = min(max(0, len(r["ids"]) - 3), ref.shape[0] - 1)
+        s = ref[idx_ref].to(DEV)
         audio = teacher.decoder(asr, pF0, pN, s[:, :128]).squeeze().cpu()
         outs.append(audio); refs.append(r["audio"].float() / 32767)
         dmae.append((pred_dur.cpu() - r["pred_dur"]).abs().float().mean().item())

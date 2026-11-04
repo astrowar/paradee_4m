@@ -5,6 +5,8 @@ training/.venv/
 training/data/teacher/
 training/checkpoints/
 training/models/
+models/
 training/out/
 *.wav
+*.pt
 training/hf/

@@ -8,6 +8,7 @@ sys.path.insert(0, "scripts")
 from student_decoder import StudentDecoder
 from student import alignment
 from common import cpu_source_stft
+DEFAULT_DEV = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
 ap = argparse.ArgumentParser(); ap.add_argument("preset"); ap.add_argument("--steps", type=int, default=50000)
 ap.add_argument("--bs", type=int, default=16); ap.add_argument("--lr", type=float, default=2e-4); ap.add_argument("--seg", type=int, default=64)
 ap.add_argument("--gan", action="store_true", help="add MPD+MRD adversarial and feature-matching losses")
@@ -23,7 +24,7 @@ ap.add_argument("--hf-weight", type=float, default=0.0, help="band-limited (1.5-
 ap.add_argument("--src-bands", action="store_true", help="feed every harmonic's phase as its own (cos, sin) channel pair to each generator stage (zero-init)")
 ap.add_argument("--full-phase", action="store_true", help="add an unbounded, zero-init phase term to the head's sin(x) phase (which spans only +-1 rad)")
 ap.add_argument("--utmos", action="store_true", help="score held-out audio with UTMOS at every EVAL")
-ap.add_argument("--eval-only", action="store_true"); ap.add_argument("--device", default="mps"); ap.add_argument("--profile", action="store_true"); ap.add_argument("--shards", type=int, default=999); ap.add_argument("--tag", default="")
+ap.add_argument("--eval-only", action="store_true"); ap.add_argument("--device", default=DEFAULT_DEV); ap.add_argument("--profile", action="store_true"); ap.add_argument("--shards", type=int, default=999); ap.add_argument("--tag", default="")
 A = ap.parse_args(); DEV = A.device; RUN = f"checkpoints/dec_{A.preset}{A.tag}"; os.makedirs(RUN, exist_ok=True)
 HEAD = A.head_weight > 0 or A.phase_weight > 0
 if HEAD: assert A.matched_source, "--head-weight/--phase-weight need --matched-source"

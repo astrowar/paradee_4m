@@ -1,4 +1,61 @@
-# Paradee
+# Paradee (pt-BR / Brazilian Portuguese)
+
+> **Um modelo de texto para fala (TTS) em português brasileiro com 8M de parâmetros, destilado do Kokoro-82M. Apenas 8,5 MB, roda 25x mais rápido que o tempo real em uma única thread de CPU.**
+> 
+> *(An 8M-parameter Brazilian Portuguese text-to-speech model distilled from Kokoro-82M. 8.5 MB, runs 25x real time on one CPU thread.)*
+
+Este repositório é um fork do [Paradee](https://github.com/sahilmahendrakar/paradee) adaptado e treinado para **Português Brasileiro (pt-BR)** com a voz **Dora (`pf_dora`)**.
+
+- **Pequeno:** Modelo quantizado em int8 de apenas **8,46 MB** em arquivo único ONNX (contra ~325 MB do Kokoro original).
+- **Rápido:** Executa a **~25x tempo real** em uma única thread de CPU (x86_64) sem necessidade de GPU.
+- **Fidelidade ao professor:** Destilado diretamente do `Kokoro-82M` (código de idioma `"p"` e voz `pf_dora`).
+- **Documentação de mudanças:** Veja [DIFERENCAS_PORTUGUES.md](DIFERENCAS_PORTUGUES.md) para detalhes técnicos sobre a adaptação do pipeline, corpus de 12.000 sentenças e treino multi-GPU.
+
+## Início Rápido (Quick Start - pt-BR)
+
+### Instalação
+
+```bash
+pip install git+https://github.com/astrowar/paradee_pt
+pip install misaki[espeak] onnxruntime soundfile
+```
+
+### Linha de Comando (CLI)
+
+```bash
+# Sintetizar em português brasileiro
+python -m paradee "Olá! O Paradee agora fala português brasileiro com apenas oito megabytes." --lang pt -o ola.wav
+```
+
+### Via Python
+
+```python
+import json, numpy as np, onnxruntime as ort, soundfile as sf
+from misaki.espeak import EspeakG2P
+
+# 1. Carregar fonetizador pt-BR e vocabulário
+g2p = EspeakG2P(language="pt-br")
+vocab = json.load(open("models/paradee_ptbr_dora/config.json"))["vocab"]
+
+# 2. Carregar o modelo ONNX int8 (8.5 MB)
+session = ort.InferenceSession("models/paradee_ptbr_dora/paradee_int8.onnx", providers=["CPUExecutionProvider"])
+
+# 3. Gerar áudio
+texto = "O modelo Paradee em português brasileiro é leve, rápido e eficiente."
+phonemes, _ = g2p(texto)
+ids = [0] + [vocab[c] for c in phonemes if c in vocab][:510] + [0]
+
+audio = session.run(None, {
+    "input_ids": np.array([ids], dtype=np.int64),
+    "speed": np.array([1.0], dtype=np.float32)
+})[0][0]
+
+sf.write("saida.wav", audio, 24000)
+```
+
+---
+
+# Paradee (Original English Release)
 
 Paradee is a small English text-to-speech model. It has 7.88M parameters and is distilled from
 [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M), and it speaks four of Kokoro's voices:
