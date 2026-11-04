@@ -8,9 +8,9 @@ from kokoro.modules import CustomAlbert, ProsodyPredictor, TextEncoder
 
 PRESETS = {  # name: (albert hidden, albert layers, albert heads, hidden_dim, style_dim, n_layer)
     # "<name>+mlp" variants use a 2-layer nonlinear asr projection (the teacher asr features are rank ~430 for 99% variance)
-    "xs":   (128, 4, 4, 128, 16, 2),
-    "4m":   (144, 4, 4, 144, 32, 2),
-    "nano": (144, 4, 4, 144, 32, 2),
+    "xs":   (144, 4, 4, 144, 32, 2),  # 2.14M params: style_dim=32 for natural pitch and vocal inflection
+    "4m":   (144, 4, 4, 144, 32, 2),  # Dedicated 4M preset (pairs with VDecoder D for ~3.95 MB ONNX)
+    "nano": (128, 4, 4, 128, 16, 2),  # Minimal 1.75M params
     "s":    (256, 6, 4, 192, 32, 3),
     "m":    (384, 6, 6, 256, 32, 3),
     "l":    (512, 8, 8, 384, 64, 3),
