@@ -39,6 +39,10 @@ Para adaptar o Paradee (originalmente concebido para inglês) para o português 
 5. **Documentação de Diferenças Técnicas:**
    - Consulte [DIFERENCAS_PORTUGUES.md](DIFERENCAS_PORTUGUES.md) para a análise linha a linha das mudanças nos scripts de treinamento.
 
+6. **Módulo Embarcado C/C++ Autocontido para ESP32 (`phonemas_ptbr/`):**
+   - Para projetos em microcontroladores (ESP32, Arduino, FreeRTOS) sem interpretador Python nem arquivos `.dat`, o repositório inclui o módulo nativo **[`phonemas_ptbr/`](phonemas_ptbr/)**.
+   - **Zero Heap / Zero Filesystem:** Opera 100% em ponteiros `char*` com buffers na stack e tabelas pré-compiladas em Flash (`PROGMEM`), convertendo texto diretamente nos IDs inteiros dos tokens do Paradee.
+
 ---
 
 ## Início Rápido (Quick Start)

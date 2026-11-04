@@ -1,0 +1,2144 @@
+[
+  {
+    "palavra": "a",
+    "resultado_regras": "ˈa",
+    "esperado_espeak": "a",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "abaxo",
+    "resultado_regras": "ˌabˈaxʊ",
+    "esperado_espeak": "ˌabˈaksʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "afrôxar",
+    "resultado_regras": "ˌafrˈoxaɾ",
+    "esperado_espeak": "ˌafrˈoksar",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "agaxi",
+    "resultado_regras": "ˌaɡaxˈi",
+    "esperado_espeak": "ˌaɡaksˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "alexandre",
+    "resultado_regras": "ˌalexˈɐ̃ŋdry",
+    "esperado_espeak": "ˌaleʃˈɐ̃ŋdry",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "ameixa",
+    "resultado_regras": "ˌamˈAʃæ",
+    "esperado_espeak": "ˌæmˈAʃæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "ameixas",
+    "resultado_regras": "ˌamˈAʃæz",
+    "esperado_espeak": "ˌæmˈAʃæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "apoplexia",
+    "resultado_regras": "ˌapoplexˈiæ",
+    "esperado_espeak": "ˌapopleksˈiæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "app",
+    "resultado_regras": "ˈapp",
+    "esperado_espeak": "ˈap",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "approximadammte",
+    "resultado_regras": "ˌapproximadˈɐ̃ŋmʧy",
+    "esperado_espeak": "ˌaprosˌimadˈɐ̃mmʧy",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "approximando",
+    "resultado_regras": "ˌapproximˈɐ̃ŋdʊ",
+    "esperado_espeak": "ˌaprosimˈɐ̃ŋdʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "approximava",
+    "resultado_regras": "ˌapproximˈavæ",
+    "esperado_espeak": "ˌaprosimˈavæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "aproxima",
+    "resultado_regras": "ˌaproxˈimæ",
+    "esperado_espeak": "ˌaprosˈimæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "aproximado",
+    "resultado_regras": "ˌaproximˈadʊ",
+    "esperado_espeak": "ˌaprosimˈadʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "aproximamo",
+    "resultado_regras": "ˌaproximˈamʊ",
+    "esperado_espeak": "ˌaprosimˈɐ̃mʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "aproximar",
+    "resultado_regras": "ˌaproximˈaɾ",
+    "esperado_espeak": "ˌaprosimˈar",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "as",
+    "resultado_regras": "ˈaz",
+    "esperado_espeak": "as",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "aux",
+    "resultado_regras": "ˈWʃ",
+    "esperado_espeak": "ˈWs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "auxilia",
+    "resultado_regras": "ˌWʃilˈiæ",
+    "esperado_espeak": "ˌWsilˈiæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "auxiliado",
+    "resultado_regras": "ˌWʃiliˈadʊ",
+    "esperado_espeak": "ˌWsiliˈadʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "auxilio",
+    "resultado_regras": "ˌWʃilˈiʊ",
+    "esperado_espeak": "ˌWsilˈiʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "backup",
+    "resultado_regras": "bˈakkup",
+    "esperado_espeak": "bɛkˈæp",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "baixos",
+    "resultado_regras": "bˈIʃʊz",
+    "esperado_espeak": "bˈIʃʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "beaux",
+    "resultado_regras": "beˈWʃ",
+    "esperado_espeak": "beˈWks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "bexigas",
+    "resultado_regras": "bˌeʃˈiɡæz",
+    "esperado_espeak": "bˌeʃˈiɡæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "blog",
+    "resultado_regras": "blˈoʒ",
+    "esperado_espeak": "blˈɔɡ",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "bluetooth",
+    "resultado_regras": "blˌuetˈooth",
+    "esperado_espeak": "blˌuetoˈot",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "bruxas",
+    "resultado_regras": "brˈuʃæz",
+    "esperado_espeak": "brˈuʃæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "byte",
+    "resultado_regras": "bytˈe",
+    "esperado_espeak": "bˈiʧy",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "bytes",
+    "resultado_regras": "bytˈez",
+    "esperado_espeak": "bˈiʧys",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "cabisbaixo",
+    "resultado_regras": "kˌabisbˈIʃʊ",
+    "esperado_espeak": "kˌabizbˈIʃʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "caixote",
+    "resultado_regras": "kˌIʃˈoʧy",
+    "esperado_espeak": "kˌIʃˈɔʧy",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "ccix",
+    "resultado_regras": "ksˈix",
+    "esperado_espeak": "ksˈiks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "ccxii",
+    "resultado_regras": "kkxiˈi",
+    "esperado_espeak": "kkʃjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "ccxiii",
+    "resultado_regras": "kkxˌiiˈi",
+    "esperado_espeak": "kkʃjjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "chat",
+    "resultado_regras": "ʃˈat",
+    "esperado_espeak": "ʃˈaʧ",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "cieux",
+    "resultado_regras": "siˈeuʃ",
+    "esperado_espeak": "sˌieˈuks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cix",
+    "resultado_regras": "sˈix",
+    "esperado_espeak": "sˈiks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clix",
+    "resultado_regras": "klˈix",
+    "esperado_espeak": "klˈiks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clx",
+    "resultado_regras": "kʊx",
+    "esperado_espeak": "sˌeˌɛlyʃˈis",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clxi",
+    "resultado_regras": "kʊxˈi",
+    "esperado_espeak": "klʃˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clxix",
+    "resultado_regras": "kʊxˈix",
+    "esperado_espeak": "klʃˈiks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clxviii",
+    "resultado_regras": "kʊxvˌiiˈi",
+    "esperado_espeak": "sˈelsvjjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clxx",
+    "resultado_regras": "kʊxx",
+    "esperado_espeak": "sˌeˌɛlyʃˌisʃˈis",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clxxii",
+    "resultado_regras": "kʊxxiˈi",
+    "esperado_espeak": "sˈelsʃjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clxxiii",
+    "resultado_regras": "kʊxxˌiiˈi",
+    "esperado_espeak": "sˈelsʃjjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clxxix",
+    "resultado_regras": "kʊxxˈix",
+    "esperado_espeak": "sˈelsʃˈiks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clxxvi",
+    "resultado_regras": "kʊxxvˈi",
+    "esperado_espeak": "sˌeˈɛlyssvˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clxxx",
+    "resultado_regras": "kʊxxx",
+    "esperado_espeak": "sˌeˌɛlyʃˈisʃˌisʃˈis",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clxxxii",
+    "resultado_regras": "kʊxxxiˈi",
+    "esperado_espeak": "sˌeˈɛlyssʃjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clxxxiv",
+    "resultado_regras": "kʊxxxˈiv",
+    "esperado_espeak": "sˌeˈɛlyssʃˈiv",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clxxxix",
+    "resultado_regras": "kʊxxxˈix",
+    "esperado_espeak": "sˌeˈɛlyssʃˈiks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clxxxv",
+    "resultado_regras": "kʊxxxv",
+    "esperado_espeak": "sˌeˌɛlyʃˈisʃˌisʃˌizvˈe",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "clxxxviii",
+    "resultado_regras": "kʊxxxvˌiiˈi",
+    "esperado_espeak": "sˌeˌɛlyʃˈisssvjjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "coixa",
+    "resultado_regras": "kˈYxæ",
+    "esperado_espeak": "kˈoɪksæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "colxas",
+    "resultado_regras": "kˈoʊxæz",
+    "esperado_espeak": "kˈowʃæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "com",
+    "resultado_regras": "kˈoŋ",
+    "esperado_espeak": "koŋ",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "compaixão",
+    "resultado_regras": "kˌoŋpIʃˈɐ̃ʊ̃",
+    "esperado_espeak": "kˌompIʃˈɐ̃ʊ̃",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "complexos",
+    "resultado_regras": "kˌoŋplˈeksʊz",
+    "esperado_espeak": "kˌomplˈɛksʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "contextura",
+    "resultado_regras": "kˌoŋtextˈuɾæ",
+    "esperado_espeak": "kˌoŋtestˈuɾæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "coxa",
+    "resultado_regras": "kˈoxæ",
+    "esperado_espeak": "kˈoʃæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxcii",
+    "resultado_regras": "kxsiˈi",
+    "esperado_espeak": "ksjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxcv",
+    "resultado_regras": "kxkv",
+    "esperado_espeak": "sˌeʃˌissˌevˈe",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxcvi",
+    "resultado_regras": "kxkvˈi",
+    "esperado_espeak": "sˈeskvˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxcviii",
+    "resultado_regras": "kxkvˌiiˈi",
+    "esperado_espeak": "sˈeskvjjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxii",
+    "resultado_regras": "kxiˈi",
+    "esperado_espeak": "kʃjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxiv",
+    "resultado_regras": "kxˈiv",
+    "esperado_espeak": "kʃˈiv",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxliv",
+    "resultado_regras": "kxlˈiv",
+    "esperado_espeak": "kslˈiv",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxlvi",
+    "resultado_regras": "kxʊvˈi",
+    "esperado_espeak": "sˈeslvˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxv",
+    "resultado_regras": "kxv",
+    "esperado_espeak": "sˌeʃˌizvˈe",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxvii",
+    "resultado_regras": "kxviˈi",
+    "esperado_espeak": "ksvjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxxi",
+    "resultado_regras": "kxxˈi",
+    "esperado_espeak": "ksʃˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxxiii",
+    "resultado_regras": "kxxˌiiˈi",
+    "esperado_espeak": "ksʃjjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxxiv",
+    "resultado_regras": "kxxˈiv",
+    "esperado_espeak": "ksʃˈiv",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxxv",
+    "resultado_regras": "kxxv",
+    "esperado_espeak": "sˌeʃˌisʃˌizvˈe",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxxvii",
+    "resultado_regras": "kxxviˈi",
+    "esperado_espeak": "sˈessvjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxxx",
+    "resultado_regras": "kxxx",
+    "esperado_espeak": "sˌeʃˌisʃˌisʃˈis",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxxxi",
+    "resultado_regras": "kxxxˈi",
+    "esperado_espeak": "sˈessʃˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxxxiv",
+    "resultado_regras": "kxxxˈiv",
+    "esperado_espeak": "sˈessʃˈiv",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxxxvi",
+    "resultado_regras": "kxxxvˈi",
+    "esperado_espeak": "sˌeʃˈisssvˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "cxxxvii",
+    "resultado_regras": "kxxxviˈi",
+    "esperado_espeak": "sˌeʃˈisssvjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "da",
+    "resultado_regras": "dˈa",
+    "esperado_espeak": "da",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "das",
+    "resultado_regras": "dˈaz",
+    "esperado_espeak": "das",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "de",
+    "resultado_regras": "dˈe",
+    "esperado_espeak": "ʤj",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "deixadas",
+    "resultado_regras": "dˌAʃˈadæz",
+    "esperado_espeak": "dˌAʃˈadæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "deixal",
+    "resultado_regras": "dAʃˈaʊ",
+    "esperado_espeak": "dAʃˈW",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "deixam",
+    "resultado_regras": "dˈAʃɐ̃ŋ",
+    "esperado_espeak": "dˈAʃɐ̃ʊ̃",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "deixar",
+    "resultado_regras": "dAʃˈaɾ",
+    "esperado_espeak": "dAʃˈar",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "deixares",
+    "resultado_regras": "dˌAʃˈaɾyz",
+    "esperado_espeak": "dˌAʃˈaɾys",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "deixemol",
+    "resultado_regras": "dˌAʃemˈoʊ",
+    "esperado_espeak": "dˌAʃemˈɔl",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "deixemos",
+    "resultado_regras": "dˌAʃˈemʊz",
+    "esperado_espeak": "dˌAʃˈemʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "deixámos",
+    "resultado_regras": "dˌAʃˈamʊz",
+    "esperado_espeak": "dˌAʃˈamʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "desconnexo",
+    "resultado_regras": "dˌeskoŋnˈexʊ",
+    "esperado_espeak": "dˌeskoŋnˈɛksʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "design",
+    "resultado_regras": "dˈeziɡn",
+    "esperado_espeak": "dezˈIn",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "designer",
+    "resultado_regras": "dˌeziɡnˈeɾ",
+    "esperado_espeak": "dˌezˈIner",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "desktop",
+    "resultado_regras": "dˈesktop",
+    "esperado_espeak": "desktˈɔp",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "desleixadas",
+    "resultado_regras": "dˌeslAʃˈadæz",
+    "esperado_espeak": "dˌezlAʃˈadæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "deux",
+    "resultado_regras": "dˈeuʃ",
+    "esperado_espeak": "deˈuks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "dextreza",
+    "resultado_regras": "dˌextrˈezæ",
+    "esperado_espeak": "dˌestrˈezæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "do",
+    "resultado_regras": "dˈo",
+    "esperado_espeak": "dʊ",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "dos",
+    "resultado_regras": "dˈoz",
+    "esperado_espeak": "dʊs",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "download",
+    "resultado_regras": "dˌownlˈoad",
+    "esperado_espeak": "dWŋlˈowd",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "e",
+    "resultado_regras": "ˈe",
+    "esperado_espeak": "i",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "email",
+    "resultado_regras": "emˈIʊ",
+    "esperado_espeak": "ˌemaˈiʊ",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "embaixada",
+    "resultado_regras": "ˌAŋbIʃˈadæ",
+    "esperado_espeak": "ˌAmbIʃˈadæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "embaixador",
+    "resultado_regras": "ˌAŋbIʃadˈoɾ",
+    "esperado_espeak": "ˌAmbIʃadˈor",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "embaixadores",
+    "resultado_regras": "ˌAŋbIʃadˈoɾyz",
+    "esperado_espeak": "ˌAmbIʃadˈoɾys",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "embaixo",
+    "resultado_regras": "ˌAŋbˈIʃʊ",
+    "esperado_espeak": "ˌAmbˈIʃʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "enxugando",
+    "resultado_regras": "ˌAŋxuɡˈɐ̃ŋdʊ",
+    "esperado_espeak": "ˌAŋʃuɡˈɐ̃ŋdʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "enxugou",
+    "resultado_regras": "ˌAŋxuɡˈow",
+    "esperado_espeak": "ˌAŋʃuɡˈow",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "ex",
+    "resultado_regras": "ˈez",
+    "esperado_espeak": "ˈes",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exaltações",
+    "resultado_regras": "ˌezaʊtasˈõjs",
+    "esperado_espeak": "ˌezWtasˈõjs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exame",
+    "resultado_regras": "ˌezˈamy",
+    "esperado_espeak": "ˌezˈɐ̃my",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exames",
+    "resultado_regras": "ˌezˈamyz",
+    "esperado_espeak": "ˌezˈɐ̃mys",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "examinador",
+    "resultado_regras": "ˌezaminadˈoɾ",
+    "esperado_espeak": "ˌezæmˌinadˈor",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "examinar",
+    "resultado_regras": "ˌezaminˈaɾ",
+    "esperado_espeak": "ˌezæminˈar",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "examinaremos",
+    "resultado_regras": "ˌezaminaɾˈemʊz",
+    "esperado_espeak": "ˌezæmˌinaɾˈemʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "examinemos",
+    "resultado_regras": "ˌezaminˈemʊz",
+    "esperado_espeak": "ˌezæminˈemʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "examinou",
+    "resultado_regras": "ˌezaminˈow",
+    "esperado_espeak": "ˌezæminˈow",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exanime",
+    "resultado_regras": "ˌezanˈimy",
+    "esperado_espeak": "ˌezænˈimy",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exatamente",
+    "resultado_regras": "ˌezatamˈAŋʧy",
+    "esperado_espeak": "ˌezatæmˈAŋʧy",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "excede",
+    "resultado_regras": "ˌesˈeʤy",
+    "esperado_espeak": "ˌesˈɛʤy",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exceder",
+    "resultado_regras": "ˌesedˈeɾ",
+    "esperado_espeak": "ˌesedˈer",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "excedeu",
+    "resultado_regras": "ˌesedˈeu",
+    "esperado_espeak": "ˌesedˈeʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "excellencia",
+    "resultado_regras": "ˌeseʊlAŋsˈiæ",
+    "esperado_espeak": "ˌesɛlAŋsˈiæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "excellente",
+    "resultado_regras": "ˌeseʊlˈAŋʧy",
+    "esperado_espeak": "ˌesɛlˈAŋʧy",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "excellentissima",
+    "resultado_regras": "ˌeseʊlAŋʧisˈimæ",
+    "esperado_espeak": "ˌesɛlˌAŋʧisˈimæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "excelso",
+    "resultado_regras": "ˌesˈeʊsʊ",
+    "esperado_espeak": "ˌesˈɛʊsʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "excelência",
+    "resultado_regras": "ˌeselˈAŋsiæ",
+    "esperado_espeak": "ˌeselˈAŋsjæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "excepcional",
+    "resultado_regras": "ˌesepsionˈaʊ",
+    "esperado_espeak": "ˌesepsˌionˈW",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "excessivement",
+    "resultado_regras": "ˌesesivˈemAŋt",
+    "esperado_espeak": "ˌesesˌivemˈAŋʧ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "excessivos",
+    "resultado_regras": "ˌesesˈivʊz",
+    "esperado_espeak": "ˌesesˈivʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "excessos",
+    "resultado_regras": "ˌesˈesʊz",
+    "esperado_espeak": "ˌesˈɛsʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exclamando",
+    "resultado_regras": "ˌesklamˈɐ̃ŋdʊ",
+    "esperado_espeak": "ˌesklæmˈɐ̃ŋdʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exclamara",
+    "resultado_regras": "ˌesklamˈaɾæ",
+    "esperado_espeak": "ˌesklæmˈaɾæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exclamaria",
+    "resultado_regras": "ˌesklamaɾˈiæ",
+    "esperado_espeak": "ˌesklæmaɾˈiæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exclamação",
+    "resultado_regras": "ˌesklamasˈɐ̃ʊ̃",
+    "esperado_espeak": "ˌesklæmasˈɐ̃ʊ̃",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exclamou",
+    "resultado_regras": "ˌesklamˈow",
+    "esperado_espeak": "ˌesklæmˈow",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exclusivamente",
+    "resultado_regras": "ˌeskluzivamˈAŋʧy",
+    "esperado_espeak": "ˌeskluzˌivæmˈAŋʧy",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exclusivas",
+    "resultado_regras": "ˌeskluzˈivæz",
+    "esperado_espeak": "ˌeskluzˈivæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exclusivos",
+    "resultado_regras": "ˌeskluzˈivʊz",
+    "esperado_espeak": "ˌeskluzˈivʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exemplar",
+    "resultado_regras": "ˌezAŋplˈaɾ",
+    "esperado_espeak": "ˌezAmplˈar",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exemplo",
+    "resultado_regras": "ˌezˈAŋplʊ",
+    "esperado_espeak": "ˌezˈAmplʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exemplos",
+    "resultado_regras": "ˌezˈAŋplʊz",
+    "esperado_espeak": "ˌezˈAmplʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exequias",
+    "resultado_regras": "ˌezekiæz",
+    "esperado_espeak": "ˌezekˈiæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exercer",
+    "resultado_regras": "ˌezeɾsˈeɾ",
+    "esperado_espeak": "ˌezeɾəsˈer",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exercito",
+    "resultado_regras": "ˌezeɾsˈitʊ",
+    "esperado_espeak": "ˌezeɾəsˈitʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exforçado",
+    "resultado_regras": "ˌesfoɾsˈadʊ",
+    "esperado_espeak": "ˌesfoɾəsˈadʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exhalais",
+    "resultado_regras": "ˌexhalˈIz",
+    "esperado_espeak": "ˌesalˈIs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exhalar",
+    "resultado_regras": "ˌexhalˈaɾ",
+    "esperado_espeak": "ˌesalˈar",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exhalava",
+    "resultado_regras": "ˌexhalˈavæ",
+    "esperado_espeak": "ˌesalˈavæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exhausto",
+    "resultado_regras": "ˌexhˈWstʊ",
+    "esperado_espeak": "ˌesˈWstʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exigencias",
+    "resultado_regras": "ˌeziʒAŋsˈiæz",
+    "esperado_espeak": "ˌeziʒAŋsˈiæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exigir",
+    "resultado_regras": "ˌeziʒˈiɾ",
+    "esperado_espeak": "ˌeziʒˈir",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exigiu",
+    "resultado_regras": "ˌeziʒˈiu",
+    "esperado_espeak": "ˌeziʒˈiʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "existam",
+    "resultado_regras": "ˌezˈistɐ̃ŋ",
+    "esperado_espeak": "ˌezˈistɐ̃ʊ̃",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "existencias",
+    "resultado_regras": "ˌezistAŋsˈiæz",
+    "esperado_espeak": "ˌezistAŋsˈiæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "existiam",
+    "resultado_regras": "ˌezisʧˈiɐ̃ŋ",
+    "esperado_espeak": "ˌezisʧˈiɐ̃ʊ̃",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "existir",
+    "resultado_regras": "ˌezisʧˈiɾ",
+    "esperado_espeak": "ˌezisʧˈir",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "existiram",
+    "resultado_regras": "ˌezisʧˈiɾɐ̃ŋ",
+    "esperado_espeak": "ˌezisʧˈiɾɐ̃ʊ̃",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "existência",
+    "resultado_regras": "ˌezistˈAŋsiæ",
+    "esperado_espeak": "ˌezistˈAŋsjæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exordio",
+    "resultado_regras": "ˌezoɾʤˈiʊ",
+    "esperado_espeak": "ˌezoɾəʤˈiʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "expansivos",
+    "resultado_regras": "ˌespɐ̃ŋsˈivʊz",
+    "esperado_espeak": "ˌespɐ̃ŋsˈivʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "expectativas",
+    "resultado_regras": "ˌespektaʧˈivæz",
+    "esperado_espeak": "ˌespektaʧˈivæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "expellir",
+    "resultado_regras": "ˌespeʊlˈiɾ",
+    "esperado_espeak": "ˌespɛlˈir",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "experimental",
+    "resultado_regras": "ˌespeɾimAŋtˈaʊ",
+    "esperado_espeak": "ˌespeɾˌimAŋtˈW",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "experimentar",
+    "resultado_regras": "ˌespeɾimAŋtˈaɾ",
+    "esperado_espeak": "ˌespeɾˌimAŋtˈar",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "experiência",
+    "resultado_regras": "ˌespeɾiˈAŋsiæ",
+    "esperado_espeak": "ˌespeɾjˈAŋsjæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "expiar",
+    "resultado_regras": "ˌespiˈaɾ",
+    "esperado_espeak": "ˌespiˈar",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "expirar",
+    "resultado_regras": "ˌespiɾˈaɾ",
+    "esperado_espeak": "ˌespiɾˈar",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "explicados",
+    "resultado_regras": "ˌesplikˈadʊz",
+    "esperado_espeak": "ˌesplikˈadʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "explical",
+    "resultado_regras": "ˌesplikˈaʊ",
+    "esperado_espeak": "ˌesplikˈW",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "explicar",
+    "resultado_regras": "ˌesplikˈaɾ",
+    "esperado_espeak": "ˌesplikˈar",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "explicasses",
+    "resultado_regras": "ˌesplikˈasyz",
+    "esperado_espeak": "ˌesplikˈasys",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "explicitas",
+    "resultado_regras": "ˌesplisˈitæz",
+    "esperado_espeak": "ˌesplisˈitæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "explique",
+    "resultado_regras": "ˌespliky",
+    "esperado_espeak": "ˌesplˈiky",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "explorador",
+    "resultado_regras": "ˌesploɾadˈoɾ",
+    "esperado_espeak": "ˌesploɾadˈor",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "explorar",
+    "resultado_regras": "ˌesploɾˈaɾ",
+    "esperado_espeak": "ˌesploɾˈar",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exponhas",
+    "resultado_regras": "ˌespˈoɲæz",
+    "esperado_espeak": "ˌespˈoɲæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "expor",
+    "resultado_regras": "espˈoɾ",
+    "esperado_espeak": "espˈor",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "expostos",
+    "resultado_regras": "ˌespˈostʊz",
+    "esperado_espeak": "ˌespˈɔstʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "expressamente",
+    "resultado_regras": "ˌespresamˈAŋʧy",
+    "esperado_espeak": "ˌespresæmˈAŋʧy",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "expressar",
+    "resultado_regras": "ˌespresˈaɾ",
+    "esperado_espeak": "ˌespresˈar",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exprimir",
+    "resultado_regras": "ˌesprimˈiɾ",
+    "esperado_espeak": "ˌesprimˈir",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "expôz",
+    "resultado_regras": "espˈoz",
+    "esperado_espeak": "espˈos",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exquezita",
+    "resultado_regras": "ˌexkezˈitæ",
+    "esperado_espeak": "ˌeskezˈitæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exquisita",
+    "resultado_regras": "ˌexkizˈitæ",
+    "esperado_espeak": "ˌeskizˈitæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extendeu",
+    "resultado_regras": "ˌestAŋdˈeu",
+    "esperado_espeak": "ˌestAŋdˈeʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exterior",
+    "resultado_regras": "ˌesteɾiˈoɾ",
+    "esperado_espeak": "ˌesteɾiˈor",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exteriores",
+    "resultado_regras": "ˌesteɾiˈoɾyz",
+    "esperado_espeak": "ˌesteɾiˈoɾys",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exteriormente",
+    "resultado_regras": "ˌesteɾioɾmˈAŋʧy",
+    "esperado_espeak": "ˌesteɾˌioɾəmˈAŋʧy",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "externos",
+    "resultado_regras": "ˌestˈeɾnʊz",
+    "esperado_espeak": "ˌestˈɛɾənʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extinguiu",
+    "resultado_regras": "ˌesʧiŋɡiˈu",
+    "esperado_espeak": "ˌesʧiŋɡwˈiʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extractos",
+    "resultado_regras": "ˌestrˈaktʊz",
+    "esperado_espeak": "ˌestrˈaktʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extranha",
+    "resultado_regras": "ˌestrˈaɲæ",
+    "esperado_espeak": "ˌestrˈɐ̃ɲæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extranhas",
+    "resultado_regras": "ˌestrˈaɲæz",
+    "esperado_espeak": "ˌestrˈɐ̃ɲæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extranho",
+    "resultado_regras": "ˌestrˈaɲʊ",
+    "esperado_espeak": "ˌestrˈɐ̃ɲʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extraordinaria",
+    "resultado_regras": "ˌestraoɾʤinaɾˈiæ",
+    "esperado_espeak": "ˌestraˌoɾəʤinaɾˈiæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extraordinarias",
+    "resultado_regras": "ˌestraoɾʤinaɾˈiæz",
+    "esperado_espeak": "ˌestraˌoɾəʤinaɾˈiæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extraordinario",
+    "resultado_regras": "ˌestraoɾʤinaɾˈiʊ",
+    "esperado_espeak": "ˌestraˌoɾəʤinaɾˈiʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extraordinarios",
+    "resultado_regras": "ˌestraoɾʤinaɾˈiʊz",
+    "esperado_espeak": "ˌestraˌoɾəʤinaɾˈiʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extraordinária",
+    "resultado_regras": "ˌestraoɾʤinˈaɾiæ",
+    "esperado_espeak": "ˌestraˌoɾəʤinˈaɾjæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extraordinárias",
+    "resultado_regras": "ˌestraoɾʤinˈaɾiæz",
+    "esperado_espeak": "ˌestraˌoɾəʤinˈaɾjæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extravagancias",
+    "resultado_regras": "ˌestravaɡɐ̃ŋsˈiæz",
+    "esperado_espeak": "ˌestravˌaɡɐ̃ŋsˈiæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extremamente",
+    "resultado_regras": "ˌestremamˈAŋʧy",
+    "esperado_espeak": "ˌestremæmˈAŋʧy",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extremas",
+    "resultado_regras": "ˌestrˈemæz",
+    "esperado_espeak": "ˌestrˈemæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "extremités",
+    "resultado_regras": "ˌestremitˈɛz",
+    "esperado_espeak": "ˌestremitˈɛs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "exulta",
+    "resultado_regras": "ˌezˈuʊtæ",
+    "esperado_espeak": "ˌezˈuwtæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "faixas",
+    "resultado_regras": "fˈIʃæz",
+    "esperado_espeak": "fˈIʃæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "feedback",
+    "resultado_regras": "fˌeˈedbakk",
+    "esperado_espeak": "fˌeedbˈak",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "fixar",
+    "resultado_regras": "fiksˈaɾ",
+    "esperado_espeak": "fiksˈar",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "fixas",
+    "resultado_regras": "fˈiksæz",
+    "esperado_espeak": "fˈiksæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "flexíveis",
+    "resultado_regras": "flˌeksˈivAz",
+    "esperado_espeak": "flˌeksˈivAs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "game",
+    "resultado_regras": "ɡˈamy",
+    "esperado_espeak": "ɡˈAmy",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "games",
+    "resultado_regras": "ɡˈamyz",
+    "esperado_espeak": "ɡˈAmys",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "gigabytes",
+    "resultado_regras": "ʒˌiɡˈabyʧys",
+    "esperado_espeak": "ʒˌiɡabˈiʧys",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "hardware",
+    "resultado_regras": "ˌaɾdwˈaɾy",
+    "esperado_espeak": "hˈardweə",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "heureux",
+    "resultado_regras": "euɾˈeuʃ",
+    "esperado_espeak": "ˌeʊɾeˈuks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "inexcedivel",
+    "resultado_regras": "ˌinexseʤivˈeʊ",
+    "esperado_espeak": "ˌinesˌeʤivˈɛʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "inexistente",
+    "resultado_regras": "ˌinexistˈAŋʧy",
+    "esperado_espeak": "ˌinezistˈAŋʧy",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "inexplicaveis",
+    "resultado_regras": "ˌinexplikavˈAz",
+    "esperado_espeak": "ˌinesplˌikavˈAs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "inexplicavel",
+    "resultado_regras": "ˌinexplikavˈeʊ",
+    "esperado_espeak": "ˌinesplˌikavˈɛʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "inexplicável",
+    "resultado_regras": "ˌinexplikˈaveʊ",
+    "esperado_espeak": "ˌinesplikˈaveʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "inextricavel",
+    "resultado_regras": "ˌinextrikavˈeʊ",
+    "esperado_espeak": "ˌinestrˌikavˈɛʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "influxo",
+    "resultado_regras": "ˌiŋflˈuʃʊ",
+    "esperado_espeak": "ˌiŋflˈuksʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "internet",
+    "resultado_regras": "ˌiŋtˈeɾnet",
+    "esperado_espeak": "ˌiŋteɾənˈɛʧ",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "laptop",
+    "resultado_regras": "lˈaptop",
+    "esperado_espeak": "lɛptˈɔp",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "layout",
+    "resultado_regras": "lˈayowt",
+    "esperado_espeak": "lˈAˌWt",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "lhe",
+    "resultado_regras": "ʎˈe",
+    "esperado_espeak": "ljy",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "lixo",
+    "resultado_regras": "lˈixʊ",
+    "esperado_espeak": "lˈiʃʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "login",
+    "resultado_regras": "lˈoʒiŋ",
+    "esperado_espeak": "loɡˈiŋ",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "logout",
+    "resultado_regras": "lˈoɡowt",
+    "esperado_espeak": "loɡˈowʧ",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "luxuosa",
+    "resultado_regras": "lˌuʃuˈozæ",
+    "esperado_espeak": "lˌuʃwˈɔzæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "lxi",
+    "resultado_regras": "ʊxˈi",
+    "esperado_espeak": "lʃˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "lxiii",
+    "resultado_regras": "ʊxˌiiˈi",
+    "esperado_espeak": "lʃjjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "lxxiv",
+    "resultado_regras": "ʊxxˈiv",
+    "esperado_espeak": "lsʃˈiv",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "lxxv",
+    "resultado_regras": "ʊxxv",
+    "esperado_espeak": "ˌɛlyʃˌisʃˌizvˈe",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "lxxviii",
+    "resultado_regras": "ʊxxvˌiiˈi",
+    "esperado_espeak": "ˈɛlyssvjjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "lxxxi",
+    "resultado_regras": "ʊxxxˈi",
+    "esperado_espeak": "ˈɛlyssʃˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "lxxxii",
+    "resultado_regras": "ʊxxxiˈi",
+    "esperado_espeak": "ˈɛlyssʃjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "lxxxiv",
+    "resultado_regras": "ʊxxxˈiv",
+    "esperado_espeak": "ˈɛlyssʃˈiv",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "lxxxv",
+    "resultado_regras": "ʊxxxv",
+    "esperado_espeak": "ˌɛlyʃˌisʃˈisʃˌizvˈe",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "lxxxvii",
+    "resultado_regras": "ʊxxxviˈi",
+    "esperado_espeak": "ˌɛlyʃˈisssvjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "malheureux",
+    "resultado_regras": "mˌaʎeuɾˈeuʃ",
+    "esperado_espeak": "mˌaljeʊɾeˈuks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "marketing",
+    "resultado_regras": "mˌaɾkˈeʧiŋʒ",
+    "esperado_espeak": "mˈarkeʧiŋ",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "maxima",
+    "resultado_regras": "mˌaxˈimæ",
+    "esperado_espeak": "mˌaksˈimæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "maximo",
+    "resultado_regras": "mˌaxˈimʊ",
+    "esperado_espeak": "mˌaksˈimʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "me",
+    "resultado_regras": "mˈe",
+    "esperado_espeak": "my",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "megabytes",
+    "resultado_regras": "mˌeɡˈabyʧys",
+    "esperado_espeak": "mˌeɡabˈiʧys",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "mexeu",
+    "resultado_regras": "meʃˈeu",
+    "esperado_espeak": "meʃˈeʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "mixordia",
+    "resultado_regras": "mˌixoɾʤˈiæ",
+    "esperado_espeak": "mˌiksoɾəʤˈiæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "monceaux",
+    "resultado_regras": "mˌoŋseˈWʃ",
+    "esperado_espeak": "mˌoŋseˈWks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "mouse",
+    "resultado_regras": "mˈowzy",
+    "esperado_espeak": "mˈWzi",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "muito",
+    "resultado_regras": "mˈuitʊ",
+    "esperado_espeak": "mwˈiŋtʊ",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "muxoxo",
+    "resultado_regras": "mˌuʃˈoxʊ",
+    "esperado_espeak": "mˌuʃˈoʃʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "máximo",
+    "resultado_regras": "mˈaximʊ",
+    "esperado_espeak": "mˈasimʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "na",
+    "resultado_regras": "nˈa",
+    "esperado_espeak": "na",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "nas",
+    "resultado_regras": "nˈaz",
+    "esperado_espeak": "nas",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "no",
+    "resultado_regras": "nˈo",
+    "esperado_espeak": "nʊ",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "nos",
+    "resultado_regras": "nˈoz",
+    "esperado_espeak": "nʊs",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "não",
+    "resultado_regras": "nˈɐ̃ʊ̃",
+    "esperado_espeak": "nˌɐ̃ʊ̃",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "o",
+    "resultado_regras": "ˈo",
+    "esperado_espeak": "ʊ",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "offline",
+    "resultado_regras": "ˌofflˈiny",
+    "esperado_espeak": "ɔflˈIŋ",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "online",
+    "resultado_regras": "ˌoŋlˈiny",
+    "esperado_espeak": "oŋlˈIŋ",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "os",
+    "resultado_regras": "ˈoz",
+    "esperado_espeak": "ʊs",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "oxalá",
+    "resultado_regras": "ˌoxalˈa",
+    "esperado_espeak": "ˌoʃalˈa",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "para",
+    "resultado_regras": "pˈaɾæ",
+    "esperado_espeak": "pˌaɾæ",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "paradoxo",
+    "resultado_regras": "pˌaɾadˈoksʊ",
+    "esperado_espeak": "pˌaɾadˈɔksʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "peixes",
+    "resultado_regras": "pˈAʃyz",
+    "esperado_espeak": "pˈAʃys",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "peixotos",
+    "resultado_regras": "pˌAʃˈotʊz",
+    "esperado_espeak": "pˌAʃˈotʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "pixel",
+    "resultado_regras": "pixˈeʊ",
+    "esperado_espeak": "piʃˈɛʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "por",
+    "resultado_regras": "pˈoɾ",
+    "esperado_espeak": "por",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "post",
+    "resultado_regras": "pˈost",
+    "esperado_espeak": "pˈosʧ",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "pra",
+    "resultado_regras": "prˈa",
+    "esperado_espeak": "pɾa",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "pretexto",
+    "resultado_regras": "prˌetˈextʊ",
+    "esperado_espeak": "prˌetˈestʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "pretextos",
+    "resultado_regras": "prˌetˈextʊz",
+    "esperado_espeak": "prˌetˈestʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "pro",
+    "resultado_regras": "prˈo",
+    "esperado_espeak": "pɾʊ",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "proxima",
+    "resultado_regras": "prˌoxˈimæ",
+    "esperado_espeak": "prˌosˈimæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "proximidades",
+    "resultado_regras": "prˌoximidˈaʤys",
+    "esperado_espeak": "prˌosimidˈaʤys",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "proximo",
+    "resultado_regras": "prˌoxˈimʊ",
+    "esperado_espeak": "prˌosˈimʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "proximos",
+    "resultado_regras": "prˌoxˈimʊz",
+    "esperado_espeak": "prˌosˈimʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "próxima",
+    "resultado_regras": "prˈɔximæ",
+    "esperado_espeak": "prˈɔsimæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "próximas",
+    "resultado_regras": "prˈɔximæz",
+    "esperado_espeak": "prˈɔsimæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "próximo",
+    "resultado_regras": "prˈɔximʊ",
+    "esperado_espeak": "prˈɔsimʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "queixar",
+    "resultado_regras": "kAʃˈaɾ",
+    "esperado_espeak": "kAʃˈar",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "queixas",
+    "resultado_regras": "kˈAʃæz",
+    "esperado_espeak": "kˈAʃæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "queixumes",
+    "resultado_regras": "kAʃˈumyz",
+    "esperado_espeak": "kˌAʃˈumys",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "reflexionemos",
+    "resultado_regras": "xˌefleksionˈemʊz",
+    "esperado_espeak": "xˌefleksˌionˈemʊs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "relaxamento",
+    "resultado_regras": "xˌelaxamˈAŋtʊ",
+    "esperado_espeak": "xˌelaʃæmˈAŋtʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "saxonias",
+    "resultado_regras": "zˌaxonˈiæz",
+    "esperado_espeak": "sˌaksonˈiæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "score",
+    "resultado_regras": "skˈoɾy",
+    "esperado_espeak": "skˈɔɾy",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "se",
+    "resultado_regras": "zˈe",
+    "esperado_espeak": "sy",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "senex",
+    "resultado_regras": "zenˈex",
+    "esperado_espeak": "senˈɛks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "setup",
+    "resultado_regras": "zˈetup",
+    "esperado_espeak": "setˈup",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "sexo",
+    "resultado_regras": "zˈeksʊ",
+    "esperado_espeak": "sˈɛksʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "sexto",
+    "resultado_regras": "zˈekstʊ",
+    "esperado_espeak": "sˈestʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "show",
+    "resultado_regras": "shˈow",
+    "esperado_espeak": "ʃˈow",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "site",
+    "resultado_regras": "zˈiʧy",
+    "esperado_espeak": "sˈIʧy",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "smartphone",
+    "resultado_regras": "smˌaɾtphˈony",
+    "esperado_espeak": "zmˌaɾətfˈony",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "software",
+    "resultado_regras": "zˌoftwˈaɾy",
+    "esperado_espeak": "sˈɔftweə",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "start",
+    "resultado_regras": "stˈaɾt",
+    "esperado_espeak": "stˈaɾəʧ",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "syntaxe",
+    "resultado_regras": "syntˈaxy",
+    "esperado_espeak": "sˌintˈaksy",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "também",
+    "resultado_regras": "tɐ̃ŋbˈAŋ",
+    "esperado_espeak": "tɐ̃mbˈAŋ",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "taxa",
+    "resultado_regras": "tˈaxæ",
+    "esperado_espeak": "tˈaʃæ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "taxas",
+    "resultado_regras": "tˈaxæz",
+    "esperado_espeak": "tˈaʃæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "te",
+    "resultado_regras": "tˈe",
+    "esperado_espeak": "ʧy",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "test",
+    "resultado_regras": "tˈest",
+    "esperado_espeak": "tˈɛsʧ",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "texturas",
+    "resultado_regras": "tˌextˈuɾæz",
+    "esperado_espeak": "tˌestˈuɾæs",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "trouxe",
+    "resultado_regras": "trˈowʃy",
+    "esperado_espeak": "trˈowsy",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "trouxeram",
+    "resultado_regras": "trˌowʃˈeɾɐ̃ŋ",
+    "esperado_espeak": "trˌowsˈɛɾɐ̃ʊ̃",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "trouxesse",
+    "resultado_regras": "trˌowʃˈesy",
+    "esperado_espeak": "trˌowsˈɛsy",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "trouxesses",
+    "resultado_regras": "trˌowʃˈesyz",
+    "esperado_espeak": "trˌowsˈɛsys",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "trouxestes",
+    "resultado_regras": "trˌowʃˈesʧys",
+    "esperado_espeak": "trˌowsˈɛsʧys",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "têxtil",
+    "resultado_regras": "tˈexʧiʊ",
+    "esperado_espeak": "tˈesʧiʊ",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "um",
+    "resultado_regras": "ˈũŋ",
+    "esperado_espeak": "ũŋ",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "uma",
+    "resultado_regras": "ˈumæ",
+    "esperado_espeak": "ˌumæ",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "umas",
+    "resultado_regras": "ˈumæz",
+    "esperado_espeak": "ˌumæs",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "uns",
+    "resultado_regras": "ˈũŋs",
+    "esperado_espeak": "ũŋs",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "upload",
+    "resultado_regras": "ˌuplˈoad",
+    "esperado_espeak": "ˌæplˈoud",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "vexame",
+    "resultado_regras": "vˌeʃˈamy",
+    "esperado_espeak": "vˌeʃˈɐ̃my",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "video",
+    "resultado_regras": "vˌidˈeʊ",
+    "esperado_espeak": "vˈiʤjʊ",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "voeux",
+    "resultado_regras": "voˈeuʃ",
+    "esperado_espeak": "vˌoeˈuks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "web",
+    "resultado_regras": "wˈeb",
+    "esperado_espeak": "wˈɛb",
+    "categoria": "estrangeirismo"
+  },
+  {
+    "palavra": "wireless",
+    "resultado_regras": "wˌiɾˈeles",
+    "esperado_espeak": "wˌiɾelˈɛs",
+    "categoria": "irregular"
+  },
+  {
+    "palavra": "x",
+    "resultado_regras": "x",
+    "esperado_espeak": "ʃˈis",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xavier",
+    "resultado_regras": "xˌaviˈeɾ",
+    "esperado_espeak": "ʃˌaviˈɛr",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xc",
+    "resultado_regras": "xs",
+    "esperado_espeak": "ʃˌissˈe",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xcii",
+    "resultado_regras": "xsiˈi",
+    "esperado_espeak": "sjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xciv",
+    "resultado_regras": "xsˈiv",
+    "esperado_espeak": "sˈiv",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xcvii",
+    "resultado_regras": "xkviˈi",
+    "esperado_espeak": "skvjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xcviii",
+    "resultado_regras": "xkvˌiiˈi",
+    "esperado_espeak": "skvjjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xi",
+    "resultado_regras": "xˈi",
+    "esperado_espeak": "ʃˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xii",
+    "resultado_regras": "xiˈi",
+    "esperado_espeak": "ʃjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xiv",
+    "resultado_regras": "xˈiv",
+    "esperado_espeak": "ʃˈiv",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xl",
+    "resultado_regras": "xʊ",
+    "esperado_espeak": "ʃˌizˈɛly",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xliii",
+    "resultado_regras": "xlˌiiˈi",
+    "esperado_espeak": "slijˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xlv",
+    "resultado_regras": "xʊv",
+    "esperado_espeak": "ʃˌizˌɛlyvˈe",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xlvi",
+    "resultado_regras": "xʊvˈi",
+    "esperado_espeak": "slvˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xlviii",
+    "resultado_regras": "xʊvˌiiˈi",
+    "esperado_espeak": "slvjjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xv",
+    "resultado_regras": "xv",
+    "esperado_espeak": "ʃˌizvˈe",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xvi",
+    "resultado_regras": "xvˈi",
+    "esperado_espeak": "svˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xvii",
+    "resultado_regras": "xviˈi",
+    "esperado_espeak": "svjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xviii",
+    "resultado_regras": "xvˌiiˈi",
+    "esperado_espeak": "svjjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xx",
+    "resultado_regras": "xx",
+    "esperado_espeak": "ʃˌisʃˈis",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xxi",
+    "resultado_regras": "xxˈi",
+    "esperado_espeak": "sʃˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xxii",
+    "resultado_regras": "xxiˈi",
+    "esperado_espeak": "sʃjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xxiv",
+    "resultado_regras": "xxˈiv",
+    "esperado_espeak": "sʃˈiv",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xxix",
+    "resultado_regras": "xxˈix",
+    "esperado_espeak": "sʃˈiks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xxvi",
+    "resultado_regras": "xxvˈi",
+    "esperado_espeak": "ssvˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xxviii",
+    "resultado_regras": "xxvˌiiˈi",
+    "esperado_espeak": "ssvjjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xxxiii",
+    "resultado_regras": "xxxˌiiˈi",
+    "esperado_espeak": "ssʃjjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xxxiv",
+    "resultado_regras": "xxxˈiv",
+    "esperado_espeak": "ssʃˈiv",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xxxvi",
+    "resultado_regras": "xxxvˈi",
+    "esperado_espeak": "ʃˈisssvˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "xxxviii",
+    "resultado_regras": "xxxvˌiiˈi",
+    "esperado_espeak": "ʃˈisssvjjˈi",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "yeux",
+    "resultado_regras": "yˈeuʃ",
+    "esperado_espeak": "jeˈuks",
+    "categoria": "irregularidade_letra_x"
+  },
+  {
+    "palavra": "é",
+    "resultado_regras": "ˈɛ",
+    "esperado_espeak": "ɛ",
+    "categoria": "clitico_reducao_atona"
+  },
+  {
+    "palavra": "êxtase",
+    "resultado_regras": "ˈextazy",
+    "esperado_espeak": "ˈestæzy",
+    "categoria": "irregularidade_letra_x"
+  }
+]

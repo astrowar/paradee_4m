@@ -6,6 +6,8 @@ training/data/teacher/
 training/checkpoints/
 training/models/
 models/
+build/
+phonemas_ptbr/build/
 training/out/
 *.wav
 *.pt
