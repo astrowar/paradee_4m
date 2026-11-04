@@ -16,7 +16,7 @@ ap.add_argument("--td-bs", type=int, default=8); ap.add_argument("--seg", type=i
 ap.add_argument("--asr-weight", type=float, default=1.0)
 ap.add_argument("--through-student-decoder", default="", help="checkpoint of a StudentDecoder to use as the frozen decoder (preset from --dec-preset) instead of the teacher decoder")
 ap.add_argument("--dec-preset", default="D")
-ap.add_argument("--voice", default="ef_dora.pt")
+ap.add_argument("--voice", default="pf_dora.pt")
 ap.add_argument("--lang", default="p")
 A = ap.parse_args(); DEV = A.device
 RUN = f"checkpoints/text_{A.preset}{A.tag}"; os.makedirs(RUN, exist_ok=True)
