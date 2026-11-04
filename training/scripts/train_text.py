@@ -7,7 +7,7 @@ import torch, torch.nn.functional as F, numpy as np, soundfile as sf
 sys.path.insert(0, "scripts")
 from student import TextStudent, alignment
 DEFAULT_DEV = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
-ap = argparse.ArgumentParser(); ap.add_argument("preset", nargs="?", default="xs+mlp"); ap.add_argument("--steps", type=int, default=20000)
+ap = argparse.ArgumentParser(); ap.add_argument("preset", nargs="?", default="4m+mlp"); ap.add_argument("--steps", type=int, default=20000)
 ap.add_argument("--bs", type=int, default=32); ap.add_argument("--lr", type=float, default=5e-4)
 ap.add_argument("--eval-only", action="store_true"); ap.add_argument("--device", default=DEFAULT_DEV)
 ap.add_argument("--shards", type=int, default=999); ap.add_argument("--tag", default="")

@@ -209,7 +209,7 @@ def basis_nodes(name, n, inverse):
     ]
     return initializers, nodes
 
-def export_model(dec_path, text_path, text_preset="xs+mlp", dec_preset="D", head="v2", out_dir="models/paradee_ptbr_4m"):
+def export_model(dec_path, text_path, text_preset="4m+mlp", dec_preset="D", head="v2", dim=128, blocks=3, out_dir="models/paradee_ptbr_dora_4m"):
     os.makedirs(out_dir, exist_ok=True)
     ts = TextStudent(text_preset).eval()
     if os.path.exists(text_path):
@@ -217,8 +217,8 @@ def export_model(dec_path, text_path, text_preset="xs+mlp", dec_preset="D", head
         print(f"Carregou TextStudent de {text_path}")
     else:
         print(f"Aviso: Checkpoint {text_path} não encontrado, exportando com inicialização padrão")
-    
-    vd = VDecoder(preset=dec_preset, head=head).eval()
+
+    vd = VDecoder(preset=dec_preset, head=head, dim=dim, blocks=blocks).eval()
     if os.path.exists(dec_path):
         vd.load_ckpt(dec_path)
         print(f"Carregou VDecoder de {dec_path}")
@@ -298,14 +298,16 @@ def export_model(dec_path, text_path, text_preset="xs+mlp", dec_preset="D", head
 
 def main():
     ap = argparse.ArgumentParser(description="Export Paradee 4M ONNX")
-    ap.add_argument("dec", nargs="?", default="checkpoints/vh_4m/last.pt", help="Checkpoint VDecoder")
-    ap.add_argument("--text", default="checkpoints/text_xs+mlp/last.pt", help="Checkpoint TextStudent")
-    ap.add_argument("--text-preset", default="xs+mlp", help="Preset TextStudent (xs+mlp, 4m+mlp)")
+    ap.add_argument("dec", nargs="?", default="checkpoints/vh_4m_v2/last.pt", help="Checkpoint VDecoder")
+    ap.add_argument("--text", default="checkpoints/text_4m+mlp_dora/last.pt", help="Checkpoint TextStudent")
+    ap.add_argument("--text-preset", default="4m+mlp", help="Preset TextStudent (4m+mlp, xs+mlp)")
     ap.add_argument("--dec-preset", default="D", help="Preset VDecoder (D, 4M, nano)")
     ap.add_argument("--head", default="v2", help="VDecoder head (v2)")
-    ap.add_argument("--out", default="models/paradee_ptbr_4m", help="Diretório de saída")
+    ap.add_argument("--dim", type=int, default=128, help="Head ConvNeXt dimension")
+    ap.add_argument("--blocks", type=int, default=3, help="Head ConvNeXt blocks")
+    ap.add_argument("--out", default="models/paradee_ptbr_dora_4m", help="Diretório de saída")
     A = ap.parse_args()
-    export_model(A.dec, A.text, A.text_preset, A.dec_preset, A.head, A.out)
+    export_model(A.dec, A.text, A.text_preset, A.dec_preset, A.head, A.dim, A.blocks, A.out)
 
 if __name__ == "__main__":
     main()

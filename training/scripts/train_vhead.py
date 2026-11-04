@@ -17,7 +17,7 @@ ap.add_argument("--flat-weight", type=float, default=0.0, help="match the teache
 ap.add_argument("--harm-weight", type=float, default=0.0, help="match the teacher's harmonicity (energy at multiples of the pitch vs halfway between them, log ratio) per 1 kHz band and voiced frame, 1-9 kHz")
 ap.add_argument("--mod-weight", type=float, default=0.0, help="match how each upper band's loudness pulses with the pitch (depth and timing, at 1x and 2x the pitch) in 50 ms windows; v2 head only")
 ap.add_argument("--preset", default="D", help="VDecoder preset (D, 4M, nano for 4MB model; A for 8MB)")
-ap.add_argument("--head", default="v2"); ap.add_argument("--dim", type=int, default=160); ap.add_argument("--blocks", type=int, default=4)
+ap.add_argument("--head", default="v2"); ap.add_argument("--dim", type=int, default=128); ap.add_argument("--blocks", type=int, default=3)
 ap.add_argument("--utmos", action="store_true"); ap.add_argument("--eval-every", type=int, default=2500); ap.add_argument("--eval-only", action="store_true")
 DEFAULT_DEV = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
 ap.add_argument("--device", default=DEFAULT_DEV); ap.add_argument("--shards", type=int, default=8); ap.add_argument("--tag", default="")
