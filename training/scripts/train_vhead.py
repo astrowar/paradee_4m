@@ -24,12 +24,20 @@ A = ap.parse_args(); DEV = A.device; RUN = f"checkpoints/vh{A.tag}"; os.makedirs
 
 def load_rows():
     shards = sorted(glob.glob("data/teacher/shard_*.pt"))[:A.shards]
+    if not shards:
+        raise RuntimeError("Nenhum shard encontrado em data/teacher/shard_*.pt. Execute primeiro 'python scripts/gen_teacher.py' para gerar os dados do professor.")
     def load(sh):
         rows = torch.load(sh)
         for r in rows:
             for k in ("audio_mps", "audio_cpu", "d", "dur", "ids"): r.pop(k, None)
         return rows
-    rows0 = load(shards[0]); return rows0[:200], rows0[200:] + [r for sh in shards[1:] for r in load(sh)]
+    rows0 = load(shards[0])
+    n_held = 200 if len(rows0) > 200 + A.bs else max(1, len(rows0) // 5)
+    held = rows0[:n_held]
+    train = rows0[n_held:] + [r for sh in shards[1:] for r in load(sh)]
+    if len(train) < A.bs:
+        raise RuntimeError(f"Dados insuficientes para treino: {len(train)} amostras encontradas para batch size {A.bs}. Gere mais sentenças com gen_teacher.py (recomendado >= 500).")
+    return held, train
 held, train = load_rows(); print(f"{len(train)} train / {len(held)} held-out", flush=True)
 def full(r):
     aln = alignment(r["pred_dur"]); asr = r["t_en"].float() @ aln; Fr = aln.shape[1]
@@ -62,7 +70,14 @@ if A.gan:
 if os.path.exists(last):
     ck = torch.load(last, map_location=DEV); model.load_state_dict(ck["model"]); opt.load_state_dict(ck["opt"]); step = ck["step"]; print(f"resumed at {step}", flush=True)
     if A.gan and "D" in ck: D.load_state_dict(ck["D"]); optD.load_state_dict(ck["optD"])
-elif A.init_from: model.load_ckpt(A.init_from, DEV); print(f"initialised from {A.init_from}", flush=True)
+elif A.init_from:
+    if not os.path.exists(A.init_from) and ("pretrained_decoder.pt" in A.init_from or "decoder.pt" in A.init_from):
+        print(f"Arquivo {A.init_from} nao encontrado localmente. Baixando do Hugging Face Hub (sahilmahendrakar/Paradee-8M-v1.2)...", flush=True)
+        from huggingface_hub import hf_hub_download
+        import shutil
+        p = hf_hub_download("sahilmahendrakar/Paradee-8M-v1.2", "pytorch/decoder.pt")
+        shutil.copy(p, A.init_from)
+    model.load_ckpt(A.init_from, DEV); print(f"initialised from {A.init_from}", flush=True)
 else: model.load_trunk(A.trunk); print(f"trunk from {A.trunk}, head from scratch", flush=True)
 
 def flat_loss(y, t, n=2048, bw=64):

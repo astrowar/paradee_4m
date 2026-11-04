@@ -22,15 +22,20 @@ A = ap.parse_args(); DEV = A.device
 RUN = f"checkpoints/text_{A.preset}{A.tag}"; os.makedirs(RUN, exist_ok=True)
 
 def load_rows():
-    """Held-out = first 200 rows of shard 0 (fixed forever); train = everything else that exists."""
+    """Held-out = first 200 rows of shard 0 (or dynamic split if < 200); train = everything else that exists."""
     shards = sorted(glob.glob("data/teacher/shard_*.pt"))[:A.shards]
+    if not shards:
+        raise RuntimeError("Nenhum shard encontrado em data/teacher/shard_*.pt. Execute primeiro 'python scripts/gen_teacher.py' para gerar os dados do professor.")
     def lean(r, train):  # drop what training never reads; keeps RAM at ~1/4 of the shard size
         r.pop("audio_mps", None); r.pop("d", None)
         if train and not A.through_decoder: r.pop("audio", None)
         return r
     rows0 = torch.load(shards[0])
-    held = [lean(r, False) for r in rows0[:200]]
-    train = [lean(r, True) for r in rows0[200:]] + [lean(r, True) for sh in shards[1:] for r in torch.load(sh)]
+    n_held = 200 if len(rows0) > 200 + A.bs else max(1, len(rows0) // 5)
+    held = [lean(r, False) for r in rows0[:n_held]]
+    train = [lean(r, True) for r in rows0[n_held:]] + [lean(r, True) for sh in shards[1:] for r in torch.load(sh)]
+    if len(train) < A.bs:
+        raise RuntimeError(f"Dados insuficientes para treino: {len(train)} amostras encontradas para batch size {A.bs}. Gere mais sentenças com gen_teacher.py (recomendado >= 500).")
     return held, train, len(shards)
 held, train, nsh = load_rows()
 print(f"{len(train)} train / {len(held)} held-out sentences from {nsh} shards", flush=True)

@@ -31,6 +31,17 @@ m = pipe.model.eval()
 
 if os.path.exists(A.voice):
     ref = torch.load(A.voice, map_location=DEV)
+elif A.voice.endswith(".pt"):
+    voice_name = os.path.basename(A.voice)
+    print(f"Baixando {voice_name} do repositorio hexgrad/Kokoro-82M...", flush=True)
+    from huggingface_hub import hf_hub_download
+    import shutil
+    try:
+        p = hf_hub_download("hexgrad/Kokoro-82M", f"voices/{voice_name}")
+        shutil.copy(p, A.voice)
+        ref = torch.load(A.voice, map_location=DEV)
+    except Exception:
+        ref = pipe.load_voice(A.voice.replace(".pt", ""))
 else:
     ref = pipe.load_voice(A.voice)
 

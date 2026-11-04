@@ -110,6 +110,16 @@ torch.onnx.export(m, (ids, torch.ones(1)), path, input_names=["input_ids", "spee
                   dynamic_axes={"input_ids": {1: "tokens"}, "waveform": {1: "samples"}}, opset_version=17, dynamo=False)
 print(f"exported {path}: {os.path.getsize(path)/1e6:.1f} MB")
 
+cfg_path = f"{A.out}/config.json"
+if not os.path.exists(cfg_path):
+    try:
+        from kokoro import KPipeline
+        p = KPipeline(lang_code="p", device="cpu", repo_id="hexgrad/Kokoro-82M")
+        json.dump({"vocab": p.model.vocab}, open(cfg_path, "w"), indent=2)
+        print(f"saved {cfg_path}")
+    except Exception:
+        pass
+
 # 3. small copy: weight matrices int8 per output channel, other float vectors fp16, DFT bases generated from a few ops
 import onnx
 from onnx import numpy_helper, helper, TensorProto
