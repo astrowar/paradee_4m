@@ -40,6 +40,16 @@ size_t phonemas_ptbr_translate_buffer(const char* text, char* out_buf, size_t ma
     return phonemas_ptbr_translate_buffer_mode(text, out_buf, max_len, PHONEMAS_MODE_KOKORO);
 }
 
+size_t phonemas_ptbr_translate_rules_only(const char* word, char* out_buf, size_t max_len, PhonemasOutputMode mode) {
+    if (!word || !out_buf || max_len == 0) return 0;
+    char* dst = out_buf;
+    const char* dst_end = out_buf + max_len;
+    *dst = '\0';
+    phonemas_ptbr::internal::phonemize_rules_only_buf(word, dst, dst_end, mode);
+    *dst = '\0';
+    return static_cast<size_t>(dst - out_buf);
+}
+
 char* phonemas_ptbr_translate_mode(const char* text, PhonemasOutputMode mode) {
     if (!text) return NULL;
     size_t needed = strlen(text) * 4 + 64;

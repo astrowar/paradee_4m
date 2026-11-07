@@ -43,6 +43,11 @@ size_t phonemas_ptbr_translate_buffer_mode(const char* text, char* out_buf, size
 size_t phonemas_ptbr_translate_buffer(const char* text, char* out_buf, size_t max_len);
 
 /**
+ * @brief Transcreve uma palavra aplicando apenas regras fonológicas gerais (sem consultar tabelas de exceção).
+ */
+size_t phonemas_ptbr_translate_rules_only(const char* word, char* out_buf, size_t max_len, PhonemasOutputMode mode);
+
+/**
  * @brief Versão com alocação dinâmica (malloc) para desktop ou conveniência.
  * @param text Texto UTF-8 de entrada.
  * @param mode Modo de saída fonética.

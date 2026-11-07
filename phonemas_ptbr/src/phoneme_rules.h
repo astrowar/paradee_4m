@@ -18,6 +18,12 @@ const char* classify_x_ptbr(std::string_view word, const std::string_view* chars
 const char* find_exception(std::string_view word, PhonemasOutputMode mode);
 
 /**
+ * @brief Transcreve uma única palavra aplicando estritamente as regras fonológicas
+ * (sem consultar as tabelas de exceções ou loanwords). Útil para testes e auditorias.
+ */
+void phonemize_rules_only_buf(std::string_view lw, char*& dst, const char* dst_end, PhonemasOutputMode mode);
+
+/**
  * @brief Transcreve uma única palavra simples em fonemas IPA, no modo especificado.
  * @param word_str Fatiamento de string_view com a palavra a ser transcrita.
  * @param dst Ponteiro de escrita no buffer de saída.

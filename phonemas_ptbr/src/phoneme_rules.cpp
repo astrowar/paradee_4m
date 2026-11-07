@@ -69,19 +69,25 @@ const char* classify_x_ptbr(std::string_view word, const std::string_view* chars
         return "s";
     }
 
-    // 4. Palavras conhecidas com som de /s/ (aproximar, próximo, máximo, auxílio, trouxe)
+    // 4. Palavras conhecidas com som de /s/ (aproximar, próximo, máximo, auxílio, trouxe, sexta, sexto)
     if (word.rfind("próxim", 0) == 0 || word.rfind("proxim", 0) == 0 ||
         word.rfind("aproxim", 0) == 0 || word.rfind("máxim", 0) == 0 ||
         word.rfind("maxim", 0) == 0 || word.rfind("auxili", 0) == 0 ||
-        word.rfind("auxíli", 0) == 0 || word.rfind("troux", 0) == 0) {
+        word.rfind("auxíli", 0) == 0 || word.rfind("troux", 0) == 0 ||
+        word.rfind("sext", 0) == 0) {
         return "s";
+    }
+
+    // 4b. Nomes próprios consolidados em /ʃ/ (Alexandre, Alexia)
+    if (word.rfind("alexand", 0) == 0) {
+        return "ʃ";
     }
 
     // 5. Raízes cultas greco-latinas com som de /ks/ (detectadas no início ou após prefixos como anti-, auto-, des-)
     static const std::string_view ks_roots[] = {
         "fix", "sex", "conex", "complex", "flex", "reflex", "paradox",
         "táxi", "taxi", "tóx", "tox", "léx", "lex", "oxig", "asfix",
-        "anex", "nex", "maxil", "prolix", "ortodox", "heterodox"
+        "anex", "nex", "maxil", "prolix", "ortodox", "heterodox", "sintax"
     };
     for (const auto& root : ks_roots) {
         if (word.find(root) != std::string_view::npos) {
@@ -267,6 +273,10 @@ void phonemize_single_word_buf(std::string_view word_str, char*& dst, const char
         emit_str(dst, dst_end, (mode == PHONEMAS_MODE_STANDARD_IPA) ? "ki" : "ky");
         return;
     }
+    if (lw == "e") {
+        emit_str(dst, dst_end, "i"); // Conjunção aditiva átona ('e' -> [i])
+        return;
+    }
     if (lw == "c") {
         emit_str(dst, dst_end, "sˈe"); // Letra C / C++ / Vitamina C
         return;
@@ -286,6 +296,10 @@ void phonemize_single_word_buf(std::string_view word_str, char*& dst, const char
         return;
     }
 
+    phonemize_rules_only_buf(lw, dst, dst_end, mode);
+}
+
+void phonemize_rules_only_buf(std::string_view lw, char*& dst, const char* dst_end, PhonemasOutputMode mode) {
     // 2. Análise silábica estruturada e acentuação formal
     WordAnalysis wa;
     analyze_and_syllabify_word(lw, wa);
