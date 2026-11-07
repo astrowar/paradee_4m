@@ -1734,5 +1734,677 @@
   "test": {
     "kokoro": "tˈɛsʧ",
     "ipa": "tˈɛstʃ"
+  },
+  "action": {
+    "kokoro": "ˈɛkʃõ",
+    "ipa": "ˈɛkʃõ"
+  },
+  "adagio": {
+    "kokoro": "adˈaʤiʊ",
+    "ipa": "adˈadʒiw"
+  },
+  "adios": {
+    "kokoro": "aʤiˈɔs",
+    "ipa": "adiˈɔs"
+  },
+  "adiós": {
+    "kokoro": "aʤiˈɔs",
+    "ipa": "adiˈɔs"
+  },
+  "affogato": {
+    "kokoro": "afoɡˈatʊ",
+    "ipa": "afoɡˈatw"
+  },
+  "aikido": {
+    "kokoro": "ajkidˈo",
+    "ipa": "ajkidˈo"
+  },
+  "aikidô": {
+    "kokoro": "ajkidˈo",
+    "ipa": "ajkidˈo"
+  },
+  "al dente": {
+    "kokoro": "awdˈẽjntʃi",
+    "ipa": "awdˈẽjtʃi"
+  },
+  "al forno": {
+    "kokoro": "awfˈoɾnʊ",
+    "ipa": "awfˈoɾnw"
+  },
+  "alfajor": {
+    "kokoro": "awfaʒˈoɾ",
+    "ipa": "awfaʒˈoɾ"
+  },
+  "alla bolognese": {
+    "kokoro": "ˌalæ boloɲˈezy",
+    "ipa": "ˌalə boloɲˈezi"
+  },
+  "alla carbonara": {
+    "kokoro": "ˌalæ kaɾbonˈaɾæ",
+    "ipa": "ˌalə kaɾbonˈaɾə"
+  },
+  "alla marinara": {
+    "kokoro": "ˌalæ maɾinˈaɾæ",
+    "ipa": "ˌalə maɾinˈaɾə"
+  },
+  "allegro": {
+    "kokoro": "alˈɛɡrʊ",
+    "ipa": "alˈɛɡrw"
+  },
+  "apfelstrudel": {
+    "kokoro": "ˌapfɛʊstrˈudew",
+    "ipa": "ˌapfɛwstrˈudew"
+  },
+  "arrabbiata": {
+    "kokoro": "axa-biˈatæ",
+    "ipa": "axa-biˈatə"
+  },
+  "assurance": {
+    "kokoro": "asjuɾˈɐ̃ns",
+    "ipa": "asjuɾˈɐ̃s"
+  },
+  "atelier": {
+    "kokoro": "ˌateliˈe",
+    "ipa": "ˌateliˈe"
+  },
+  "ateliê": {
+    "kokoro": "ˌateliˈe",
+    "ipa": "ˌateliˈe"
+  },
+  "au pair": {
+    "kokoro": "opˈɛɾ",
+    "ipa": "opˈɛɾ"
+  },
+  "avant garde": {
+    "kokoro": "avɐ̃ŋɡˈaɾʤi",
+    "ipa": "avɐ̃ɡˈaɾdʒi"
+  },
+  "avant-garde": {
+    "kokoro": "avɐ̃ŋɡˈaɾʤi",
+    "ipa": "avɐ̃ɡˈaɾdʒi"
+  },
+  "babaganoush": {
+    "kokoro": "babaganˈuʃ",
+    "ipa": "babaganˈuʃ"
+  },
+  "babushka": {
+    "kokoro": "babˈuʃkæ",
+    "ipa": "babˈuʃkə"
+  },
+  "backstage": {
+    "kokoro": "bˌɛkistˈejʤi",
+    "ipa": "bˌɛkistˈejdʒi"
+  },
+  "baguette": {
+    "kokoro": "baɡˈɛʧy",
+    "ipa": "baɡˈɛtʃi"
+  },
+  "ballet": {
+    "kokoro": "balˈe",
+    "ipa": "balˈe"
+  },
+  "banoffee": {
+    "kokoro": "banˈɔfi",
+    "ipa": "banˈɔfi"
+  },
+  "barman": {
+    "kokoro": "bˈaɾmɐ̃n",
+    "ipa": "bˈaɾmɐ̃"
+  },
+  "bartender": {
+    "kokoro": "bˌaɾtˈẽndeɾ",
+    "ipa": "bˌaɾtˈẽndeɾ"
+  },
+  "beer": {
+    "kokoro": "bˈiɾ",
+    "ipa": "bˈiɾ"
+  },
+  "beijing": {
+    "kokoro": "bejʒˈĩŋ",
+    "ipa": "bejʒˈĩ"
+  },
+  "bestseller": {
+    "kokoro": "bˌɛstsˈɛleɾ",
+    "ipa": "bˌɛstsˈɛleɾ"
+  },
+  "big data": {
+    "kokoro": "bˌiɡ dˈatæ",
+    "ipa": "bˌiɡ dˈatə"
+  },
+  "big tech": {
+    "kokoro": "bˌiɡ tˈɛki",
+    "ipa": "bˌiɡ tˈɛki"
+  },
+  "biscotti": {
+    "kokoro": "biskˈɔʧi",
+    "ipa": "biskˈɔtʃi"
+  },
+  "bistro": {
+    "kokoro": "bistrˈo",
+    "ipa": "bistrˈo"
+  },
+  "bistrô": {
+    "kokoro": "bistrˈo",
+    "ipa": "bistrˈo"
+  },
+  "blitz": {
+    "kokoro": "blˈiʧis",
+    "ipa": "blˈitʃis"
+  },
+  "blitzkrieg": {
+    "kokoro": "blˌitsikrˈiɡ",
+    "ipa": "blˌitsikrˈiɡ"
+  },
+  "blockchain": {
+    "kokoro": "blˌɔkiʧˈẽjn",
+    "ipa": "blˌɔkitʃˈẽjn"
+  },
+  "bolognese": {
+    "kokoro": "boloɲˈezy",
+    "ipa": "boloɲˈezi"
+  },
+  "bootcamp": {
+    "kokoro": "bˌuʧikˈɛ̃mpi",
+    "ipa": "bˌutʃikˈɛ̃mpi"
+  },
+  "borscht": {
+    "kokoro": "bˈoɾʃʧ",
+    "ipa": "bˈoɾʃtʃ"
+  },
+  "boutique": {
+    "kokoro": "butʃˈiki",
+    "ipa": "butʃˈiki"
+  },
+  "boyband": {
+    "kokoro": "bˌɔjbˈɛ̃nd",
+    "ipa": "bˌɔjbˈɛ̃nd"
+  },
+  "boyfriend": {
+    "kokoro": "bˌɔjfrˈẽnd",
+    "ipa": "bˌɔjfrˈẽnd"
+  },
+  "brownie": {
+    "kokoro": "brˈawni",
+    "ipa": "brˈawni"
+  },
+  "bruschetta": {
+    "kokoro": "bruskˈetæ",
+    "ipa": "bruskˈetə"
+  },
+  "bubble tea": {
+    "kokoro": "bˌabow tˈi",
+    "ipa": "bˌabow tˈi"
+  },
+  "buffet": {
+    "kokoro": "bufˈe",
+    "ipa": "bufˈe"
+  },
+  "bullet journal": {
+    "kokoro": "bˌulɛʧi ʒoɾnˈaʊ",
+    "ipa": "bˌulɛtʃi ʒoɾnˈaw"
+  },
+  "burlesque": {
+    "kokoro": "buɾlˈɛski",
+    "ipa": "buɾlˈɛski"
+  },
+  "burrito": {
+    "kokoro": "burˈitʊ",
+    "ipa": "burˈitw"
+  },
+  "call center": {
+    "kokoro": "kˌɔw sˈẽnteɾ",
+    "ipa": "kˌɔw sˈẽnteɾ"
+  },
+  "calzone": {
+    "kokoro": "kawzˈony",
+    "ipa": "kawzˈoni"
+  },
+  "cappuccino": {
+    "kokoro": "kapuʧˈinʊ",
+    "ipa": "kaputʃˈinw"
+  },
+  "carpaccio": {
+    "kokoro": "kaɾpˈaʧiʊ",
+    "ipa": "kaɾpˈatʃiw"
+  },
+  "ceviche": {
+    "kokoro": "sevˈiʧi",
+    "ipa": "sevˈitʃi"
+  },
+  "champagne": {
+    "kokoro": "ʃɐ̃ŋpˈaɲy",
+    "ipa": "ʃɐ̃pˈaɲi"
+  },
+  "chimichurri": {
+    "kokoro": "ʃimiʃˈuxi",
+    "ipa": "ʃimitʃˈuxi"
+  },
+  "ciabatta": {
+    "kokoro": "tʃabˈatæ",
+    "ipa": "tʃabˈatə"
+  },
+  "clutch": {
+    "kokoro": "klˈɐ̃tʃ",
+    "ipa": "klˈɐ̃tʃ"
+  },
+  "croissant": {
+    "kokoro": "krwasˈɐ̃ŋ",
+    "ipa": "krwasˈɐ̃"
+  },
+  "croque monsieur": {
+    "kokoro": "krˌɔki mesjˈø",
+    "ipa": "krˌɔki mesjˈø"
+  },
+  "crème brulée": {
+    "kokoro": "krˌɛmi brylˈe",
+    "ipa": "krˌɛmi brylˈe"
+  },
+  "curry": {
+    "kokoro": "kˈeɾi",
+    "ipa": "kˈeɾi"
+  },
+  "deja vu": {
+    "kokoro": "dˌeʒavˈu",
+    "ipa": "dˌeʒavˈu"
+  },
+  "deli": {
+    "kokoro": "dˈɛli",
+    "ipa": "dˈɛli"
+  },
+  "donut": {
+    "kokoro": "dˈonɐ̃t",
+    "ipa": "dˈonɐ̃t"
+  },
+  "donuts": {
+    "kokoro": "dˈonɐ̃ts",
+    "ipa": "dˈonɐ̃ts"
+  },
+  "dry run": {
+    "kokoro": "drˌaj xˈɐ̃n",
+    "ipa": "drˌaj xˈɐ̃n"
+  },
+  "eclair": {
+    "kokoro": "eklˈɛɾ",
+    "ipa": "eklˈɛɾ"
+  },
+  "edamame": {
+    "kokoro": "edamˈamy",
+    "ipa": "edamˈami"
+  },
+  "empanada": {
+    "kokoro": "ẽmpanˈadæ",
+    "ipa": "ẽmpanˈadə"
+  },
+  "fettuccine": {
+    "kokoro": "fetuʧˈini",
+    "ipa": "fetutʃˈini"
+  },
+  "filet mignon": {
+    "kokoro": "filˌe miɲˈõ",
+    "ipa": "filˌe miɲˈõ"
+  },
+  "flambé": {
+    "kokoro": "flɐ̃ŋbˈe",
+    "ipa": "flɐ̃bˈe"
+  },
+  "focaccia": {
+    "kokoro": "fokˈaʧiæ",
+    "ipa": "fokˈatʃiə"
+  },
+  "foie gras": {
+    "kokoro": "fwa ɡrˈa",
+    "ipa": "fwa ɡrˈa"
+  },
+  "fondue": {
+    "kokoro": "fõndˈi",
+    "ipa": "fõndˈi"
+  },
+  "frappé": {
+    "kokoro": "frapˈe",
+    "ipa": "frapˈe"
+  },
+  "fusilli": {
+    "kokoro": "fuzˈili",
+    "ipa": "fuzˈili"
+  },
+  "gateau": {
+    "kokoro": "ɡatˈo",
+    "ipa": "ɡatˈo"
+  },
+  "gâteau": {
+    "kokoro": "ɡatˈo",
+    "ipa": "ɡatˈo"
+  },
+  "gnocchi": {
+    "kokoro": "ɲˈɔki",
+    "ipa": "ɲˈɔki"
+  },
+  "guacamole": {
+    "kokoro": "ɡwakamˈɔly",
+    "ipa": "ɡwakamˈɔli"
+  },
+  "guioza": {
+    "kokoro": "ɡiˈɔzæ",
+    "ipa": "ɡiˈɔzə"
+  },
+  "habeas corpus": {
+    "kokoro": "ˈabeas kˈɔɾpʊs",
+    "ipa": "ˈabeas kˈɔɾpws"
+  },
+  "halal": {
+    "kokoro": "xalˈaʊ",
+    "ipa": "xalˈaw"
+  },
+  "karaoke": {
+    "kokoro": "kaɾaokˈe",
+    "ipa": "kaɾaokˈe"
+  },
+  "kimchi": {
+    "kokoro": "kimtʃˈi",
+    "ipa": "kimtʃˈi"
+  },
+  "kombucha": {
+    "kokoro": "kõmbuʧˈa",
+    "ipa": "kõmbutʃˈa"
+  },
+  "kosher": {
+    "kokoro": "kˈoʃeɾ",
+    "ipa": "kˈoʃeɾ"
+  },
+  "lasagna": {
+    "kokoro": "lazˈaɲæ",
+    "ipa": "lazˈaɲə"
+  },
+  "lingerie": {
+    "kokoro": "lAŋʒeɾˈi",
+    "ipa": "lAŋʒeɾˈi"
+  },
+  "macaron": {
+    "kokoro": "makaɾˈõ",
+    "ipa": "makaɾˈõ"
+  },
+  "macchiato": {
+    "kokoro": "makiˈatʊ",
+    "ipa": "makiˈatw"
+  },
+  "manga": {
+    "kokoro": "mɐ̃ŋɡˈa",
+    "ipa": "mɐ̃ɡˈa"
+  },
+  "mangá": {
+    "kokoro": "mɐ̃ŋɡˈa",
+    "ipa": "mɐ̃ɡˈa"
+  },
+  "matcha": {
+    "kokoro": "matʃˈa",
+    "ipa": "matʃˈa"
+  },
+  "merlot": {
+    "kokoro": "meɾlˈo",
+    "ipa": "meɾlˈo"
+  },
+  "mignon": {
+    "kokoro": "miɲˈõ",
+    "ipa": "miɲˈõ"
+  },
+  "mochi": {
+    "kokoro": "mˈoʧi",
+    "ipa": "mˈotʃi"
+  },
+  "mojito": {
+    "kokoro": "moxˈitʊ",
+    "ipa": "moxˈitw"
+  },
+  "mousse": {
+    "kokoro": "mˈusi",
+    "ipa": "mˈusi"
+  },
+  "muffin": {
+    "kokoro": "mˈɐ̃fĩ",
+    "ipa": "mˈɐ̃fĩ"
+  },
+  "nacho": {
+    "kokoro": "nˈaʧʊ",
+    "ipa": "nˈatʃw"
+  },
+  "nachos": {
+    "kokoro": "nˈaʧʊs",
+    "ipa": "nˈatʃws"
+  },
+  "nhoque": {
+    "kokoro": "ɲˈɔki",
+    "ipa": "ɲˈɔki"
+  },
+  "nigiri": {
+    "kokoro": "niɡˈiɾi",
+    "ipa": "niɡˈiɾi"
+  },
+  "noir": {
+    "kokoro": "nwˈaɾ",
+    "ipa": "nwˈaɾ"
+  },
+  "origami": {
+    "kokoro": "oɾiɡˈami",
+    "ipa": "oɾiɡˈami"
+  },
+  "otaku": {
+    "kokoro": "otˈaku",
+    "ipa": "otˈaku"
+  },
+  "paella": {
+    "kokoro": "paˈɛlæ",
+    "ipa": "paˈɛlə"
+  },
+  "panetone": {
+    "kokoro": "paneʧˈony",
+    "ipa": "panetˈoni"
+  },
+  "panettone": {
+    "kokoro": "paneʧˈony",
+    "ipa": "panetˈoni"
+  },
+  "panna cotta": {
+    "kokoro": "pˌanæ kˈɔtæ",
+    "ipa": "pˌanə kˈɔtə"
+  },
+  "pastrami": {
+    "kokoro": "pastrˈami",
+    "ipa": "pastrˈami"
+  },
+  "penne": {
+    "kokoro": "pˈɛny",
+    "ipa": "pˈɛni"
+  },
+  "pesto": {
+    "kokoro": "pˈɛstʊ",
+    "ipa": "pˈɛstw"
+  },
+  "petit gateau": {
+    "kokoro": "petˌi ɡatˈo",
+    "ipa": "petˌi ɡatˈo"
+  },
+  "petit gâteau": {
+    "kokoro": "petˌi ɡatˈo",
+    "ipa": "petˌi ɡatˈo"
+  },
+  "petit": {
+    "kokoro": "petˈi",
+    "ipa": "petˈi"
+  },
+  "petits fours": {
+    "kokoro": "petˌi fˈuɾs",
+    "ipa": "petˌi fˈuɾs"
+  },
+  "pinot noir": {
+    "kokoro": "pinˌo nwˈaɾ",
+    "ipa": "pinˌo nwˈaɾ"
+  },
+  "pinot": {
+    "kokoro": "pinˈo",
+    "ipa": "pinˈo"
+  },
+  "pisco": {
+    "kokoro": "pˈiskʊ",
+    "ipa": "pˈiskw"
+  },
+  "poke": {
+    "kokoro": "pˈɔki",
+    "ipa": "pˈɔki"
+  },
+  "polenta": {
+    "kokoro": "polˈẽntæ",
+    "ipa": "polˈẽntə"
+  },
+  "prosciutto": {
+    "kokoro": "proʃˈutʊ",
+    "ipa": "proʃˈutw"
+  },
+  "quesadilla": {
+    "kokoro": "kesadˈiʎæ",
+    "ipa": "kesadˈiʎə"
+  },
+  "quiche": {
+    "kokoro": "kˈiʃy",
+    "ipa": "kˈiʃi"
+  },
+  "ramen": {
+    "kokoro": "xˈamẽj",
+    "ipa": "xˈamẽj"
+  },
+  "ravioli": {
+    "kokoro": "xaviˈɔli",
+    "ipa": "xaviˈɔli"
+  },
+  "ricotta": {
+    "kokoro": "xikˈɔtæ",
+    "ipa": "xikˈɔtə"
+  },
+  "risotto": {
+    "kokoro": "xizˈɔtʊ",
+    "ipa": "xizˈɔtw"
+  },
+  "rouge": {
+    "kokoro": "xˈuʒy",
+    "ipa": "xˈuʒi"
+  },
+  "sake": {
+    "kokoro": "sakˈe",
+    "ipa": "sakˈe"
+  },
+  "sakê": {
+    "kokoro": "sakˈe",
+    "ipa": "sakˈe"
+  },
+  "sashimi": {
+    "kokoro": "saʃˈimi",
+    "ipa": "saʃˈimi"
+  },
+  "sensei": {
+    "kokoro": "sẽnsˈej",
+    "ipa": "sẽnsˈej"
+  },
+  "shiitake": {
+    "kokoro": "ʃi-itˈaki",
+    "ipa": "ʃi-itˈaki"
+  },
+  "shimeji": {
+    "kokoro": "ʃimˈeʒi",
+    "ipa": "ʃimˈeʒi"
+  },
+  "shoyu": {
+    "kokoro": "ʃˈoju",
+    "ipa": "ʃˈoju"
+  },
+  "sommelier": {
+    "kokoro": "someʎiˈe",
+    "ipa": "someʎiˈe"
+  },
+  "souffle": {
+    "kokoro": "suflˈe",
+    "ipa": "suflˈe"
+  },
+  "soufflé": {
+    "kokoro": "suflˈe",
+    "ipa": "suflˈe"
+  },
+  "stracciatella": {
+    "kokoro": "stratʃatˈɛlæ",
+    "ipa": "stratʃatˈɛlə"
+  },
+  "sundae": {
+    "kokoro": "sˈɐ̃ndej",
+    "ipa": "sˈɐ̃ndej"
+  },
+  "sushi": {
+    "kokoro": "sˈuʃi",
+    "ipa": "sˈuʃi"
+  },
+  "taco": {
+    "kokoro": "tˈakʊ",
+    "ipa": "tˈakw"
+  },
+  "tacos": {
+    "kokoro": "tˈakʊs",
+    "ipa": "tˈakws"
+  },
+  "tagliatelle": {
+    "kokoro": "taliatˈɛly",
+    "ipa": "taliatˈɛli"
+  },
+  "tea": {
+    "kokoro": "tˈi",
+    "ipa": "tˈi"
+  },
+  "tech": {
+    "kokoro": "tˈɛki",
+    "ipa": "tˈɛki"
+  },
+  "tempura": {
+    "kokoro": "tẽmpuɾˈa",
+    "ipa": "tẽmpuɾˈa"
+  },
+  "tempurá": {
+    "kokoro": "tẽmpuɾˈa",
+    "ipa": "tẽmpuɾˈa"
+  },
+  "tequila": {
+    "kokoro": "tekˈilæ",
+    "ipa": "tekˈilə"
+  },
+  "tiramisu": {
+    "kokoro": "tiɾamisˈu",
+    "ipa": "tiɾamisˈu"
+  },
+  "tiramisù": {
+    "kokoro": "tiɾamisˈu",
+    "ipa": "tiɾamisˈu"
+  },
+  "tofu": {
+    "kokoro": "tˈofu",
+    "ipa": "tˈofu"
+  },
+  "tortilla": {
+    "kokoro": "toɾtˈiʎæ",
+    "ipa": "toɾtˈiʎə"
+  },
+  "tsunami": {
+    "kokoro": "tsunˈami",
+    "ipa": "tsunˈami"
+  },
+  "waffle": {
+    "kokoro": "wˈɔfow",
+    "ipa": "wˈɔfow"
+  },
+  "wasabi": {
+    "kokoro": "wasˈabi",
+    "ipa": "wasˈabi"
+  },
+  "whiskey": {
+    "kokoro": "wˈiski",
+    "ipa": "wˈiski"
+  },
+  "yakisoba": {
+    "kokoro": "jakisˈɔbæ",
+    "ipa": "jakisˈɔbə"
   }
 }
