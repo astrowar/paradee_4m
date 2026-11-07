@@ -95,6 +95,34 @@ int main() {
     std::cout << "Teste 10b (API C Buffer Silabas): \"" << c_syl_buf << "\" (" << c_syl_len << " bytes)\n";
     assert(std::string(c_syl_buf) == "O a-ba-ca-xi e o car-ro.");
 
+    // Teste 11: Vozeamento assimilatório de S em coda diante de sonora
+    std::string ph11_1 = phonemas_ptbr::text_to_phonemes("mesmo");
+    std::string ph11_2 = phonemas_ptbr::text_to_phonemes("desde");
+    std::cout << "Teste 11 (Vozeamento de S): \"mesmo\" -> " << ph11_1 << ", \"desde\" -> " << ph11_2 << "\n";
+    assert(ph11_1.find("mˈezm") != std::string::npos);
+    assert(ph11_2.find("dˈezʤ") != std::string::npos);
+
+    // Teste 12: Epêntese vocálica em consoantes mudas
+    std::string ph12_1 = phonemas_ptbr::text_to_phonemes("advogado");
+    std::string ph12_2 = phonemas_ptbr::text_to_phonemes("ritmo");
+    std::cout << "Teste 12 (Epêntese Vocálica): \"advogado\" -> " << ph12_1 << ", \"ritmo\" -> " << ph12_2 << "\n";
+    assert(ph12_1.find("ˌaʤivo") != std::string::npos);
+    assert(ph12_2.find("xˈiʧim") != std::string::npos);
+
+    // Teste 13: Desinências nasais -am e -em
+    std::string ph13_1 = phonemas_ptbr::text_to_phonemes("falaram");
+    std::string ph13_2 = phonemas_ptbr::text_to_phonemes("comem");
+    std::cout << "Teste 13 (Nasais Finais): \"falaram\" -> " << ph13_1 << ", \"comem\" -> " << ph13_2 << "\n";
+    assert(ph13_1.find("ɐ̃ʊ̃") != std::string::npos);
+    assert(ph13_2.find("ẽj") != std::string::npos);
+
+    // Teste 14: Vogais médias abertas em terminações produtivas (/ɛ/ e /ɔ/)
+    std::string ph14_1 = phonemas_ptbr::text_to_phonemes("festa");
+    std::string ph14_2 = phonemas_ptbr::text_to_phonemes("porta");
+    std::cout << "Teste 14 (Vogais Abertas): \"festa\" -> " << ph14_1 << ", \"porta\" -> " << ph14_2 << "\n";
+    assert(ph14_1.find("fˈɛst") != std::string::npos);
+    assert(ph14_2.find("pˈɔɾt") != std::string::npos);
+
     std::cout << "\n>>> TODOS OS TESTES PASSARAM COM SUCESSO! ZERO ARQUIVOS EXTERNOS. <<<\n";
     return 0;
 }

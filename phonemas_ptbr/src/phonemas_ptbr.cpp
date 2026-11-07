@@ -392,7 +392,11 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
         // C e Ç
         if (char_eq(c, "c")) {
             if (is_front_vowel(next)) emit_str(dst, dst_end, "s");
-            else emit_str(dst, dst_end, "k");
+            else if (!is_vowel_char(next) && !char_eq(next, "r") && !char_eq(next, "l") && !char_eq(next, "h") && i + 1 < n) {
+                emit_str(dst, dst_end, "ki");
+            } else {
+                emit_str(dst, dst_end, "k");
+            }
             i++; continue;
         }
         if (char_eq(c, "ç")) { emit_str(dst, dst_end, "s"); i++; continue; }
@@ -400,7 +404,11 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
         // G e J
         if (char_eq(c, "g")) {
             if (is_front_vowel(next)) emit_str(dst, dst_end, "ʒ");
-            else emit_str(dst, dst_end, "ɡ");
+            else if (!is_vowel_char(next) && !char_eq(next, "r") && !char_eq(next, "l") && i + 1 < n) {
+                emit_str(dst, dst_end, "ɡi");
+            } else {
+                emit_str(dst, dst_end, "ɡ");
+            }
             i++; continue;
         }
         if (char_eq(c, "j")) { emit_str(dst, dst_end, "ʒ"); i++; continue; }
@@ -422,9 +430,14 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
             i++; continue;
         }
 
-        // S
+        // S (com vozeamento diante de consoantes sonoras em coda: b, d, g, v, m, n, l, r, z)
         if (char_eq(c, "s")) {
             if (is_vowel_char(prev) && is_vowel_char(next)) {
+                emit_str(dst, dst_end, "z");
+            } else if (!is_vowel_char(next) && i + 1 < n &&
+                       (char_eq(next, "b") || char_eq(next, "d") || char_eq(next, "g") ||
+                        char_eq(next, "v") || char_eq(next, "m") || char_eq(next, "n") ||
+                        char_eq(next, "l") || char_eq(next, "r") || char_eq(next, "z"))) {
                 emit_str(dst, dst_end, "z");
             } else {
                 emit_str(dst, dst_end, "s");
@@ -441,7 +454,7 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
             }
         }
 
-        // T e D (palatalização brasileira diante de i/í ou e/es átono final)
+        // T e D (palatalização brasileira diante de i/í, e/es átono final ou epêntese diante de consoante)
         if (char_eq(c, "t")) {
             bool is_palatal_e = (char_eq(next, "e") && (int)i + 1 != tonic_char_pos) &&
                                 ((i + 1 == n - 1) || (i + 2 == n - 1 && char_eq(next2, "s")));
@@ -457,6 +470,9 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
                     }
                     continue;
                 }
+            } else if (!is_vowel_char(next) && !char_eq(next, "r") && !char_eq(next, "l") && !char_eq(next, "h") && i + 1 < n) {
+                // Epêntese com palatalização paulista de t diante de consoante (ex: ritmo, etnia, atmosfera)
+                emit_str(dst, dst_end, "ʧi");
             } else {
                 emit_str(dst, dst_end, "t");
             }
@@ -477,8 +493,37 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
                     }
                     continue;
                 }
+            } else if (!is_vowel_char(next) && !char_eq(next, "r") && !char_eq(next, "l") && i + 1 < n) {
+                // Epêntese com palatalização paulista de d diante de consoante (ex: advogado, admirar, adquirir)
+                emit_str(dst, dst_end, "ʤi");
             } else {
                 emit_str(dst, dst_end, "d");
+            }
+            i++; continue;
+        }
+
+        // P, B, F (com epêntese diante de consoante que não seja líquida r/l)
+        if (char_eq(c, "p")) {
+            if (!is_vowel_char(next) && !char_eq(next, "r") && !char_eq(next, "l") && !char_eq(next, "h") && i + 1 < n) {
+                emit_str(dst, dst_end, "pi");
+            } else {
+                emit_str(dst, dst_end, "p");
+            }
+            i++; continue;
+        }
+        if (char_eq(c, "b")) {
+            if (!is_vowel_char(next) && !char_eq(next, "r") && !char_eq(next, "l") && i + 1 < n) {
+                emit_str(dst, dst_end, "bi");
+            } else {
+                emit_str(dst, dst_end, "b");
+            }
+            i++; continue;
+        }
+        if (char_eq(c, "f")) {
+            if (!is_vowel_char(next) && !char_eq(next, "r") && !char_eq(next, "l") && i + 1 < n) {
+                emit_str(dst, dst_end, "fi");
+            } else {
+                emit_str(dst, dst_end, "f");
             }
             i++; continue;
         }
@@ -514,6 +559,20 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
         // Nasalização diante de M/N em coda
         if (is_vowel_char(c) && (char_eq(next, "m") || char_eq(next, "n")) && !char_eq(next2, "h") &&
             (i + 2 == n || !is_vowel_char(next2))) {
+            // Desinência verbal átona final -am -> ditongo nasal ɐ̃ʊ̃ (ex: falaram, cantam, viajam)
+            if ((char_eq(c, "a") || char_eq(c, "á") || char_eq(c, "â") || char_eq(c, "à")) &&
+                char_eq(next, "m") && i + 2 == n && (int)i != tonic_char_pos) {
+                emit_str(dst, dst_end, "ɐ̃ʊ̃"); i += 2; continue;
+            }
+            // Terminação final -em / -ens -> ditongo nasal ẽj / ẽjs (ex: homem, comem, jovem, viagens)
+            if ((char_eq(c, "e") || char_eq(c, "é") || char_eq(c, "ê")) && char_eq(next, "m") && i + 2 == n) {
+                emit_str(dst, dst_end, "ẽj"); i += 2; continue;
+            }
+            if ((char_eq(c, "e") || char_eq(c, "é") || char_eq(c, "ê")) && char_eq(next, "n") &&
+                char_eq(next2, "s") && i + 3 == n) {
+                emit_str(dst, dst_end, "ẽjs"); i += 3; continue;
+            }
+
             if (char_eq(c, "a") || char_eq(c, "á") || char_eq(c, "â") || char_eq(c, "à")) emit_str(dst, dst_end, "ɐ̃ŋ");
             else if (char_eq(c, "e") || char_eq(c, "é") || char_eq(c, "ê")) emit_str(dst, dst_end, "Aŋ");
             else if (char_eq(c, "i") || char_eq(c, "í")) emit_str(dst, dst_end, "iŋ");
@@ -540,6 +599,19 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
         else if (char_eq(c, "e")) {
             if (((i == n - 1) || (i + 1 == n - 1 && char_eq(next, "s"))) && (int)i != tonic_char_pos) {
                 emit_str(dst, dst_end, "y");
+            } else if ((int)i == tonic_char_pos && (
+                (w_len >= 4 && strcmp(lower_word + w_len - 4, "esta") == 0) ||
+                (w_len >= 4 && strcmp(lower_word + w_len - 4, "este") == 0) ||
+                (w_len >= 4 && strcmp(lower_word + w_len - 4, "esto") == 0) ||
+                (w_len >= 4 && strcmp(lower_word + w_len - 4, "erra") == 0) ||
+                (w_len >= 5 && strcmp(lower_word + w_len - 5, "estas") == 0) ||
+                (w_len >= 5 && strcmp(lower_word + w_len - 5, "estes") == 0) ||
+                (w_len >= 5 && strcmp(lower_word + w_len - 5, "estos") == 0) ||
+                (w_len >= 5 && strcmp(lower_word + w_len - 5, "erras") == 0) ||
+                strcmp(lower_word, "mulher") == 0 || strcmp(lower_word, "certo") == 0 ||
+                strcmp(lower_word, "certa") == 0 || strcmp(lower_word, "certos") == 0 ||
+                strcmp(lower_word, "certas") == 0 || strcmp(lower_word, "zero") == 0)) {
+                emit_str(dst, dst_end, "ɛ");
             } else {
                 emit_str(dst, dst_end, "e");
             }
@@ -550,6 +622,23 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
         else if (char_eq(c, "o")) {
             if (((i == n - 1) || (i + 1 == n - 1 && char_eq(next, "s"))) && (int)i != tonic_char_pos) {
                 emit_str(dst, dst_end, "ʊ");
+            } else if ((int)i == tonic_char_pos && (
+                (w_len >= 4 && strcmp(lower_word + w_len - 4, "orta") == 0) ||
+                (w_len >= 4 && strcmp(lower_word + w_len - 4, "orte") == 0) ||
+                (w_len >= 5 && strcmp(lower_word + w_len - 5, "ortas") == 0) ||
+                (w_len >= 5 && strcmp(lower_word + w_len - 5, "ortes") == 0) ||
+                strcmp(lower_word, "sol") == 0 || strcmp(lower_word, "hora") == 0 ||
+                strcmp(lower_word, "horas") == 0 || strcmp(lower_word, "agora") == 0 ||
+                strcmp(lower_word, "bola") == 0 || strcmp(lower_word, "bolas") == 0 ||
+                strcmp(lower_word, "mola") == 0 || strcmp(lower_word, "molas") == 0 ||
+                strcmp(lower_word, "escola") == 0 || strcmp(lower_word, "escolas") == 0 ||
+                strcmp(lower_word, "nova") == 0 || strcmp(lower_word, "novas") == 0 ||
+                strcmp(lower_word, "novo") == 0 || strcmp(lower_word, "novos") == 0 ||
+                strcmp(lower_word, "nove") == 0 || strcmp(lower_word, "forte") == 0 ||
+                strcmp(lower_word, "fortes") == 0 || strcmp(lower_word, "morte") == 0 ||
+                strcmp(lower_word, "mortes") == 0 || strcmp(lower_word, "porta") == 0 ||
+                strcmp(lower_word, "portas") == 0)) {
+                emit_str(dst, dst_end, "ɔ");
             } else {
                 emit_str(dst, dst_end, "o");
             }
