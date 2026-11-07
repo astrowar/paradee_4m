@@ -123,6 +123,18 @@ int main() {
     assert(ph14_1.find("fˈɛst") != std::string::npos);
     assert(ph14_2.find("pˈɔɾt") != std::string::npos);
 
+    // Teste 15: Modo Duplo (Kokoro vs Standard IPA / Dataset)
+    std::string ph15_k = phonemas_ptbr::text_to_phonemes("abacate leite sol", PHONEMAS_MODE_KOKORO);
+    std::string ph15_ipa = phonemas_ptbr::text_to_phonemes("abacate leite sol", PHONEMAS_MODE_STANDARD_IPA);
+    std::cout << "Teste 15 (Modo Kokoro)      : \"abacate leite sol\" -> " << ph15_k << "\n";
+    std::cout << "         (Modo Standard IPA): \"abacate leite sol\" -> " << ph15_ipa << "\n";
+    assert(ph15_k.find("ˌabakˈaʧy") != std::string::npos);
+    assert(ph15_k.find("lˈAʧy") != std::string::npos);
+    assert(ph15_k.find("sˈɔʊ") != std::string::npos);
+    assert(ph15_ipa.find("ˌabakˈatʃi") != std::string::npos);
+    assert(ph15_ipa.find("lˈejtʃi") != std::string::npos);
+    assert(ph15_ipa.find("sˈɔw") != std::string::npos);
+
     std::cout << "\n>>> TODOS OS TESTES PASSARAM COM SUCESSO! ZERO ARQUIVOS EXTERNOS. <<<\n";
     return 0;
 }

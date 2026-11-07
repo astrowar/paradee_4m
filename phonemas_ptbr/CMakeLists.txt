@@ -19,11 +19,15 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 # Biblioteca estática (para inclusão direta em ESP-IDF, Arduino ou C++ embarcado)
 add_library(phonemas_ptbr_static STATIC
     src/phonemas_ptbr.cpp
+    src/syllabifier.cpp
+    src/phoneme_rules.cpp
 )
 
 # Biblioteca compartilhada (.so)
 add_library(phonemas_ptbr SHARED
     src/phonemas_ptbr.cpp
+    src/syllabifier.cpp
+    src/phoneme_rules.cpp
 )
 
 # Ferramenta de linha de comando CLI

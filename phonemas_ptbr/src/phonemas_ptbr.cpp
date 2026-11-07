@@ -1,12 +1,11 @@
 #include "phonemas_ptbr.h"
 #include "embedded_vocab.h"
 #include "phonemas_ptbr_types.h"
-#include "phonemas_ptbr_syllabifier.h"
-#include "phonemas_ptbr_rules.h"
+#include "syllabifier.h"
+#include "phoneme_rules.h"
 
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 extern "C" {
 
@@ -16,58 +15,7 @@ extern "C" {
 
 size_t phonemas_ptbr_syllabify_buffer(const char* text, char* out_buf, size_t max_len, char sep) {
     if (!text || !out_buf || max_len == 0) return 0;
-
-    char* dst = out_buf;
-    const char* dst_end = out_buf + max_len;
-    *dst = '\0';
-
-    const char* p = text;
-
-    while (*p) {
-        // Pula e copia espaços em branco
-        while (*p && isspace((unsigned char)*p)) {
-            if (dst < dst_end - 1) *dst++ = *p;
-            p++;
-        }
-        if (!*p) break;
-
-        const char* token_start = p;
-        while (*p && !isspace((unsigned char)*p)) p++;
-        const char* token_end = p;
-
-        // Extrai pontuação à esquerda
-        const char* core_start = token_start;
-        while (core_start < token_end && is_punct(*core_start)) {
-            core_start++;
-        }
-
-        // Extrai pontuação à direita
-        const char* core_end = token_end;
-        while (core_end > core_start && is_punct(*(core_end - 1))) {
-            core_end--;
-        }
-
-        // Emite pontuação à esquerda
-        while (token_start < core_start && dst < dst_end - 1) {
-            *dst++ = *token_start++;
-            *dst = '\0';
-        }
-
-        // Emite a palavra silabificada (Onset-Nucleus-Coda)
-        size_t core_len = (size_t)(core_end - core_start);
-        if (core_len > 0) {
-            syllabify_word_buf(core_start, core_len, &dst, dst_end, sep);
-        }
-
-        // Emite pontuação à direita
-        while (core_end < token_end && dst < dst_end - 1) {
-            *dst++ = *core_end++;
-            *dst = '\0';
-        }
-    }
-
-    *dst = '\0';
-    return (size_t)(dst - out_buf);
+    return phonemas_ptbr::internal::syllabify_text_buf(text, out_buf, max_len, sep);
 }
 
 char* phonemas_ptbr_syllabify(const char* text, char sep) {
@@ -80,76 +28,29 @@ char* phonemas_ptbr_syllabify(const char* text, char sep) {
 }
 
 // ============================================================================
-// API C PÚBLICA: TEXTO -> FONEMAS IPA (ZERO HEAP)
+// API C PÚBLICA: TEXTO -> FONEMAS IPA (ZERO HEAP) COM SUPORTE A MODOS
 // ============================================================================
 
-size_t phonemas_ptbr_translate_buffer(const char* text, char* out_buf, size_t max_len) {
+size_t phonemas_ptbr_translate_buffer_mode(const char* text, char* out_buf, size_t max_len, PhonemasOutputMode mode) {
     if (!text || !out_buf || max_len == 0) return 0;
-
-    char* dst = out_buf;
-    const char* dst_end = out_buf + max_len;
-    *dst = '\0';
-
-    const char* p = text;
-    bool first_token = true;
-
-    while (*p) {
-        // Pula espaços em branco
-        while (*p && isspace((unsigned char)*p)) p++;
-        if (!*p) break;
-
-        const char* token_start = p;
-        while (*p && !isspace((unsigned char)*p)) p++;
-        const char* token_end = p;
-
-        // Extrai pontuação à esquerda
-        const char* core_start = token_start;
-        while (core_start < token_end && is_punct(*core_start)) {
-            core_start++;
-        }
-
-        // Extrai pontuação à direita
-        const char* core_end = token_end;
-        while (core_end > core_start && is_punct(*(core_end - 1))) {
-            core_end--;
-        }
-
-        if (!first_token && dst < dst_end - 1) {
-            *dst++ = ' ';
-            *dst = '\0';
-        }
-        first_token = false;
-
-        // Emite pontuação à esquerda
-        while (token_start < core_start && dst < dst_end - 1) {
-            *dst++ = *token_start++;
-            *dst = '\0';
-        }
-
-        // Emite a palavra fonetizada
-        size_t core_len = (size_t)(core_end - core_start);
-        if (core_len > 0) {
-            rule_based_ptbr_word_buf(core_start, core_len, &dst, dst_end);
-        }
-
-        // Emite pontuação à direita
-        while (core_end < token_end && dst < dst_end - 1) {
-            *dst++ = *core_end++;
-            *dst = '\0';
-        }
-    }
-
-    *dst = '\0';
-    return (size_t)(dst - out_buf);
+    return phonemas_ptbr::internal::translate_text_buf(text, out_buf, max_len, mode);
 }
 
-char* phonemas_ptbr_translate(const char* text) {
+size_t phonemas_ptbr_translate_buffer(const char* text, char* out_buf, size_t max_len) {
+    return phonemas_ptbr_translate_buffer_mode(text, out_buf, max_len, PHONEMAS_MODE_KOKORO);
+}
+
+char* phonemas_ptbr_translate_mode(const char* text, PhonemasOutputMode mode) {
     if (!text) return NULL;
     size_t needed = strlen(text) * 4 + 64;
     char* buf = (char*)malloc(needed);
     if (!buf) return NULL;
-    phonemas_ptbr_translate_buffer(text, buf, needed);
+    phonemas_ptbr_translate_buffer_mode(text, buf, needed, mode);
     return buf;
+}
+
+char* phonemas_ptbr_translate(const char* text) {
+    return phonemas_ptbr_translate_mode(text, PHONEMAS_MODE_KOKORO);
 }
 
 void phonemas_ptbr_free(char* ptr) {
@@ -193,7 +94,7 @@ int phonemas_ptbr_text_to_tokens(const char* text, int64_t* out_tokens, size_t m
 
     // Buffer local na stack para os fonemas intermediários (zero heap)
     char ph_buf[512];
-    phonemas_ptbr_translate_buffer(text, ph_buf, sizeof(ph_buf));
+    phonemas_ptbr_translate_buffer_mode(text, ph_buf, sizeof(ph_buf), PHONEMAS_MODE_KOKORO);
     return phonemas_ptbr_phonemes_to_tokens(ph_buf, out_tokens, max_tokens);
 }
 
