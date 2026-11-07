@@ -746,5 +746,993 @@
   "yeah": {
     "kokoro": "jˈɛæ",
     "ipa": "jˈɛa"
+  },
+  "air fryer": {
+    "kokoro": "ˈɛɾ frˈajeɾ",
+    "ipa": "ˈɛɾ frˈajeɾ"
+  },
+  "airbag": {
+    "kokoro": "ˈɛɾbɛɡi",
+    "ipa": "ˈɛɾbɛɡi"
+  },
+  "badminton": {
+    "kokoro": "bˈɛʤimintõ",
+    "ipa": "bˈɛdʒimintõ"
+  },
+  "bagel": {
+    "kokoro": "bˈejɡoʊ",
+    "ipa": "bˈejɡol"
+  },
+  "banner": {
+    "kokoro": "bˈɐ̃neɾ",
+    "ipa": "bˈɐ̃neɾ"
+  },
+  "barbecue": {
+    "kokoro": "bˌaɾbikjˈu",
+    "ipa": "bˌaɾbikjˈu"
+  },
+  "baseball": {
+    "kokoro": "bˌejsibˈɔw",
+    "ipa": "bˌejsibˈɔw"
+  },
+  "basketball": {
+    "kokoro": "bˌaskeʧibˈɔw",
+    "ipa": "bˌasketʃibˈɔw"
+  },
+  "benchmark": {
+    "kokoro": "bˌẽjntʃimˈaɾki",
+    "ipa": "bˌẽjtʃimˈaɾki"
+  },
+  "best-seller": {
+    "kokoro": "bˌɛstsˈɛleɾ",
+    "ipa": "bˌɛstsˈɛleɾ"
+  },
+  "bike": {
+    "kokoro": "bˈajki",
+    "ipa": "bˈajki"
+  },
+  "bikini": {
+    "kokoro": "bikˈini",
+    "ipa": "bikˈini"
+  },
+  "bitcoin": {
+    "kokoro": "bˌiʧikˈɔjn",
+    "ipa": "bˌitʃikˈɔjn"
+  },
+  "black friday": {
+    "kokoro": "blˌɛkifrˈajdej",
+    "ipa": "blˌɛkifrˈajdej"
+  },
+  "blackout": {
+    "kokoro": "blˌɛkˈawt",
+    "ipa": "blˌɛkˈawt"
+  },
+  "blazer": {
+    "kokoro": "blˈejzeɾ",
+    "ipa": "blˈejzeɾ"
+  },
+  "blogger": {
+    "kokoro": "blˈɔɡeɾ",
+    "ipa": "blˈɔɡeɾ"
+  },
+  "body": {
+    "kokoro": "bˈɔʤi",
+    "ipa": "bˈɔdʒi"
+  },
+  "bodybuilding": {
+    "kokoro": "bˌoʤibˈiʊʤiŋ",
+    "ipa": "bˌodʒibˈiwldʒĩ"
+  },
+  "boom": {
+    "kokoro": "bˈũŋ",
+    "ipa": "bˈũ"
+  },
+  "bowling": {
+    "kokoro": "bˈowliŋ",
+    "ipa": "bˈowlĩ"
+  },
+  "box": {
+    "kokoro": "bˈɔks",
+    "ipa": "bˈɔks"
+  },
+  "branding": {
+    "kokoro": "brˈɛ̃ndiŋ",
+    "ipa": "brˈɛ̃ndĩ"
+  },
+  "break": {
+    "kokoro": "brˈejki",
+    "ipa": "brˈejki"
+  },
+  "browser": {
+    "kokoro": "brˈawzeɾ",
+    "ipa": "brˈawzeɾ"
+  },
+  "brunch": {
+    "kokoro": "brˈɐ̃ntʃ",
+    "ipa": "brˈɐ̃ntʃ"
+  },
+  "bullying": {
+    "kokoro": "bˈuliŋ",
+    "ipa": "bˈulĩ"
+  },
+  "burger": {
+    "kokoro": "bˈeɾɡeɾ",
+    "ipa": "bˈeɾɡeɾ"
+  },
+  "call": {
+    "kokoro": "kˈɔw",
+    "ipa": "kˈɔw"
+  },
+  "camping": {
+    "kokoro": "kˈɐ̃mpiŋ",
+    "ipa": "kˈɐ̃mpĩ"
+  },
+  "cash": {
+    "kokoro": "kˈɛʃ",
+    "ipa": "kˈɛʃ"
+  },
+  "cashback": {
+    "kokoro": "kˌɛʃibˈɛki",
+    "ipa": "kˌɛʃibˈɛki"
+  },
+  "casting": {
+    "kokoro": "kˈasʧiŋ",
+    "ipa": "kˈastʃĩ"
+  },
+  "check-out": {
+    "kokoro": "tʃˌɛkˈawt",
+    "ipa": "tʃˌɛkˈawt"
+  },
+  "checklist": {
+    "kokoro": "tʃˌɛkilˈisʧ",
+    "ipa": "tʃˌɛkilˈistʃ"
+  },
+  "cheddar": {
+    "kokoro": "tʃˈɛdaɾ",
+    "ipa": "tʃˈɛdaɾ"
+  },
+  "cheeseburger": {
+    "kokoro": "tʃˌizibˈeɾɡeɾ",
+    "ipa": "tʃˌizibˈeɾɡeɾ"
+  },
+  "cheesecake": {
+    "kokoro": "tʃˌizikˈejki",
+    "ipa": "tʃˌizikˈejki"
+  },
+  "click": {
+    "kokoro": "klˈiki",
+    "ipa": "klˈiki"
+  },
+  "clipe": {
+    "kokoro": "klˈipy",
+    "ipa": "klˈipi"
+  },
+  "closet": {
+    "kokoro": "klˈɔzɛʧ",
+    "ipa": "klˈɔzɛtʃ"
+  },
+  "coaching": {
+    "kokoro": "kˈowʧiŋ",
+    "ipa": "kˈowtʃĩ"
+  },
+  "cocktail": {
+    "kokoro": "kˌɔkitˈeʊ",
+    "ipa": "kˌɔkitˈejw"
+  },
+  "copy": {
+    "kokoro": "kˈɔpi",
+    "ipa": "kˈɔpi"
+  },
+  "copyright": {
+    "kokoro": "kˌɔpirˈajʧ",
+    "ipa": "kˌɔpirˈajtʃ"
+  },
+  "cosplay": {
+    "kokoro": "kˌɔsiplˈej",
+    "ipa": "kˌɔsiplˈej"
+  },
+  "cover": {
+    "kokoro": "kˈɔveɾ",
+    "ipa": "kˈɔveɾ"
+  },
+  "coworking": {
+    "kokoro": "kˌowoɾkˈiŋ",
+    "ipa": "kˌowoɾkˈĩ"
+  },
+  "custom": {
+    "kokoro": "kˈastõ",
+    "ipa": "kˈastõ"
+  },
+  "cyberbullying": {
+    "kokoro": "sˌajbeɾbˈuliŋ",
+    "ipa": "sˌajbeɾbˈulĩ"
+  },
+  "deck": {
+    "kokoro": "dˈɛki",
+    "ipa": "dˈɛki"
+  },
+  "dev": {
+    "kokoro": "dˈɛvi",
+    "ipa": "dˈɛvi"
+  },
+  "digital influencer": {
+    "kokoro": "ʤˌiʒitaw ˌĩnflwˈẽnseɾ",
+    "ipa": "dʒˌiʒitaw ˌĩnflwˈẽnseɾ"
+  },
+  "dj": {
+    "kokoro": "ʤˌiʤˈej",
+    "ipa": "dʒˌidʒˈej"
+  },
+  "drag queen": {
+    "kokoro": "drˌɛɡikwˈĩ",
+    "ipa": "drˌɛɡikwˈĩ"
+  },
+  "dress code": {
+    "kokoro": "drˌɛsikˈoʤi",
+    "ipa": "drˌɛsikˈodʒi"
+  },
+  "drone": {
+    "kokoro": "drˈony",
+    "ipa": "drˈoni"
+  },
+  "drop": {
+    "kokoro": "drˈɔpi",
+    "ipa": "drˈɔpi"
+  },
+  "dropshipping": {
+    "kokoro": "drˌɔpiʃˈipiŋ",
+    "ipa": "drˌɔpiʃˈipĩ"
+  },
+  "e-book": {
+    "kokoro": "ˌibˈuki",
+    "ipa": "ˌibˈuki"
+  },
+  "e-commerce": {
+    "kokoro": "ˌikˈɔmeɾsi",
+    "ipa": "ˌikˈɔmeɾsi"
+  },
+  "e-reader": {
+    "kokoro": "ˌirˈideɾ",
+    "ipa": "ˌirˈideɾ"
+  },
+  "engagement": {
+    "kokoro": "ˌẽjŋɡˌejʤimˈẽntʊ",
+    "ipa": "ˌẽjŋɡˌejdʒimˈẽntw"
+  },
+  "esports": {
+    "kokoro": "ˌi-ispˈɔɾts",
+    "ipa": "ˌi-ispˈɔɾts"
+  },
+  "fake news": {
+    "kokoro": "fˌejkinjˈuz",
+    "ipa": "fˌejkinjˈuz"
+  },
+  "fan": {
+    "kokoro": "fˈɐ̃ŋ",
+    "ipa": "fˈɐ̃"
+  },
+  "fandom": {
+    "kokoro": "fˈɐ̃ndõ",
+    "ipa": "fˈɐ̃ndõ"
+  },
+  "fast food": {
+    "kokoro": "fˌastifˈuʤi",
+    "ipa": "fˌastifˈudʒi"
+  },
+  "feeling": {
+    "kokoro": "fˈiliŋ",
+    "ipa": "fˈilĩ"
+  },
+  "flashback": {
+    "kokoro": "flˌɛʃibˈɛki",
+    "ipa": "flˌɛʃibˈɛki"
+  },
+  "flat": {
+    "kokoro": "flˈɛʧ",
+    "ipa": "flˈɛtʃ"
+  },
+  "flop": {
+    "kokoro": "flˈɔpi",
+    "ipa": "flˈɔpi"
+  },
+  "flow": {
+    "kokoro": "flˈow",
+    "ipa": "flˈow"
+  },
+  "folder": {
+    "kokoro": "fˈowdeɾ",
+    "ipa": "fˈowdeɾ"
+  },
+  "follow": {
+    "kokoro": "fˈɔlow",
+    "ipa": "fˈɔlow"
+  },
+  "follower": {
+    "kokoro": "fˈɔloweɾ",
+    "ipa": "fˈɔloweɾ"
+  },
+  "food truck": {
+    "kokoro": "fˌuʤitrˈɐ̃ki",
+    "ipa": "fˌudʒitrˈɐ̃ki"
+  },
+  "freelancer": {
+    "kokoro": "frˌilˈɐ̃nseɾ",
+    "ipa": "frˌilˈɐ̃nseɾ"
+  },
+  "freezer": {
+    "kokoro": "frˈizeɾ",
+    "ipa": "frˈizeɾ"
+  },
+  "front-end": {
+    "kokoro": "frˌõntˈẽjnd",
+    "ipa": "frˌõntˈẽjnd"
+  },
+  "gadget": {
+    "kokoro": "ɡˈɛʤeʧ",
+    "ipa": "ɡˈɛdʒetʃ"
+  },
+  "gaming": {
+    "kokoro": "ɡˈejmiŋ",
+    "ipa": "ɡˈejmĩ"
+  },
+  "gap": {
+    "kokoro": "ɡˈɛpi",
+    "ipa": "ɡˈɛpi"
+  },
+  "gate": {
+    "kokoro": "ɡˈejʧ",
+    "ipa": "ɡˈejtʃ"
+  },
+  "gif": {
+    "kokoro": "ʒˈifi",
+    "ipa": "ʒˈifi"
+  },
+  "gin": {
+    "kokoro": "ʒˈĩ",
+    "ipa": "ʒˈĩ"
+  },
+  "glitter": {
+    "kokoro": "ɡlˈiteɾ",
+    "ipa": "ɡlˈiteɾ"
+  },
+  "googlear": {
+    "kokoro": "ɡˌuɡleˈaɾ",
+    "ipa": "ɡˌuɡleˈaɾ"
+  },
+  "gospel": {
+    "kokoro": "ɡˈɔspew",
+    "ipa": "ɡˈɔspew"
+  },
+  "hack": {
+    "kokoro": "xˈɛki",
+    "ipa": "xˈɛki"
+  },
+  "hamburger": {
+    "kokoro": "xɐ̃ŋbˈuɾɡeɾ",
+    "ipa": "xɐ̃ŋbˈuɾɡeɾ"
+  },
+  "handicap": {
+    "kokoro": "xˈɐ̃ndikɛp",
+    "ipa": "xˈɐ̃ndikɛp"
+  },
+  "handmade": {
+    "kokoro": "xˌɛndimˈejʤi",
+    "ipa": "xˌɛndimˈejdʒi"
+  },
+  "hashtag": {
+    "kokoro": "xˌɛʃitˈɛɡi",
+    "ipa": "xˌɛʃitˈɛɡi"
+  },
+  "headphone": {
+    "kokoro": "xˌɛʤifˈony",
+    "ipa": "xˌɛdʒifˈoni"
+  },
+  "headset": {
+    "kokoro": "xˌɛʤisˈɛʧ",
+    "ipa": "xˌɛdʒisˈɛtʃ"
+  },
+  "help desk": {
+    "kokoro": "xˌɛʊpidˈɛski",
+    "ipa": "xˌɛwpidˈɛski"
+  },
+  "highlight": {
+    "kokoro": "xˌajlˈajʧ",
+    "ipa": "xˌajlˈajtʃ"
+  },
+  "hip hop": {
+    "kokoro": "xˌipixˈɔpi",
+    "ipa": "xˌipixˈɔpi"
+  },
+  "hit": {
+    "kokoro": "xˈiʧ",
+    "ipa": "xˈitʃ"
+  },
+  "home office": {
+    "kokoro": "xˌomjˈɔfisy",
+    "ipa": "xˌomjˈɔfisi"
+  },
+  "homepage": {
+    "kokoro": "xˈomipˌejʤi",
+    "ipa": "xˈomipˌejdʒi"
+  },
+  "host": {
+    "kokoro": "xˈɔsʧ",
+    "ipa": "xˈɔstʃ"
+  },
+  "hosting": {
+    "kokoro": "xˈɔsʧiŋ",
+    "ipa": "xˈɔstʃĩ"
+  },
+  "hot dog": {
+    "kokoro": "xˌɔʧidˈɔɡi",
+    "ipa": "xˌɔtʃidˈɔɡi"
+  },
+  "hub": {
+    "kokoro": "xˈɐ̃bi",
+    "ipa": "xˈɐ̃bi"
+  },
+  "hype": {
+    "kokoro": "xˈajpi",
+    "ipa": "xˈajpi"
+  },
+  "influencer": {
+    "kokoro": "ˌĩnflwˈẽnseɾ",
+    "ipa": "ˌĩnflwˈẽnseɾ"
+  },
+  "insight": {
+    "kokoro": "ˌĩnsˈajʧ",
+    "ipa": "ˌĩnsˈajtʃ"
+  },
+  "internet": {
+    "kokoro": "ˌĩnteɾnˈɛʧ",
+    "ipa": "ˌĩnteɾnˈɛtʃ"
+  },
+  "intranet": {
+    "kokoro": "ˌĩntranˈɛʧ",
+    "ipa": "ˌĩntranˈɛtʃ"
+  },
+  "jazz": {
+    "kokoro": "ʤˈɛz",
+    "ipa": "dʒˈɛz"
+  },
+  "jingle": {
+    "kokoro": "ʤˈĩŋɡoʊ",
+    "ipa": "dʒˈĩŋɡol"
+  },
+  "job": {
+    "kokoro": "ʤˈɔbi",
+    "ipa": "dʒˈɔbi"
+  },
+  "joystick": {
+    "kokoro": "ʤˈɔjstiʧ",
+    "ipa": "dʒˈɔjstik"
+  },
+  "know-how": {
+    "kokoro": "nˌoʊhˈaw",
+    "ipa": "nˌowhˈaw"
+  },
+  "leader": {
+    "kokoro": "lˈideɾ",
+    "ipa": "lˈideɾ"
+  },
+  "lifestyle": {
+    "kokoro": "lˌajfistˈajw",
+    "ipa": "lˌajfistˈajw"
+  },
+  "like": {
+    "kokoro": "lˈajki",
+    "ipa": "lˈajki"
+  },
+  "loading": {
+    "kokoro": "lˈowʤiŋ",
+    "ipa": "lˈowdʒĩ"
+  },
+  "lobby": {
+    "kokoro": "lˈɔbi",
+    "ipa": "lˈɔbi"
+  },
+  "loop": {
+    "kokoro": "lˈupi",
+    "ipa": "lˈupi"
+  },
+  "low cost": {
+    "kokoro": "lˌowkˈɔsʧ",
+    "ipa": "lˌowkˈɔstʃ"
+  },
+  "manager": {
+    "kokoro": "mˈɛnaʤeɾ",
+    "ipa": "mˈɛnadʒeɾ"
+  },
+  "media": {
+    "kokoro": "mˈiʤiæ",
+    "ipa": "mˈidʒiə"
+  },
+  "mentoring": {
+    "kokoro": "mˌentoɾˈiŋ",
+    "ipa": "mˌentoɾˈĩ"
+  },
+  "merchandising": {
+    "kokoro": "mˌeɾtʃɐ̃ndˈajziŋ",
+    "ipa": "mˌeɾtʃɐ̃ndˈajzĩ"
+  },
+  "metaverso": {
+    "kokoro": "mˌetavˈɛɾsʊ",
+    "ipa": "mˌetavˈɛɾsw"
+  },
+  "milkshake": {
+    "kokoro": "mˌiʊkiʃˈejki",
+    "ipa": "mˌiwkiʃˈejki"
+  },
+  "mindset": {
+    "kokoro": "mˌajndisˈɛʧ",
+    "ipa": "mˌajndisˈɛtʃ"
+  },
+  "mix": {
+    "kokoro": "mˈiks",
+    "ipa": "mˈiks"
+  },
+  "mobile": {
+    "kokoro": "mˈobaʊ",
+    "ipa": "mˈobajw"
+  },
+  "modem": {
+    "kokoro": "mˈɔdẽj",
+    "ipa": "mˈɔdẽj"
+  },
+  "multiplayer": {
+    "kokoro": "mˌuʊtiplˈejer",
+    "ipa": "mˌuwtiplˈejer"
+  },
+  "network": {
+    "kokoro": "nˌɛtwˈeɾki",
+    "ipa": "nˌɛtwˈeɾki"
+  },
+  "networking": {
+    "kokoro": "nˌɛtwˈeɾkiŋ",
+    "ipa": "nˌɛtwˈeɾkĩ"
+  },
+  "newsletter": {
+    "kokoro": "njˌuzilˈɛteɾ",
+    "ipa": "njˌuzilˈɛteɾ"
+  },
+  "open bar": {
+    "kokoro": "ˌopẽjbˈaɾ",
+    "ipa": "ˌopẽjbˈaɾ"
+  },
+  "open source": {
+    "kokoro": "ˌopẽjsˈɔɾsi",
+    "ipa": "ˌopẽjsˈɔɾsi"
+  },
+  "outlet": {
+    "kokoro": "ˌawtilˈɛʧ",
+    "ipa": "ˌawtilˈɛtʃ"
+  },
+  "outsourcing": {
+    "kokoro": "ˌawtsˈoɾsiŋ",
+    "ipa": "ˌawtsˈoɾsĩ"
+  },
+  "oversize": {
+    "kokoro": "ˌoveɾsˈajzi",
+    "ipa": "ˌoveɾsˈajzi"
+  },
+  "packaging": {
+    "kokoro": "pˌɛkaʤˈiŋ",
+    "ipa": "pˌɛkadʒˈĩ"
+  },
+  "paintball": {
+    "kokoro": "pˌejnʧibˈɔw",
+    "ipa": "pˌejntʃibˈɔw"
+  },
+  "parka": {
+    "kokoro": "pˈaɾkæ",
+    "ipa": "pˈaɾkə"
+  },
+  "performance": {
+    "kokoro": "pˌeɾfˈɔɾmɐ̃nsy",
+    "ipa": "pˌeɾfˈɔɾmɐ̃nsi"
+  },
+  "personal trainer": {
+    "kokoro": "pˌeɾsonaw trˈejneɾ",
+    "ipa": "pˌeɾsonaw trˈejneɾ"
+  },
+  "pet shop": {
+    "kokoro": "pˌɛʧiʃˈɔpi",
+    "ipa": "pˌɛtʃiʃˈɔpi"
+  },
+  "playback": {
+    "kokoro": "plˌejbˈɛki",
+    "ipa": "plˌejbˈɛki"
+  },
+  "playground": {
+    "kokoro": "plˌejɡrˈawnd",
+    "ipa": "plˌejɡrˈawnd"
+  },
+  "plugin": {
+    "kokoro": "plˈaɡĩ",
+    "ipa": "plˈaɡĩ"
+  },
+  "pool": {
+    "kokoro": "pˈuw",
+    "ipa": "pˈuw"
+  },
+  "pop": {
+    "kokoro": "pˈɔpi",
+    "ipa": "pˈɔpi"
+  },
+  "power bank": {
+    "kokoro": "pˌaweɾbˈɐ̃ŋki",
+    "ipa": "pˌaweɾbˈɐ̃ki"
+  },
+  "print": {
+    "kokoro": "prˈĩnʧ",
+    "ipa": "prˈĩntʃ"
+  },
+  "punk": {
+    "kokoro": "pˈɐ̃ŋki",
+    "ipa": "pˈɐ̃ki"
+  },
+  "push": {
+    "kokoro": "pˈuʃ",
+    "ipa": "pˈuʃ"
+  },
+  "quiz": {
+    "kokoro": "kwˈiz",
+    "ipa": "kwˈiz"
+  },
+  "rap": {
+    "kokoro": "xˈɛpi",
+    "ipa": "xˈɛpi"
+  },
+  "reality show": {
+    "kokoro": "xˌealiʧiʃˈow",
+    "ipa": "xˌealitʃiʃˈow"
+  },
+  "reboot": {
+    "kokoro": "xˌebˈuʧ",
+    "ipa": "xˌebˈutʃ"
+  },
+  "reels": {
+    "kokoro": "xˈiʊs",
+    "ipa": "xˈiws"
+  },
+  "release": {
+    "kokoro": "xˌelˈisy",
+    "ipa": "xˌelˈisi"
+  },
+  "remake": {
+    "kokoro": "xˌemˈejki",
+    "ipa": "xˌemˈejki"
+  },
+  "rollout": {
+    "kokoro": "xˌolˈawt",
+    "ipa": "xˌolˈawt"
+  },
+  "router": {
+    "kokoro": "xˈowteɾ",
+    "ipa": "xˈowteɾ"
+  },
+  "running": {
+    "kokoro": "xˈɐ̃niŋ",
+    "ipa": "xˈɐ̃nĩ"
+  },
+  "sandbox": {
+    "kokoro": "sˌɐ̃ŋdibˈɔks",
+    "ipa": "sˌɐ̃dibˈɔks"
+  },
+  "scanner": {
+    "kokoro": "skˈɐ̃neɾ",
+    "ipa": "skˈɐ̃neɾ"
+  },
+  "scrum": {
+    "kokoro": "skrˈɐ̃ŋ",
+    "ipa": "skrˈɐ̃"
+  },
+  "self-service": {
+    "kokoro": "sˌɛʊfisˈeɾvisy",
+    "ipa": "sˌɛwfisˈeɾvisi"
+  },
+  "selfie": {
+    "kokoro": "sˈɛʊfi",
+    "ipa": "sˈɛwfi"
+  },
+  "server": {
+    "kokoro": "sˈeɾveɾ",
+    "ipa": "sˈeɾveɾ"
+  },
+  "share": {
+    "kokoro": "ʃˈɛɾ",
+    "ipa": "ʃˈɛɾ"
+  },
+  "skate": {
+    "kokoro": "skˈejʧ",
+    "ipa": "skˈejtʃ"
+  },
+  "skin care": {
+    "kokoro": "skˌĩnkˈɛɾ",
+    "ipa": "skˌĩnkˈɛɾ"
+  },
+  "slang": {
+    "kokoro": "slˈɛ̃ŋ",
+    "ipa": "slˈɛ̃"
+  },
+  "smart": {
+    "kokoro": "smˈaɾʧ",
+    "ipa": "smˈaɾtʃ"
+  },
+  "smartwatch": {
+    "kokoro": "smˌaɾtwˈɔʧ",
+    "ipa": "smˌaɾtwˈɔtʃ"
+  },
+  "smoking": {
+    "kokoro": "smˈokiŋ",
+    "ipa": "smˈokĩ"
+  },
+  "smoothie": {
+    "kokoro": "smˈuʧi",
+    "ipa": "smˈutʃi"
+  },
+  "snack": {
+    "kokoro": "snˈɛki",
+    "ipa": "snˈɛki"
+  },
+  "speaker": {
+    "kokoro": "spˈikeɾ",
+    "ipa": "spˈikeɾ"
+  },
+  "stream": {
+    "kokoro": "strˈĩ",
+    "ipa": "strˈĩ"
+  },
+  "streamer": {
+    "kokoro": "strˈimeɾ",
+    "ipa": "strˈimeɾ"
+  },
+  "streetwear": {
+    "kokoro": "strˌiʧiwˈɛɾ",
+    "ipa": "strˌitʃiwˈɛɾ"
+  },
+  "stress": {
+    "kokoro": "strˈɛs",
+    "ipa": "strˈɛs"
+  },
+  "surf": {
+    "kokoro": "sˈeɾfi",
+    "ipa": "sˈeɾfi"
+  },
+  "talk show": {
+    "kokoro": "tˌɔkiʃˈow",
+    "ipa": "tˌɔkiʃˈow"
+  },
+  "target": {
+    "kokoro": "tˈaɾɡeʧ",
+    "ipa": "tˈaɾɡetʃ"
+  },
+  "task": {
+    "kokoro": "tˈaski",
+    "ipa": "tˈaski"
+  },
+  "team": {
+    "kokoro": "tˈĩ",
+    "ipa": "tˈĩ"
+  },
+  "template": {
+    "kokoro": "tˌẽjmplˈejʧ",
+    "ipa": "tˌẽjmplˈejtʃ"
+  },
+  "test drive": {
+    "kokoro": "tˌɛsʧidrˈajvi",
+    "ipa": "tˌɛstʃidrˈajvi"
+  },
+  "thumbnail": {
+    "kokoro": "tˌɐ̃mbnˈeʊ",
+    "ipa": "tˌɐ̃mbnˈejw"
+  },
+  "timing": {
+    "kokoro": "tˈajmiŋ",
+    "ipa": "tˈajmĩ"
+  },
+  "tips": {
+    "kokoro": "tˈipis",
+    "ipa": "tˈipis"
+  },
+  "top": {
+    "kokoro": "tˈɔpi",
+    "ipa": "tˈɔpi"
+  },
+  "training": {
+    "kokoro": "trˈejniŋ",
+    "ipa": "trˈejnĩ"
+  },
+  "trending": {
+    "kokoro": "trˈẽjndiŋ",
+    "ipa": "trˈẽjndĩ"
+  },
+  "url": {
+    "kokoro": "ˌu-ˌɛxi-ˈɛʊ",
+    "ipa": "ˌu-ˌɛxi-ˈɛw"
+  },
+  "username": {
+    "kokoro": "jˌuzeɾnˈejm",
+    "ipa": "jˌuzeɾnˈejm"
+  },
+  "vape": {
+    "kokoro": "vˈejpi",
+    "ipa": "vˈejpi"
+  },
+  "viral": {
+    "kokoro": "virˈaʊ",
+    "ipa": "virˈaw"
+  },
+  "virtual": {
+    "kokoro": "viɾtwˈaʊ",
+    "ipa": "viɾtwˈaw"
+  },
+  "walkie-talkie": {
+    "kokoro": "wˌɔkitˈɔki",
+    "ipa": "wˌɔkitˈɔki"
+  },
+  "web": {
+    "kokoro": "wˈɛbi",
+    "ipa": "wˈɛbi"
+  },
+  "webcam": {
+    "kokoro": "wˈɛbikɐ̃ŋ",
+    "ipa": "wˈɛbikɐ̃"
+  },
+  "weekend": {
+    "kokoro": "wˌikˈẽjnd",
+    "ipa": "wˌikˈẽjnd"
+  },
+  "wellness": {
+    "kokoro": "wˈɛʊnes",
+    "ipa": "wˈɛwnes"
+  },
+  "widget": {
+    "kokoro": "wˈiʤeʧ",
+    "ipa": "wˈidʒetʃ"
+  },
+  "wireless": {
+    "kokoro": "wˈajɾlis",
+    "ipa": "wˈajɾlis"
+  },
+  "workaholic": {
+    "kokoro": "wˌoɾkahˈɔliku",
+    "ipa": "wˌoɾkahˈɔliku"
+  },
+  "workflow": {
+    "kokoro": "wˈoɾkiflˌow",
+    "ipa": "wˈoɾkiflˌow"
+  },
+  "workspace": {
+    "kokoro": "wˈoɾkispˌejsi",
+    "ipa": "wˈoɾkispˌejsi"
+  },
+  "zoom": {
+    "kokoro": "zˈũŋ",
+    "ipa": "zˈũ"
+  },
+  "air": {
+    "kokoro": "ˈɛɾ",
+    "ipa": "ˈɛɾ"
+  },
+  "fryer": {
+    "kokoro": "frˈajeɾ",
+    "ipa": "frˈajeɾ"
+  },
+  "black": {
+    "kokoro": "blˈɛki",
+    "ipa": "blˈɛki"
+  },
+  "friday": {
+    "kokoro": "frˈajdej",
+    "ipa": "frˈajdej"
+  },
+  "drag": {
+    "kokoro": "drˈɛɡi",
+    "ipa": "drˈɛɡi"
+  },
+  "queen": {
+    "kokoro": "kwˈĩ",
+    "ipa": "kwˈĩ"
+  },
+  "dress": {
+    "kokoro": "drˈɛsi",
+    "ipa": "drˈɛsi"
+  },
+  "code": {
+    "kokoro": "kˈoʤi",
+    "ipa": "kˈodʒi"
+  },
+  "news": {
+    "kokoro": "njˈuz",
+    "ipa": "njˈuz"
+  },
+  "fast": {
+    "kokoro": "fˈasʧ",
+    "ipa": "fˈastʃ"
+  },
+  "food": {
+    "kokoro": "fˈuʤi",
+    "ipa": "fˈudʒi"
+  },
+  "truck": {
+    "kokoro": "trˈɐ̃ki",
+    "ipa": "trˈɐ̃ki"
+  },
+  "help": {
+    "kokoro": "xˈɛʊpi",
+    "ipa": "xˈɛwpi"
+  },
+  "desk": {
+    "kokoro": "dˈɛski",
+    "ipa": "dˈɛski"
+  },
+  "hip": {
+    "kokoro": "xˈipi",
+    "ipa": "xˈipi"
+  },
+  "hop": {
+    "kokoro": "xˈɔpi",
+    "ipa": "xˈɔpi"
+  },
+  "home": {
+    "kokoro": "xˈomi",
+    "ipa": "xˈomi"
+  },
+  "office": {
+    "kokoro": "ˈɔfisy",
+    "ipa": "ˈɔfisi"
+  },
+  "hot": {
+    "kokoro": "xˈɔʧ",
+    "ipa": "xˈɔtʃ"
+  },
+  "low": {
+    "kokoro": "lˈow",
+    "ipa": "lˈow"
+  },
+  "cost": {
+    "kokoro": "kˈɔsʧ",
+    "ipa": "kˈɔstʃ"
+  },
+  "source": {
+    "kokoro": "sˈɔɾsi",
+    "ipa": "sˈɔɾsi"
+  },
+  "trainer": {
+    "kokoro": "trˈejneɾ",
+    "ipa": "trˈejneɾ"
+  },
+  "shop": {
+    "kokoro": "ʃˈɔpi",
+    "ipa": "ʃˈɔpi"
+  },
+  "power": {
+    "kokoro": "pˈaweɾ",
+    "ipa": "pˈaweɾ"
+  },
+  "bank": {
+    "kokoro": "bˈɐ̃ŋki",
+    "ipa": "bˈɐ̃ki"
+  },
+  "reality": {
+    "kokoro": "xˌealiʧi",
+    "ipa": "xˌealitʃi"
+  },
+  "skin": {
+    "kokoro": "skˈĩ",
+    "ipa": "skˈĩ"
+  },
+  "care": {
+    "kokoro": "kˈɛɾ",
+    "ipa": "kˈɛɾ"
+  },
+  "talk": {
+    "kokoro": "tˈɔki",
+    "ipa": "tˈɔki"
+  },
+  "test": {
+    "kokoro": "tˈɛsʧ",
+    "ipa": "tˈɛstʃ"
   }
 }
