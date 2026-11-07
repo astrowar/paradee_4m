@@ -1,62 +1,17 @@
 import json
-import sqlite3
 import os
-import ctypes
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-lexicon_db = "/home/eraldomr/.gemini/tmp/paradee/lexicon_sp.db"
-freq_file = "/home/eraldomr/.gemini/tmp/paradee/frequencias_ptbr_50k.txt"
 exceptions_json_path = os.path.join(script_dir, "exceptions_ptbr.json")
-loanwords_json_path = os.path.join(script_dir, "loanwords_ptbr.json")
 embedded_exceptions_h = os.path.join(script_dir, "../include/embedded_exceptions.h")
 
-# Carregar biblioteca compartilhada para testar o motor de regras
-lib = ctypes.CDLL(os.path.join(script_dir, "../build/libphonemas_ptbr.so"))
-lib.phonemas_ptbr_translate_rules_only.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_size_t, ctypes.c_int]
-lib.phonemas_ptbr_translate_rules_only.restype = ctypes.c_size_t
+# Tabela curada estrita de 96 exceções essenciais do Português Brasileiro:
+# 1. Clíticos monossilábicos átonos (nunca recebem acento primário ˈ)
+# 2. Palavras de altíssima frequência com vogal aberta (/ɛ/ e /ɔ/) real no Brasil
+# 3. Hiatos irregulares consolidados (ainda, amendoim)
 
-def rules_only(w, mode=0):
-    buf = ctypes.create_string_buffer(1024)
-    lib.phonemas_ptbr_translate_rules_only(w.encode('utf-8'), buf, 1024, mode)
-    return buf.value.decode('utf-8')
-
-# 1. Carregar loanwords para evitar duplicatas
-with open(loanwords_json_path, encoding='utf-8') as f:
-    loanwords = set(json.load(f).keys())
-
-# 2. Detector dinâmico de numerais romanos (I a MMMCMXCIX)
-def is_roman_numeral(s):
-    roman_map = {'i': 1, 'v': 5, 'x': 10, 'l': 50, 'c': 100, 'd': 500, 'm': 1000}
-    s = s.lower()
-    if not all(ch in roman_map for ch in s) or len(s) == 0:
-        return False
-    if len(s) == 1:
-        return False
-    total = 0
-    prev = 0
-    for ch in reversed(s):
-        val = roman_map[ch]
-        if val < prev:
-            total -= val
-        else:
-            total += val
-            prev = val
-    return total > 0 and total <= 3999
-
-# 3. Palavras comprovadamente corrompidas, arcaicas ou grafias antigas de espeak
-junk_words = {
-    'approximadammte', 'approximando', 'approximava', 'deixal', 'fazelo', 'dizelo',
-    'proximo', 'proxima', 'extraordinario', 'extraordinaria', 'inexplicavel', 'inumeros',
-    'rapida', 'deux', 'extranho', 'extranhas', 'excellente', 'excellencia', 'exhausto',
-    'syntaxe', 'abaxo', 'afrôxar', 'agaxi', 'app', 'backup', 'blog', 'bluetooth',
-    'bytes', 'byte', 'chat', 'design', 'designer', 'desktop', 'download', 'email',
-    'feedback', 'game', 'hardware', 'internet', 'laptop', 'login', 'logout', 'marketing',
-    'mouse', 'pixel', 'post', 'show', 'site', 'smartphone', 'software', 'start',
-    'upload', 'web', 'games', 'megabytes', 'gigabytes', 'video', 'view', 'c'
-}
-
-# 4. Clíticos gramaticais essenciais
-clitics_map = {
+curated_map = {
+    # Clíticos átonos
     'os': {'kokoro': 'ʊs', 'ipa': 'ws'},
     'as': {'kokoro': 'as', 'ipa': 'as'},
     'de': {'kokoro': 'ʤj', 'ipa': 'di'},
@@ -84,76 +39,96 @@ clitics_map = {
     'pro': {'kokoro': 'pɾʊ', 'ipa': 'pɾw'},
     'não': {'kokoro': 'nˌɐ̃ʊ̃', 'ipa': 'nɐ̃w̃'},
     'muito': {'kokoro': 'mwˈiŋtʊ', 'ipa': 'mwˈĩtw'},
-    'também': {'kokoro': 'tɐ̃mbˈAŋ', 'ipa': 'tɐ̃mbẽj'}
+    'também': {'kokoro': 'tɐ̃mbˈAŋ', 'ipa': 'tɐ̃mbẽj'},
+
+    # Palavras de altíssima frequência com vogal aberta (/ɛ/ e /ɔ/) real no Brasil
+    'era': {'kokoro': 'ˈɛɾæ', 'ipa': 'ˈɛɾə'},
+    'essa': {'kokoro': 'ˈɛsæ', 'ipa': 'ˈɛsə'},
+    'esse': {'kokoro': 'ˈɛsy', 'ipa': 'ˈɛsi'},
+    'esses': {'kokoro': 'ˈɛsys', 'ipa': 'ˈɛsis'},
+    'essas': {'kokoro': 'ˈɛsæs', 'ipa': 'ˈɛsəs'},
+    'esta': {'kokoro': 'ˈɛstæ', 'ipa': 'ˈɛstə'},
+    'estas': {'kokoro': 'ˈɛstæs', 'ipa': 'ˈɛstəs'},
+    'este': {'kokoro': 'ˈɛsʧy', 'ipa': 'ˈɛstʃi'},
+    'estes': {'kokoro': 'ˈɛsʧys', 'ipa': 'ˈɛstʃis'},
+    'ela': {'kokoro': 'ˈɛlæ', 'ipa': 'ˈɛlə'},
+    'elas': {'kokoro': 'ˈɛlæs', 'ipa': 'ˈɛləs'},
+    'ele': {'kokoro': 'ˈely', 'ipa': 'ˈeli'},
+    'eles': {'kokoro': 'ˈelys', 'ipa': 'ˈelis'},
+    'melhor': {'kokoro': 'meʎˈɔɾ', 'ipa': 'meʎˈɔɾ'},
+    'melhores': {'kokoro': 'meʎˈɔɾys', 'ipa': 'meʎˈɔɾis'},
+    'pelo': {'kokoro': 'pˈɛlʊ', 'ipa': 'pˈɛlw'},
+    'pela': {'kokoro': 'pˈɛlæ', 'ipa': 'pˈɛlə'},
+    'pelos': {'kokoro': 'pˈɛlʊs', 'ipa': 'pˈɛlws'},
+    'pelas': {'kokoro': 'pˈɛlæs', 'ipa': 'pˈɛləs'},
+    'deve': {'kokoro': 'dˈɛvy', 'ipa': 'dˈɛvi'},
+    'devem': {'kokoro': 'dˈɛvẽj', 'ipa': 'dˈɛvẽj'},
+    'fora': {'kokoro': 'fˈɔɾæ', 'ipa': 'fˈɔɾə'},
+    'qualquer': {'kokoro': 'kwaʊkˈɛɾ', 'ipa': 'kwawkˈɛɾ'},
+    'nosso': {'kokoro': 'nˈɔsʊ', 'ipa': 'nˈɔsw'},
+    'nossa': {'kokoro': 'nˈɔsæ', 'ipa': 'nˈɔsə'},
+    'nossos': {'kokoro': 'nˈɔsʊs', 'ipa': 'nˈɔsws'},
+    'nossas': {'kokoro': 'nˈɔsæs', 'ipa': 'nˈɔsəs'},
+    'volta': {'kokoro': 'vˈɔʊtæ', 'ipa': 'vˈɔwtə'},
+    'voltam': {'kokoro': 'vˈɔʊtɐ̃ʊ̃', 'ipa': 'vˈɔwtɐ̃w̃'},
+    'embora': {'kokoro': 'Aŋbˈɔɾæ', 'ipa': 'ĩbˈɔɾə'},
+    'aquela': {'kokoro': 'akˈɛlæ', 'ipa': 'akˈɛlə'},
+    'aquelas': {'kokoro': 'akˈɛlæs', 'ipa': 'akˈɛləs'},
+    'aquele': {'kokoro': 'akˈɛly', 'ipa': 'akˈɛli'},
+    'aqueles': {'kokoro': 'akˈɛlys', 'ipa': 'akˈɛlis'},
+    'chefe': {'kokoro': 'ʃˈɛfy', 'ipa': 'ʃˈɛfi'},
+    'chefes': {'kokoro': 'ʃˈɛfys', 'ipa': 'ʃˈɛfis'},
+    'espera': {'kokoro': 'espˈɛɾæ', 'ipa': 'ispˈɛɾə'},
+    'droga': {'kokoro': 'drˈɔɡæ', 'ipa': 'dɾˈɔgə'},
+    'drogas': {'kokoro': 'drˈɔɡæs', 'ipa': 'dɾˈɔgəs'},
+    'maior': {'kokoro': 'mIˈɔɾ', 'ipa': 'majˈɔɾ'},
+    'maiores': {'kokoro': 'mIˈɔɾys', 'ipa': 'majˈɔɾis'},
+    'velho': {'kokoro': 'vˈɛʎʊ', 'ipa': 'vˈɛʎw'},
+    'velha': {'kokoro': 'vˈɛʎæ', 'ipa': 'vˈɛʎə'},
+    'velhos': {'kokoro': 'vˈɛʎʊs', 'ipa': 'vˈɛʎws'},
+    'velhas': {'kokoro': 'vˈɛʎæs', 'ipa': 'vˈɛʎəs'},
+    'telefone': {'kokoro': 'ˌteli-fˈɔny', 'ipa': 'telefˈɔni'},
+    'telefones': {'kokoro': 'ˌteli-fˈɔnys', 'ipa': 'telefˈɔnis'},
+    'jovem': {'kokoro': 'ʒˈɔvẽj', 'ipa': 'ʒˈɔvẽj'},
+    'jovens': {'kokoro': 'ʒˈɔvẽjs', 'ipa': 'ʒˈɔvẽjs'},
+    'pior': {'kokoro': 'piˈɔɾ', 'ipa': 'piˈɔɾ'},
+    'piores': {'kokoro': 'piˈɔɾys', 'ipa': 'piˈɔɾis'},
+    'resto': {'kokoro': 'xˈɛstʊ', 'ipa': 'xˈɛstw'},
+    'foto': {'kokoro': 'fˈɔtʊ', 'ipa': 'fˈɔtw'},
+    'fotos': {'kokoro': 'fˈɔtʊs', 'ipa': 'fˈɔtws'},
+    'corpo': {'kokoro': 'kˈɔɾpʊ', 'ipa': 'kˈɔɾpw'},
+    'corpos': {'kokoro': 'kˈɔɾpʊs', 'ipa': 'kˈɔɾpws'},
+    'perde': {'kokoro': 'pˈɛɾʤy', 'ipa': 'pˈɛɾdʒi'},
+    'perdem': {'kokoro': 'pˈɛɾdẽj', 'ipa': 'pˈɛɾdẽj'},
+    'leva': {'kokoro': 'lˈɛvæ', 'ipa': 'lˈɛvə'},
+    'levam': {'kokoro': 'lˈɛvɐ̃ʊ̃', 'ipa': 'lˈɛvɐ̃w̃'},
+    'pega': {'kokoro': 'pˈɛɡæ', 'ipa': 'pˈɛgə'},
+    'pegam': {'kokoro': 'pˈɛɡɐ̃ʊ̃', 'ipa': 'pˈɛgɐ̃w̃'},
+    'belo': {'kokoro': 'bˈɛlʊ', 'ipa': 'bˈɛlw'},
+    'bela': {'kokoro': 'bˈɛlæ', 'ipa': 'bˈɛlə'},
+    'belos': {'kokoro': 'bˈɛlʊs', 'ipa': 'bˈɛlws'},
+    'belas': {'kokoro': 'bˈɛlæs', 'ipa': 'bˈɛləs'},
+
+    # Hiatos irregulares
+    'ainda': {'kokoro': 'aˈĩŋdæ', 'ipa': 'aˈĩdə'},
+    'amendoim': {'kokoro': 'ˌamAŋdwˈiŋ', 'ipa': 'amẽdwˈĩ'}
 }
 
-# 5. Carregar exceptions_ptbr.json atual
-with open(exceptions_json_path, encoding='utf-8') as f:
-    current_exceptions = json.load(f)
+sorted_curated = sorted(curated_map.items(), key=lambda x: x[0])
 
-curated = {}
-
-# Adicionar clíticos
-for w, val in clitics_map.items():
-    curated[w] = val
-
-# Processar as demais exceções
-pruned_counts = {'loan': 0, 'roman': 0, 'junk': 0, 'redundant': 0, 'kept': 0}
-
-for w, val in current_exceptions.items():
-    if w in clitics_map:
-        continue
-    if w in loanwords:
-        pruned_counts['loan'] += 1
-        continue
-    if is_roman_numeral(w):
-        pruned_counts['roman'] += 1
-        continue
-    if w in junk_words or len(w) <= 1:
-        pruned_counts['junk'] += 1
-        continue
-        
-    exp_k = val['kokoro'] if isinstance(val, dict) else val
-    exp_ipa = val['ipa'] if isinstance(val, dict) else val
-    
-    # Normalizar r final para ɾ
-    if exp_k.endswith('r') and not exp_k.endswith('ar'):
-        exp_k = exp_k[:-1] + 'ɾ'
-    if exp_ipa.endswith('r') and not exp_ipa.endswith('ar'):
-        exp_ipa = exp_ipa[:-1] + 'ɾ'
-        
-    pred_k = rules_only(w, 0)
-    pred_ipa = rules_only(w, 1)
-    
-    # Se a regra pura já gera exatamente o mesmo fonema (sem precisar de exceção)
-    if pred_k == exp_k and pred_ipa == exp_ipa:
-        pruned_counts['redundant'] += 1
-        continue
-        
-    curated[w] = {'kokoro': exp_k, 'ipa': exp_ipa}
-    pruned_counts['kept'] += 1
-
-print('=== RESULTADO DA AUDITORIA E CURADORIA DE EXCEÇÕES ===')
-print(f"Total de exceções antes: {len(current_exceptions)}")
-print(f" - Removidas duplicatas de loanwords: {pruned_counts['loan']}")
-print(f" - Removidos numerais romanos: {pruned_counts['roman']}")
-print(f" - Removidos termos arcaicos/corrompidos/lixo: {pruned_counts['junk']}")
-print(f" - Removidas palavras onde a REGRA JÁ ACERTA 100%: {pruned_counts['redundant']}")
-print(f"Total final de exceções curadas e estritamente necessárias: {len(curated)}")
-
-# Salvar exceptions_ptbr.json limpo e ordenado
-sorted_curated = sorted(curated.items(), key=lambda x: x[0])
+# Salvar exceptions_ptbr.json
 with open(exceptions_json_path, 'w', encoding='utf-8') as f:
     json.dump(dict(sorted_curated), f, ensure_ascii=False, indent=2)
 
-# Gerar include/embedded_exceptions.h enxuto
+# Gerar include/embedded_exceptions.h
 with open(embedded_exceptions_h, 'w', encoding='utf-8') as f:
     f.write("#ifndef EMBEDDED_EXCEPTIONS_H\n")
     f.write("#define EMBEDDED_EXCEPTIONS_H\n\n")
     f.write("#include <stddef.h>\n\n")
     f.write("/**\n")
-    f.write(" * @brief Tabela curada de exceções gramaticais e irregularidades fonéticas essenciais.\n")
-    f.write(" * Armazena a transcrição tanto para o vocabulário do Kokoro quanto para o Standard IPA.\n")
+    f.write(" * @brief Tabela essencial e estritamente curada de exceções gramaticais pt-BR.\n")
+    f.write(" * Contém unicamente os clíticos átonos, hiatos consolidados e aberturas vocálicas\n")
+    f.write(" * de altíssima frequência que fogem de regras morfológicas produtivas.\n")
     f.write(" */\n")
     f.write("struct ExceptionEntry {\n")
     f.write("    const char* word;\n")
@@ -171,4 +146,4 @@ with open(embedded_exceptions_h, 'w', encoding='utf-8') as f:
     f.write(f"static const size_t EMBEDDED_EXCEPTIONS_SIZE = {len(sorted_curated)};\n\n")
     f.write("#endif // EMBEDDED_EXCEPTIONS_H\n")
 
-print(f'Gerado include/embedded_exceptions.h com sucesso ({len(sorted_curated)} entradas).')
+print(f"Sucesso: gerado {embedded_exceptions_h} com exatamente {len(sorted_curated)} exceções puras.")

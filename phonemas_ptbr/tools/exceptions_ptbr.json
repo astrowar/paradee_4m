@@ -1,111 +1,11 @@
 {
-  "aberta": {
-    "kokoro": "ˌabˈɛɾtæ",
-    "ipa": "abˈɛɾtə"
-  },
-  "abertas": {
-    "kokoro": "ˌabˈɛɾtæs",
-    "ipa": "abˈɛɾtəs"
-  },
-  "aberto": {
-    "kokoro": "ˌabˈɛɾtʊ",
-    "ipa": "abˈɛɾtw"
-  },
-  "abertos": {
-    "kokoro": "ˌabˈɛɾtʊs",
-    "ipa": "abˈɛɾtws"
-  },
-  "acesso": {
-    "kokoro": "asˈɛsʊ",
-    "ipa": "asˈɛsʊ"
-  },
-  "acorde": {
-    "kokoro": "akˈɔɾʤy",
-    "ipa": "akˈɔɾdʒi"
-  },
-  "aeroporto": {
-    "kokoro": "aɛɾopˈoɾtʊ",
-    "ipa": "aɛɾopˈoɾtʊ"
-  },
-  "agora": {
-    "kokoro": "agˈɔɾæ",
-    "ipa": "agˈɔɾə"
-  },
   "ainda": {
     "kokoro": "aˈĩŋdæ",
     "ipa": "aˈĩdə"
   },
-  "alegre": {
-    "kokoro": "alˈɛgɾy",
-    "ipa": "alˈɛgɾi"
-  },
-  "alerta": {
-    "kokoro": "alˈɛɾtæ",
-    "ipa": "alˈɛɾtə"
-  },
-  "alexandre": {
-    "kokoro": "ˌaleʃˈɐ̃ŋdry",
-    "ipa": "ˌaleʃˈɐ̃ŋdry"
-  },
-  "aluguel": {
-    "kokoro": "alugˈɛʊ",
-    "ipa": "alugˈɛw"
-  },
-  "amarela": {
-    "kokoro": "amaɾˈɛlæ",
-    "ipa": "amaɾˈɛlə"
-  },
-  "amarelo": {
-    "kokoro": "amaɾˈɛlʊ",
-    "ipa": "amaɾˈɛlʊ"
-  },
-  "ameixa": {
-    "kokoro": "ˌæmˈAʃæ",
-    "ipa": "ˌæmˈAʃæ"
-  },
-  "ameixas": {
-    "kokoro": "ˌæmˈAʃæs",
-    "ipa": "ˌæmˈAʃæs"
-  },
-  "amelia": {
-    "kokoro": "amɛlˈijæ",
-    "ipa": "amɛlˈijə"
-  },
   "amendoim": {
     "kokoro": "ˌamAŋdwˈiŋ",
     "ipa": "amẽdwˈĩ"
-  },
-  "amostra": {
-    "kokoro": "amˈɔstɾæ",
-    "ipa": "amˈɔstɾə"
-  },
-  "anel": {
-    "kokoro": "anˈɛʊ",
-    "ipa": "anˈɛw"
-  },
-  "ansiosa": {
-    "kokoro": "ɐ̃ŋsiˈɔzæ",
-    "ipa": "ə̃siˈɔzə"
-  },
-  "apoplexia": {
-    "kokoro": "ˌapopleksˈiæ",
-    "ipa": "ˌapopleksˈiæ"
-  },
-  "aposta": {
-    "kokoro": "apˈɔstæ",
-    "ipa": "apˈɔstə"
-  },
-  "aproxima": {
-    "kokoro": "ˌaprosˈimæ",
-    "ipa": "ˌaprosˈimæ"
-  },
-  "aproximamo": {
-    "kokoro": "ˌaprosimˈɐ̃mʊ",
-    "ipa": "ˌaprosimˈɐ̃mʊ"
-  },
-  "aproximar": {
-    "kokoro": "ˌaprosimˈar",
-    "ipa": "ˌaprosimˈar"
   },
   "aquela": {
     "kokoro": "akˈɛlæ",
@@ -123,53 +23,9 @@
     "kokoro": "akˈɛlys",
     "ipa": "akˈɛlis"
   },
-  "arquiteto": {
-    "kokoro": "aɾkitˈɛtʊ",
-    "ipa": "aɾkitˈɛtʊ"
-  },
   "as": {
     "kokoro": "as",
     "ipa": "as"
-  },
-  "aspecto": {
-    "kokoro": "aspˈɛkətʊ",
-    "ipa": "aspˈɛkətʊ"
-  },
-  "atleta": {
-    "kokoro": "atlˈɛtæ",
-    "ipa": "atlˈɛtə"
-  },
-  "atmosfera": {
-    "kokoro": "atəmosfˈɛɾæ",
-    "ipa": "atəmosfˈɛɾə"
-  },
-  "aux": {
-    "kokoro": "ˈWs",
-    "ipa": "ˈWs"
-  },
-  "auxilia": {
-    "kokoro": "ˌWsilˈiæ",
-    "ipa": "ˌWsilˈiæ"
-  },
-  "auxiliado": {
-    "kokoro": "ˌWsiliˈadʊ",
-    "ipa": "ˌWsiliˈadʊ"
-  },
-  "auxilio": {
-    "kokoro": "ˌWsilˈiʊ",
-    "ipa": "ˌWsilˈiʊ"
-  },
-  "baixos": {
-    "kokoro": "bˈIʃʊs",
-    "ipa": "bˈIʃʊs"
-  },
-  "basquete": {
-    "kokoro": "baskˈɛʧy",
-    "ipa": "baskˈɛtʃi"
-  },
-  "beaux": {
-    "kokoro": "beˈWks",
-    "ipa": "beˈWks"
   },
   "bela": {
     "kokoro": "bˈɛlæ",
@@ -187,134 +43,6 @@
     "kokoro": "bˈɛlʊs",
     "ipa": "bˈɛlws"
   },
-  "bexigas": {
-    "kokoro": "bˌeʃˈiɡæs",
-    "ipa": "bˌeʃˈiɡæs"
-  },
-  "biblioteca": {
-    "kokoro": "bibliotˈɛkæ",
-    "ipa": "bibliotˈɛkə"
-  },
-  "bicicleta": {
-    "kokoro": "bisiklˈɛtæ",
-    "ipa": "bisiklˈɛtə"
-  },
-  "bigode": {
-    "kokoro": "bigˈɔʤy",
-    "ipa": "bigˈɔdʒi"
-  },
-  "bloco": {
-    "kokoro": "blˈɔkʊ",
-    "ipa": "blˈɔkʊ"
-  },
-  "bode": {
-    "kokoro": "bˈɔʤy",
-    "ipa": "bˈɔdʒi"
-  },
-  "boneca": {
-    "kokoro": "bonˈɛkæ",
-    "ipa": "bonˈɛkə"
-  },
-  "borda": {
-    "kokoro": "bˈɔɾdæ",
-    "ipa": "bˈɔɾdə"
-  },
-  "bordo": {
-    "kokoro": "bˈɔɾdu$$bˈoɾdʊ",
-    "ipa": "bˈɔɾdu$$bˈoɾdʊ"
-  },
-  "bosque": {
-    "kokoro": "bˈɔsky",
-    "ipa": "bˈɔski"
-  },
-  "bosta": {
-    "kokoro": "bˈɔstæ",
-    "ipa": "bˈɔstə"
-  },
-  "bota": {
-    "kokoro": "bˈɔtæ",
-    "ipa": "bˈɔtə"
-  },
-  "bote": {
-    "kokoro": "bˈɔʧy",
-    "ipa": "bˈɔtʃi"
-  },
-  "boxe": {
-    "kokoro": "bˈɔkisy",
-    "ipa": "bˈɔkisi"
-  },
-  "breve": {
-    "kokoro": "bɾˈɛvy",
-    "ipa": "bɾˈɛvi"
-  },
-  "bruxas": {
-    "kokoro": "brˈuʃæs",
-    "ipa": "brˈuʃæs"
-  },
-  "cabisbaixo": {
-    "kokoro": "kˌabizbˈIʃʊ",
-    "ipa": "kˌabizbˈIʃʊ"
-  },
-  "cadela": {
-    "kokoro": "kadˈɛlæ",
-    "ipa": "kadˈɛlə"
-  },
-  "caderno": {
-    "kokoro": "kadˈɛrnʊ",
-    "ipa": "kadˈɛrnʊ"
-  },
-  "caixote": {
-    "kokoro": "kˌIʃˈɔʧy",
-    "ipa": "kˌIʃˈɔʧy"
-  },
-  "caminhonete": {
-    "kokoro": "kamiɲonˈɛʧy",
-    "ipa": "kamiɲonˈɛtʃi"
-  },
-  "capela": {
-    "kokoro": "kapˈɛlæ",
-    "ipa": "kapˈɛlə"
-  },
-  "careca": {
-    "kokoro": "kaɾˈɛkæ",
-    "ipa": "kaɾˈɛkə"
-  },
-  "carrega": {
-    "kokoro": "kaxˈɛgæ",
-    "ipa": "kaxˈɛgə"
-  },
-  "carroça": {
-    "kokoro": "kaxˈɔsæ",
-    "ipa": "kaxˈɔsə"
-  },
-  "cartel": {
-    "kokoro": "kaɾtˈɛʊ",
-    "ipa": "kaɾtˈɛw"
-  },
-  "castelo": {
-    "kokoro": "kastˈɛlʊ",
-    "ipa": "kastˈɛlʊ"
-  },
-  "caverna": {
-    "kokoro": "kavˈɛrnæ",
-    "ipa": "kavˈɛrnə"
-  },
-  "cega": {
-    "kokoro": "sˈɛgæ",
-    "ipa": "sˈɛgə"
-  },
-  "cego": {
-    "kokoro": "sˈɛgʊ",
-    "ipa": "sˈɛgʊ"
-  },
-  "cela": {
-    "kokoro": "sˈɛlæ",
-    "ipa": "sˈɛlə"
-  },
-  "certamente": {
-    "kokoro": "sɛɾtamˈAŋjʧy",
-    "ipa": "sɛɾtamˈẽjtʃi"
-  },
   "chefe": {
     "kokoro": "ʃˈɛfy",
     "ipa": "ʃˈɛfi"
@@ -323,133 +51,9 @@
     "kokoro": "ʃˈɛfys",
     "ipa": "ʃˈɛfis"
   },
-  "cheque": {
-    "kokoro": "ʃˈɛky",
-    "ipa": "ʃˈɛki"
-  },
-  "chiclete": {
-    "kokoro": "ʃiklˈɛʧy",
-    "ipa": "ʃiklˈɛtʃi"
-  },
-  "choque": {
-    "kokoro": "ʃˈɔky",
-    "ipa": "ʃˈɔki"
-  },
-  "chora": {
-    "kokoro": "ʃˈɔɾæ",
-    "ipa": "ʃˈɔɾə"
-  },
-  "cieux": {
-    "kokoro": "sˌieˈuks",
-    "ipa": "sˌieˈuks"
-  },
-  "coberta": {
-    "kokoro": "kobˈɛɾtæ",
-    "ipa": "kobˈɛɾtə"
-  },
-  "coberto": {
-    "kokoro": "kobˈɛɾtʊ",
-    "ipa": "kobˈɛɾtʊ"
-  },
-  "cobra": {
-    "kokoro": "kˈɔbɾæ",
-    "ipa": "kˈɔbɾə"
-  },
-  "cobre": {
-    "kokoro": "kˈɔbɾy",
-    "ipa": "kˈɔbɾi"
-  },
-  "coca": {
-    "kokoro": "kˈɔkæ",
-    "ipa": "kˈɔkə"
-  },
-  "cofre": {
-    "kokoro": "kˈɔfɾy",
-    "ipa": "kˈɔfɾi"
-  },
-  "coixa": {
-    "kokoro": "kˈoɪksæ",
-    "ipa": "kˈoɪksæ"
-  },
-  "cola": {
-    "kokoro": "kˈɔlæ",
-    "ipa": "kˈɔlə"
-  },
-  "colega": {
-    "kokoro": "kolˈɛgæ",
-    "ipa": "kolˈɛgə"
-  },
-  "colher": {
-    "kokoro": "koʎˈɛɾ",
-    "ipa": "koʎˈɛɾ"
-  },
-  "colo": {
-    "kokoro": "kˈɔlʊ",
-    "ipa": "kˈɔlʊ"
-  },
-  "colxas": {
-    "kokoro": "kˈowʃæs",
-    "ipa": "kˈowʃæs"
-  },
   "com": {
     "kokoro": "koŋ",
     "ipa": "kõ"
-  },
-  "coma": {
-    "kokoro": "kˈɔmæ",
-    "ipa": "kˈɔmə"
-  },
-  "como": {
-    "kokoro": "kˈɔmʊ",
-    "ipa": "kˈɔmʊ"
-  },
-  "compaixão": {
-    "kokoro": "kˌompIʃˈɐ̃ʊ̃",
-    "ipa": "kˌompIʃˈɐ̃ʊ̃"
-  },
-  "completo": {
-    "kokoro": "koŋplˈɛtʊ",
-    "ipa": "kõplˈɛtʊ"
-  },
-  "complexo": {
-    "kokoro": "koŋplˈɛkəsʊ",
-    "ipa": "kõplˈɛkəsʊ"
-  },
-  "complexos": {
-    "kokoro": "kˌomplˈɛksʊs",
-    "ipa": "kˌomplˈɛksʊs"
-  },
-  "concreto": {
-    "kokoro": "koŋkɾˈɛtʊ",
-    "ipa": "kõkɾˈɛtʊ"
-  },
-  "conforme": {
-    "kokoro": "koŋfˈɔɾmy",
-    "ipa": "kõfˈɔɾmi"
-  },
-  "congresso": {
-    "kokoro": "koŋgɾˈɛsʊ",
-    "ipa": "kõgɾˈɛsʊ"
-  },
-  "contextura": {
-    "kokoro": "kˌoŋtestˈuɾæ",
-    "ipa": "kˌoŋtestˈuɾæ"
-  },
-  "conversa": {
-    "kokoro": "koŋvˈɛɾsæ",
-    "ipa": "kõvˈɛɾsə"
-  },
-  "copo": {
-    "kokoro": "kˈɔpʊ",
-    "ipa": "kˈɔpʊ"
-  },
-  "corda": {
-    "kokoro": "kˈɔɾdæ",
-    "ipa": "kˈɔɾdə"
-  },
-  "coronel": {
-    "kokoro": "koɾonˈɛʊ",
-    "ipa": "koɾonˈɛw"
   },
   "corpo": {
     "kokoro": "kˈɔɾpʊ",
@@ -458,42 +62,6 @@
   "corpos": {
     "kokoro": "kˈɔɾpʊs",
     "ipa": "kˈɔɾpws"
-  },
-  "corretamente": {
-    "kokoro": "koxɛtamˈAŋjʧy",
-    "ipa": "koxɛtamˈẽjtʃi"
-  },
-  "correto": {
-    "kokoro": "koxˈɛtʊ",
-    "ipa": "koxˈɛtʊ"
-  },
-  "costa": {
-    "kokoro": "kˈɔstæ",
-    "ipa": "kˈɔstə"
-  },
-  "cova": {
-    "kokoro": "kˈɔvæ",
-    "ipa": "kˈɔvə"
-  },
-  "coxa": {
-    "kokoro": "kˈoʃæ",
-    "ipa": "kˈoʃæ"
-  },
-  "credo": {
-    "kokoro": "kɾˈɛdʊ",
-    "ipa": "kɾˈɛdʊ"
-  },
-  "creme": {
-    "kokoro": "kɾˈɛmy",
-    "ipa": "kɾˈɛmi"
-  },
-  "cruel": {
-    "kokoro": "kɾʊˈɛʊ",
-    "ipa": "kɾwˈɛw"
-  },
-  "curiosa": {
-    "kokoro": "kuɾiˈɔzæ",
-    "ipa": "kuɾiˈɔzə"
   },
   "da": {
     "kokoro": "da",
@@ -507,74 +75,6 @@
     "kokoro": "ʤj",
     "ipa": "di"
   },
-  "deixadas": {
-    "kokoro": "dˌAʃˈadæs",
-    "ipa": "dˌAʃˈadæs"
-  },
-  "deixam": {
-    "kokoro": "dˈAʃɐ̃ʊ̃",
-    "ipa": "dˈAʃɐ̃ʊ̃"
-  },
-  "deixar": {
-    "kokoro": "dAʃˈar",
-    "ipa": "dAʃˈar"
-  },
-  "deixares": {
-    "kokoro": "dˌAʃˈaɾys",
-    "ipa": "dˌAʃˈaɾys"
-  },
-  "deixemol": {
-    "kokoro": "dˌAʃemˈɔl",
-    "ipa": "dˌAʃemˈɔl"
-  },
-  "deixemos": {
-    "kokoro": "dˌAʃˈemʊs",
-    "ipa": "dˌAʃˈemʊs"
-  },
-  "deixámos": {
-    "kokoro": "dˌAʃˈamʊs",
-    "ipa": "dˌAʃˈamʊs"
-  },
-  "delta": {
-    "kokoro": "dˈɛʊtæ",
-    "ipa": "dˈɛwtə"
-  },
-  "demora": {
-    "kokoro": "demˈɔɾæ",
-    "ipa": "demˈɔɾə"
-  },
-  "depressa": {
-    "kokoro": "depɾˈɛsæ",
-    "ipa": "depɾˈɛsə"
-  },
-  "derrota": {
-    "kokoro": "dexˈɔtæ",
-    "ipa": "dexˈɔtə"
-  },
-  "descoberta": {
-    "kokoro": "ʤiskobˈɛɾtæ",
-    "ipa": "dʒiskobˈɛɾtə"
-  },
-  "descoberto": {
-    "kokoro": "ʤiskobˈɛɾtʊ",
-    "ipa": "dʒiskobˈɛɾtʊ"
-  },
-  "desconnexo": {
-    "kokoro": "dˌeskoŋnˈɛksʊ",
-    "ipa": "dˌeskoŋnˈɛksʊ"
-  },
-  "desenho": {
-    "kokoro": "dezˈɛɲʊ",
-    "ipa": "dezˈɛɲʊ"
-  },
-  "deserto": {
-    "kokoro": "dezˈɛɾtʊ",
-    "ipa": "dezˈɛɾtʊ"
-  },
-  "desleixadas": {
-    "kokoro": "dˌezlAʃˈadæs",
-    "ipa": "dˌezlAʃˈadæs"
-  },
   "deve": {
     "kokoro": "dˈɛvy",
     "ipa": "dˈɛvi"
@@ -583,53 +83,13 @@
     "kokoro": "dˈɛvẽj",
     "ipa": "dˈɛvẽj"
   },
-  "dextreza": {
-    "kokoro": "dˌestrˈezæ",
-    "ipa": "dˌestrˈezæ"
-  },
-  "dez": {
-    "kokoro": "dˈɛs",
-    "ipa": "dˈɛs"
-  },
-  "dieta": {
-    "kokoro": "ʤiˈɛtæ",
-    "ipa": "dʒiˈɛtə"
-  },
-  "diploma": {
-    "kokoro": "ʤiplˈɔmæ",
-    "ipa": "dʒiplˈɔmə"
-  },
-  "direta": {
-    "kokoro": "ʤiɾˈɛtæ",
-    "ipa": "dʒiɾˈɛtə"
-  },
-  "diretamente": {
-    "kokoro": "ʤiɾɛtamˈAŋjʧy",
-    "ipa": "dʒiɾɛtamˈẽjtʃi"
-  },
-  "direto": {
-    "kokoro": "ʤiɾˈɛtʊ",
-    "ipa": "dʒiɾˈɛtʊ"
-  },
-  "discreto": {
-    "kokoro": "ʤiskɾˈɛtʊ",
-    "ipa": "dʒiskɾˈɛtʊ"
-  },
   "do": {
     "kokoro": "dʊ",
     "ipa": "dw"
   },
-  "dobra": {
-    "kokoro": "dˈɔbɾæ",
-    "ipa": "dˈɔbɾə"
-  },
   "dos": {
     "kokoro": "dʊs",
     "ipa": "dws"
-  },
-  "dose": {
-    "kokoro": "dˈɔzy",
-    "ipa": "dˈɔzi"
   },
   "droga": {
     "kokoro": "drˈɔɡæ",
@@ -639,18 +99,6 @@
     "kokoro": "drˈɔɡæs",
     "ipa": "dɾˈɔgəs"
   },
-  "duelo": {
-    "kokoro": "dʊˈɛlʊ",
-    "ipa": "dwˈɛlʊ"
-  },
-  "economizar": {
-    "kokoro": "ekɔnomizˈa",
-    "ipa": "ekɔnomizˈa"
-  },
-  "ego": {
-    "kokoro": "ˈɛgʊ",
-    "ipa": "ˈɛgʊ"
-  },
   "ela": {
     "kokoro": "ˈɛlæ",
     "ipa": "ˈɛlə"
@@ -659,85 +107,25 @@
     "kokoro": "ˈɛlæs",
     "ipa": "ˈɛləs"
   },
-  "embaixada": {
-    "kokoro": "ˌAmbIʃˈadæ",
-    "ipa": "ˌAmbIʃˈadæ"
+  "ele": {
+    "kokoro": "ˈely",
+    "ipa": "ˈeli"
   },
-  "embaixador": {
-    "kokoro": "ˌAmbIʃadˈoɾ",
-    "ipa": "ˌAmbIʃadˈoɾ"
-  },
-  "embaixadores": {
-    "kokoro": "ˌAmbIʃadˈoɾys",
-    "ipa": "ˌAmbIʃadˈoɾys"
-  },
-  "embaixo": {
-    "kokoro": "ˌAmbˈIʃʊ",
-    "ipa": "ˌAmbˈIʃʊ"
+  "eles": {
+    "kokoro": "ˈelys",
+    "ipa": "ˈelis"
   },
   "embora": {
     "kokoro": "Aŋbˈɔɾæ",
     "ipa": "ĩbˈɔɾə"
   },
-  "energia": {
-    "kokoro": "enɛɾʒˈijæ",
-    "ipa": "enɛɾʒˈijə"
-  },
-  "enorme": {
-    "kokoro": "enˈɔɾmy",
-    "ipa": "enˈɔɾmi"
-  },
-  "entrega": {
-    "kokoro": "ĩtɾˈɛgæ",
-    "ipa": "ĩtɾˈɛgə"
-  },
-  "entregue": {
-    "kokoro": "ĩtɾˈɛgy",
-    "ipa": "ĩtɾˈɛgi"
-  },
-  "envelope": {
-    "kokoro": "ĩvelˈɔpy",
-    "ipa": "ĩvelˈɔpi"
-  },
-  "enxugando": {
-    "kokoro": "ˌAŋʃuɡˈɐ̃ŋdʊ",
-    "ipa": "ˌAŋʃuɡˈɐ̃ŋdʊ"
-  },
-  "enxugou": {
-    "kokoro": "ˌAŋʃuɡˈow",
-    "ipa": "ˌAŋʃuɡˈow"
-  },
   "era": {
     "kokoro": "ˈɛɾæ",
     "ipa": "ˈɛɾə"
   },
-  "erva": {
-    "kokoro": "ˈɛɾvæ",
-    "ipa": "ˈɛɾvə"
-  },
-  "escola": {
-    "kokoro": "iskˈɔlæ",
-    "ipa": "iskˈɔlə"
-  },
-  "escolta": {
-    "kokoro": "iskˈɔʊtæ",
-    "ipa": "iskˈɔwtə"
-  },
   "espera": {
     "kokoro": "espˈɛɾæ",
     "ipa": "ispˈɛɾə"
-  },
-  "esperma": {
-    "kokoro": "ispˈɛɾmæ",
-    "ipa": "ispˈɛɾmə"
-  },
-  "esperto": {
-    "kokoro": "ispˈɛɾtʊ",
-    "ipa": "ispˈɛɾtʊ"
-  },
-  "esquema": {
-    "kokoro": "iskˈɛmæ",
-    "ipa": "iskˈɛmə"
   },
   "essa": {
     "kokoro": "ˈɛsæ",
@@ -755,413 +143,21 @@
     "kokoro": "ˈɛsys",
     "ipa": "ˈɛsis"
   },
-  "estoque": {
-    "kokoro": "istˈɔky",
-    "ipa": "istˈɔki"
-  },
-  "exaltações": {
-    "kokoro": "ˌezWtasˈõjs",
-    "ipa": "ˌezWtasˈõjs"
-  },
-  "exame": {
-    "kokoro": "ˌezˈɐ̃my",
-    "ipa": "ˌezˈɐ̃my"
-  },
-  "exames": {
-    "kokoro": "ˌezˈɐ̃mys",
-    "ipa": "ˌezˈɐ̃mys"
-  },
-  "examinador": {
-    "kokoro": "ˌezæmˌinadˈoɾ",
-    "ipa": "ˌezæmˌinadˈoɾ"
-  },
-  "examinar": {
-    "kokoro": "ˌezæminˈar",
-    "ipa": "ˌezæminˈar"
-  },
-  "examinaremos": {
-    "kokoro": "ˌezæmˌinaɾˈemʊs",
-    "ipa": "ˌezæmˌinaɾˈemʊs"
-  },
-  "examinemos": {
-    "kokoro": "ˌezæminˈemʊs",
-    "ipa": "ˌezæminˈemʊs"
-  },
-  "examinou": {
-    "kokoro": "ˌezæminˈow",
-    "ipa": "ˌezæminˈow"
-  },
-  "exanime": {
-    "kokoro": "ˌezænˈimy",
-    "ipa": "ˌezænˈimy"
-  },
-  "exatamente": {
-    "kokoro": "ˌezatæmˈAŋʧy",
-    "ipa": "ˌezatæmˈAŋʧy"
-  },
-  "excede": {
-    "kokoro": "ˌesˈɛʤy",
-    "ipa": "ˌesˈɛʤy"
-  },
-  "exceder": {
-    "kokoro": "ˌesedˈeɾ",
-    "ipa": "ˌesedˈeɾ"
-  },
-  "excedeu": {
-    "kokoro": "ˌesedˈeʊ",
-    "ipa": "ˌesedˈeʊ"
-  },
-  "excellentissima": {
-    "kokoro": "ˌesɛlˌAŋʧisˈimæ",
-    "ipa": "ˌesɛlˌAŋʧisˈimæ"
-  },
-  "excelso": {
-    "kokoro": "ˌesˈɛʊsʊ",
-    "ipa": "ˌesˈɛʊsʊ"
-  },
-  "excelência": {
-    "kokoro": "ˌeselˈAŋsjæ",
-    "ipa": "ˌeselˈAŋsjæ"
-  },
-  "excepcional": {
-    "kokoro": "ˌesepsˌionˈW",
-    "ipa": "ˌesepsˌionˈW"
-  },
-  "excessivement": {
-    "kokoro": "ˌesesˌivemˈAŋʧ",
-    "ipa": "ˌesesˌivemˈAŋʧ"
-  },
-  "excesso": {
-    "kokoro": "esˈɛsʊ",
-    "ipa": "esˈɛsʊ"
-  },
-  "excessos": {
-    "kokoro": "ˌesˈɛsʊs",
-    "ipa": "ˌesˈɛsʊs"
-  },
-  "exceto": {
-    "kokoro": "esˈɛtʊ",
-    "ipa": "esˈɛtʊ"
-  },
-  "exclamando": {
-    "kokoro": "ˌesklæmˈɐ̃ŋdʊ",
-    "ipa": "ˌesklæmˈɐ̃ŋdʊ"
-  },
-  "exclamara": {
-    "kokoro": "ˌesklæmˈaɾæ",
-    "ipa": "ˌesklæmˈaɾæ"
-  },
-  "exclamaria": {
-    "kokoro": "ˌesklæmaɾˈiæ",
-    "ipa": "ˌesklæmaɾˈiæ"
-  },
-  "exclamação": {
-    "kokoro": "ˌesklæmasˈɐ̃ʊ̃",
-    "ipa": "ˌesklæmasˈɐ̃ʊ̃"
-  },
-  "exclamou": {
-    "kokoro": "ˌesklæmˈow",
-    "ipa": "ˌesklæmˈow"
-  },
-  "exclusivamente": {
-    "kokoro": "ˌeskluzˌivæmˈAŋʧy",
-    "ipa": "ˌeskluzˌivæmˈAŋʧy"
-  },
-  "exclusivas": {
-    "kokoro": "ˌeskluzˈivæs",
-    "ipa": "ˌeskluzˈivæs"
-  },
-  "exemplar": {
-    "kokoro": "ˌezAmplˈar",
-    "ipa": "ˌezAmplˈar"
-  },
-  "exemplo": {
-    "kokoro": "ˌezˈAmplʊ",
-    "ipa": "ˌezˈAmplʊ"
-  },
-  "exemplos": {
-    "kokoro": "ˌezˈAmplʊs",
-    "ipa": "ˌezˈAmplʊs"
-  },
-  "exequias": {
-    "kokoro": "ˌezekˈiæs",
-    "ipa": "ˌezekˈiæs"
-  },
-  "exercer": {
-    "kokoro": "ˌezeɾəsˈeɾ",
-    "ipa": "ˌezeɾəsˈeɾ"
-  },
-  "exercito": {
-    "kokoro": "ˌezeɾəsˈitʊ",
-    "ipa": "ˌezeɾəsˈitʊ"
-  },
-  "exforçado": {
-    "kokoro": "ˌesfoɾəsˈadʊ",
-    "ipa": "ˌesfoɾəsˈadʊ"
-  },
-  "exhalais": {
-    "kokoro": "ˌesalˈIs",
-    "ipa": "ˌesalˈIs"
-  },
-  "exhalar": {
-    "kokoro": "ˌesalˈar",
-    "ipa": "ˌesalˈar"
-  },
-  "exhalava": {
-    "kokoro": "ˌesalˈavæ",
-    "ipa": "ˌesalˈavæ"
-  },
-  "exigencias": {
-    "kokoro": "ˌeziʒAŋsˈiæs",
-    "ipa": "ˌeziʒAŋsˈiæs"
-  },
-  "exigir": {
-    "kokoro": "ˌeziʒˈiɾ",
-    "ipa": "ˌeziʒˈiɾ"
-  },
-  "exigiu": {
-    "kokoro": "ˌeziʒˈiʊ",
-    "ipa": "ˌeziʒˈiʊ"
-  },
-  "existam": {
-    "kokoro": "ˌezˈistɐ̃ʊ̃",
-    "ipa": "ˌezˈistɐ̃ʊ̃"
-  },
-  "existencias": {
-    "kokoro": "ˌezistAŋsˈiæs",
-    "ipa": "ˌezistAŋsˈiæs"
-  },
-  "existiam": {
-    "kokoro": "ˌezisʧˈiɐ̃ʊ̃",
-    "ipa": "ˌezisʧˈiɐ̃ʊ̃"
-  },
-  "existir": {
-    "kokoro": "ˌezisʧˈiɾ",
-    "ipa": "ˌezisʧˈiɾ"
-  },
-  "existiram": {
-    "kokoro": "ˌezisʧˈiɾɐ̃ʊ̃",
-    "ipa": "ˌezisʧˈiɾɐ̃ʊ̃"
-  },
-  "existência": {
-    "kokoro": "ˌezistˈAŋsjæ",
-    "ipa": "ˌezistˈAŋsjæ"
-  },
-  "exordio": {
-    "kokoro": "ˌezoɾəʤˈiʊ",
-    "ipa": "ˌezoɾəʤˈiʊ"
-  },
-  "expansivos": {
-    "kokoro": "ˌespɐ̃ŋsˈivʊs",
-    "ipa": "ˌespɐ̃ŋsˈivʊs"
-  },
-  "expectativas": {
-    "kokoro": "ˌespektaʧˈivæs",
-    "ipa": "ˌespektaʧˈivæs"
-  },
-  "expellir": {
-    "kokoro": "ˌespɛlˈiɾ",
-    "ipa": "ˌespɛlˈiɾ"
-  },
-  "experimental": {
-    "kokoro": "ˌespeɾˌimAŋtˈW",
-    "ipa": "ˌespeɾˌimAŋtˈW"
-  },
-  "experimentar": {
-    "kokoro": "ˌespeɾˌimAŋtˈar",
-    "ipa": "ˌespeɾˌimAŋtˈar"
-  },
-  "experiência": {
-    "kokoro": "ˌespeɾjˈAŋsjæ",
-    "ipa": "ˌespeɾjˈAŋsjæ"
-  },
-  "expiar": {
-    "kokoro": "ˌespiˈar",
-    "ipa": "ˌespiˈar"
-  },
-  "expirar": {
-    "kokoro": "ˌespiɾˈar",
-    "ipa": "ˌespiɾˈar"
-  },
-  "explical": {
-    "kokoro": "ˌesplikˈW",
-    "ipa": "ˌesplikˈW"
-  },
-  "explicar": {
-    "kokoro": "ˌesplikˈar",
-    "ipa": "ˌesplikˈar"
-  },
-  "explicasses": {
-    "kokoro": "ˌesplikˈasys",
-    "ipa": "ˌesplikˈasys"
-  },
-  "explicitas": {
-    "kokoro": "ˌesplisˈitæs",
-    "ipa": "ˌesplisˈitæs"
-  },
-  "explique": {
-    "kokoro": "ˌesplˈiky",
-    "ipa": "ˌesplˈiky"
-  },
-  "explorar": {
-    "kokoro": "ˌesploɾˈar",
-    "ipa": "ˌesploɾˈar"
-  },
-  "exponhas": {
-    "kokoro": "ˌespˈoɲæs",
-    "ipa": "ˌespˈoɲæs"
-  },
-  "expostos": {
-    "kokoro": "ˌespˈɔstʊs",
-    "ipa": "ˌespˈɔstʊs"
-  },
-  "expressamente": {
-    "kokoro": "ˌespresæmˈAŋʧy",
-    "ipa": "ˌespresæmˈAŋʧy"
-  },
-  "expressar": {
-    "kokoro": "ˌespresˈar",
-    "ipa": "ˌespresˈar"
-  },
-  "expresso": {
-    "kokoro": "espɾˈɛsʊ",
-    "ipa": "espɾˈɛsʊ"
-  },
-  "exprimir": {
-    "kokoro": "ˌesprimˈiɾ",
-    "ipa": "ˌesprimˈiɾ"
-  },
-  "exquezita": {
-    "kokoro": "ˌeskezˈitæ",
-    "ipa": "ˌeskezˈitæ"
-  },
-  "exquisita": {
-    "kokoro": "ˌeskizˈitæ",
-    "ipa": "ˌeskizˈitæ"
-  },
-  "extendeu": {
-    "kokoro": "ˌestAŋdˈeʊ",
-    "ipa": "ˌestAŋdˈeʊ"
-  },
-  "exteriores": {
-    "kokoro": "ˌesteɾiˈoɾys",
-    "ipa": "ˌesteɾiˈoɾys"
-  },
-  "exteriormente": {
-    "kokoro": "ˌesteɾˌioɾəmˈAŋʧy",
-    "ipa": "ˌesteɾˌioɾəmˈAŋʧy"
-  },
-  "externos": {
-    "kokoro": "ˌestˈɛɾənʊs",
-    "ipa": "ˌestˈɛɾənʊs"
-  },
-  "extinguiu": {
-    "kokoro": "ˌesʧiŋɡwˈiʊ",
-    "ipa": "ˌesʧiŋɡwˈiʊ"
-  },
-  "extractos": {
-    "kokoro": "ˌestrˈaktʊs",
-    "ipa": "ˌestrˈaktʊs"
-  },
-  "extranha": {
-    "kokoro": "ˌestrˈɐ̃ɲæ",
-    "ipa": "ˌestrˈɐ̃ɲæ"
-  },
-  "extraordinarias": {
-    "kokoro": "ˌestraˌoɾəʤinaɾˈiæs",
-    "ipa": "ˌestraˌoɾəʤinaɾˈiæs"
-  },
-  "extraordinarios": {
-    "kokoro": "ˌestraˌoɾəʤinaɾˈiʊs",
-    "ipa": "ˌestraˌoɾəʤinaɾˈiʊs"
-  },
-  "extraordinária": {
-    "kokoro": "ˌestraˌoɾəʤinˈaɾjæ",
-    "ipa": "ˌestraˌoɾəʤinˈaɾjæ"
-  },
-  "extraordinárias": {
-    "kokoro": "ˌestraˌoɾəʤinˈaɾjæs",
-    "ipa": "ˌestraˌoɾəʤinˈaɾjæs"
-  },
-  "extravagancias": {
-    "kokoro": "ˌestravˌaɡɐ̃ŋsˈiæs",
-    "ipa": "ˌestravˌaɡɐ̃ŋsˈiæs"
-  },
-  "extremamente": {
-    "kokoro": "ˌestremæmˈAŋʧy",
-    "ipa": "ˌestremæmˈAŋʧy"
-  },
-  "extremas": {
-    "kokoro": "ˌestrˈemæs",
-    "ipa": "ˌestrˈemæs"
-  },
-  "extremo": {
-    "kokoro": "estɾˈɛmʊ",
-    "ipa": "estɾˈɛmʊ"
-  },
-  "exulta": {
-    "kokoro": "ˌezˈuwtæ",
-    "ipa": "ˌezˈuwtæ"
-  },
-  "faixas": {
-    "kokoro": "fˈIʃæs",
-    "ipa": "fˈIʃæs"
-  },
-  "farol": {
-    "kokoro": "faɾˈɔʊ",
-    "ipa": "faɾˈɔw"
-  },
-  "febre": {
-    "kokoro": "fˈɛbɾy",
-    "ipa": "fˈɛbɾi"
-  },
-  "fera": {
-    "kokoro": "fˈɛɾæ",
-    "ipa": "fˈɛɾə"
-  },
-  "ferro": {
-    "kokoro": "fˈɛxʊ",
-    "ipa": "fˈɛxʊ"
-  },
-  "fiel": {
-    "kokoro": "fiˈɛʊ",
-    "ipa": "fiˈɛw"
-  },
-  "filhote": {
-    "kokoro": "fiʎˈɔʧy",
-    "ipa": "fiʎˈɔtʃi"
-  },
-  "fixar": {
-    "kokoro": "fiksˈar",
-    "ipa": "fiksˈar"
-  },
-  "fixas": {
-    "kokoro": "fˈiksæs",
-    "ipa": "fˈiksæs"
-  },
-  "flecha": {
-    "kokoro": "flˈɛʃæ",
-    "ipa": "flˈɛʃə"
-  },
-  "flexíveis": {
-    "kokoro": "flˌeksˈivAs",
-    "ipa": "flˌeksˈivAs"
-  },
-  "foco": {
-    "kokoro": "fˈɔkʊ",
-    "ipa": "fˈɔkʊ"
-  },
-  "foda": {
-    "kokoro": "fˈɔdæ",
-    "ipa": "fˈɔdə"
-  },
-  "folga": {
-    "kokoro": "fˈɔʊgæ",
-    "ipa": "fˈɔwgə"
-  },
-  "fome": {
-    "kokoro": "fˈɔmy",
-    "ipa": "fˈɔmi"
+  "esta": {
+    "kokoro": "ˈɛstæ",
+    "ipa": "ˈɛstə"
+  },
+  "estas": {
+    "kokoro": "ˈɛstæs",
+    "ipa": "ˈɛstəs"
+  },
+  "este": {
+    "kokoro": "ˈɛsʧy",
+    "ipa": "ˈɛstʃi"
+  },
+  "estes": {
+    "kokoro": "ˈɛsʧys",
+    "ipa": "ˈɛstʃis"
   },
   "fora": {
     "kokoro": "fˈɔɾæ",
@@ -1175,138 +171,6 @@
     "kokoro": "fˈɔtʊs",
     "ipa": "fˈɔtws"
   },
-  "frota": {
-    "kokoro": "fɾˈɔtæ",
-    "ipa": "fɾˈɔtə"
-  },
-  "furiosa": {
-    "kokoro": "fuɾiˈɔzæ",
-    "ipa": "fuɾiˈɔzə"
-  },
-  "futebol": {
-    "kokoro": "futebˈɔʊ",
-    "ipa": "futebˈɔw"
-  },
-  "gaiola": {
-    "kokoro": "gIˈɔlæ",
-    "ipa": "gajˈɔlə"
-  },
-  "galera": {
-    "kokoro": "galˈɛɾæ",
-    "ipa": "galˈɛɾə"
-  },
-  "gene": {
-    "kokoro": "ʒˈɛny",
-    "ipa": "ʒˈɛni"
-  },
-  "gole": {
-    "kokoro": "gˈɔly",
-    "ipa": "gˈɔli"
-  },
-  "golpe": {
-    "kokoro": "gˈɔʊpy",
-    "ipa": "gˈɔwpi"
-  },
-  "greve": {
-    "kokoro": "gɾˈɛvy",
-    "ipa": "gɾˈɛvi"
-  },
-  "guerra": {
-    "kokoro": "ɡˈɛxæ",
-    "ipa": "gˈɛxə"
-  },
-  "guerras": {
-    "kokoro": "ɡˈɛxæs",
-    "ipa": "gˈɛxəs"
-  },
-  "heureux": {
-    "kokoro": "ˌeʊɾeˈuks",
-    "ipa": "ˌeʊɾeˈuks"
-  },
-  "honestamente": {
-    "kokoro": "onɛstamˈAŋjʧy",
-    "ipa": "onɛstamˈẽjtʃi"
-  },
-  "ideia": {
-    "kokoro": "idˈɛjjæ",
-    "ipa": "idˈɛjjə"
-  },
-  "idiota": {
-    "kokoro": "iʤiˈɔtæ",
-    "ipa": "idʒiˈɔtə"
-  },
-  "importe": {
-    "kokoro": "ĩpˈɔɾʧy",
-    "ipa": "ĩpˈɔɾtʃi"
-  },
-  "inexcedivel": {
-    "kokoro": "ˌinesˌeʤivˈɛʊ",
-    "ipa": "ˌinesˌeʤivˈɛʊ"
-  },
-  "inexistente": {
-    "kokoro": "ˌinezistˈAŋʧy",
-    "ipa": "ˌinezistˈAŋʧy"
-  },
-  "inexplicaveis": {
-    "kokoro": "ˌinesplˌikavˈAs",
-    "ipa": "ˌinesplˌikavˈAs"
-  },
-  "inexplicável": {
-    "kokoro": "ˌinesplikˈaveʊ",
-    "ipa": "ˌinesplikˈaveʊ"
-  },
-  "inextricavel": {
-    "kokoro": "ˌinestrˌikavˈɛʊ",
-    "ipa": "ˌinestrˌikavˈɛʊ"
-  },
-  "inferno": {
-    "kokoro": "ĩfˈɛrnʊ",
-    "ipa": "ĩfˈɛrnʊ"
-  },
-  "influxo": {
-    "kokoro": "ˌiŋflˈuksʊ",
-    "ipa": "ˌiŋflˈuksʊ"
-  },
-  "informe": {
-    "kokoro": "ĩfˈɔɾmy",
-    "ipa": "ĩfˈɔɾmi"
-  },
-  "inseto": {
-    "kokoro": "ĩsˈɛtʊ",
-    "ipa": "ĩsˈɛtʊ"
-  },
-  "interna": {
-    "kokoro": "ĩtˈɛrnæ",
-    "ipa": "ĩtˈɛrnə"
-  },
-  "interno": {
-    "kokoro": "ĩtˈɛrnʊ",
-    "ipa": "ĩtˈɛrnʊ"
-  },
-  "inveja": {
-    "kokoro": "ĩvˈɛʒæ",
-    "ipa": "ĩvˈɛʒə"
-  },
-  "inverno": {
-    "kokoro": "ĩvˈɛrnʊ",
-    "ipa": "ĩvˈɛrnʊ"
-  },
-  "isabel": {
-    "kokoro": "izabˈɛʊ",
-    "ipa": "izabˈɛw"
-  },
-  "janela": {
-    "kokoro": "ʒanˈɛlæ",
-    "ipa": "ʒanˈɛlə"
-  },
-  "joga": {
-    "kokoro": "ʒˈɔgæ",
-    "ipa": "ʒˈɔgə"
-  },
-  "jogue": {
-    "kokoro": "ʒˈɔgy",
-    "ipa": "ʒˈɔgi"
-  },
   "jovem": {
     "kokoro": "ʒˈɔvẽj",
     "ipa": "ʒˈɔvẽj"
@@ -1314,18 +178,6 @@
   "jovens": {
     "kokoro": "ʒˈɔvẽjs",
     "ipa": "ʒˈɔvẽjs"
-  },
-  "lanterna": {
-    "kokoro": "lɐ̃ŋtˈɛrnæ",
-    "ipa": "lə̃tˈɛrnə"
-  },
-  "laurel": {
-    "kokoro": "lWɾˈɛʊ",
-    "ipa": "lawɾˈɛw"
-  },
-  "lenha": {
-    "kokoro": "lˈɛɲæ",
-    "ipa": "lˈɛɲə"
   },
   "leva": {
     "kokoro": "lˈɛvæ",
@@ -1335,10 +187,6 @@
     "kokoro": "lˈɛvɐ̃ʊ̃",
     "ipa": "lˈɛvɐ̃w̃"
   },
-  "leve": {
-    "kokoro": "lˈɛvy",
-    "ipa": "lˈɛvi"
-  },
   "lhe": {
     "kokoro": "ljy",
     "ipa": "ʎi"
@@ -1346,30 +194,6 @@
   "lhes": {
     "kokoro": "ljys",
     "ipa": "ʎis"
-  },
-  "logo": {
-    "kokoro": "lˈɔgʊ",
-    "ipa": "lˈɔgʊ"
-  },
-  "loja": {
-    "kokoro": "lˈɔʒæ",
-    "ipa": "lˈɔʒə"
-  },
-  "lorde": {
-    "kokoro": "lˈɔɾʤy",
-    "ipa": "lˈɔɾdʒi"
-  },
-  "lote": {
-    "kokoro": "lˈɔʧy",
-    "ipa": "lˈɔtʃi"
-  },
-  "luxuosa": {
-    "kokoro": "lˌuʃwˈɔzæ",
-    "ipa": "lˌuʃwˈɔzæ"
-  },
-  "maconha": {
-    "kokoro": "makˈɔɲæ",
-    "ipa": "makˈɔɲə"
   },
   "maior": {
     "kokoro": "mIˈɔɾ",
@@ -1379,137 +203,21 @@
     "kokoro": "mIˈɔɾys",
     "ipa": "majˈɔɾis"
   },
-  "major": {
-    "kokoro": "maʒˈɔɾ",
-    "ipa": "maʒˈɔɾ"
-  },
-  "malheureux": {
-    "kokoro": "mˌaljeʊɾeˈuks",
-    "ipa": "mˌaljeʊɾeˈuks"
-  },
-  "martelo": {
-    "kokoro": "maɾtˈɛlʊ",
-    "ipa": "maɾtˈɛlʊ"
-  },
-  "maxima": {
-    "kokoro": "mˌaksˈimæ",
-    "ipa": "mˌaksˈimæ"
-  },
-  "maximo": {
-    "kokoro": "mˌaksˈimʊ",
-    "ipa": "mˌaksˈimʊ"
-  },
   "me": {
     "kokoro": "my",
     "ipa": "mi"
-  },
-  "medo": {
-    "kokoro": "mˈɛdʊ",
-    "ipa": "mˈɛdʊ"
-  },
-  "mel": {
-    "kokoro": "mˈɛʊ",
-    "ipa": "mˈɛw"
   },
   "melhor": {
     "kokoro": "meʎˈɔɾ",
     "ipa": "meʎˈɔɾ"
   },
-  "melhora": {
-    "kokoro": "meʎˈɔɾæ",
-    "ipa": "meʎˈɔɾə"
-  },
   "melhores": {
     "kokoro": "meʎˈɔɾys",
     "ipa": "meʎˈɔɾis"
   },
-  "menor": {
-    "kokoro": "menˈɔɾ",
-    "ipa": "menˈɔɾ"
-  },
-  "mentirosa": {
-    "kokoro": "mAŋʧiɾˈɔzæ",
-    "ipa": "mẽtʃiɾˈɔzə"
-  },
-  "merda": {
-    "kokoro": "mˈɛɾdæ",
-    "ipa": "mˈɛɾdə"
-  },
-  "mestre": {
-    "kokoro": "mˈɛstɾy",
-    "ipa": "mˈɛstɾi"
-  },
-  "meta": {
-    "kokoro": "mˈɛtæ",
-    "ipa": "mˈɛtə"
-  },
-  "metro": {
-    "kokoro": "mˈɛtɾʊ",
-    "ipa": "mˈɛtɾʊ"
-  },
-  "mexeu": {
-    "kokoro": "meʃˈeʊ",
-    "ipa": "meʃˈeʊ"
-  },
-  "mixordia": {
-    "kokoro": "mˌiksoɾəʤˈiæ",
-    "ipa": "mˌiksoɾəʤˈiæ"
-  },
-  "moda": {
-    "kokoro": "mˈɔdæ",
-    "ipa": "mˈɔdə"
-  },
-  "moderna": {
-    "kokoro": "modˈɛrnæ",
-    "ipa": "modˈɛrnə"
-  },
-  "moderno": {
-    "kokoro": "modˈɛrnʊ",
-    "ipa": "modˈɛrnʊ"
-  },
-  "modo": {
-    "kokoro": "mˈɔdʊ",
-    "ipa": "mˈɔdʊ"
-  },
-  "moeda": {
-    "kokoro": "mʊˈɛdæ",
-    "ipa": "mwˈɛdə"
-  },
-  "mole": {
-    "kokoro": "mˈɔly",
-    "ipa": "mˈɔli"
-  },
-  "moleque": {
-    "kokoro": "molˈɛky",
-    "ipa": "molˈɛki"
-  },
-  "monceaux": {
-    "kokoro": "mˌoŋseˈWks",
-    "ipa": "mˌoŋseˈWks"
-  },
-  "mora": {
-    "kokoro": "mˈɔɾæ",
-    "ipa": "mˈɔɾə"
-  },
-  "moscou": {
-    "kokoro": "mɔskˈo",
-    "ipa": "mɔskˈo"
-  },
-  "mostra": {
-    "kokoro": "mˈɔstɾæ",
-    "ipa": "mˈɔstɾə"
-  },
-  "moto": {
-    "kokoro": "mˈɔtɔ",
-    "ipa": "mˈɔtɔ"
-  },
   "muito": {
     "kokoro": "mwˈiŋtʊ",
     "ipa": "mwˈĩtw"
-  },
-  "muxoxo": {
-    "kokoro": "mˌuʃˈoʃʊ",
-    "ipa": "mˌuʃˈoʃʊ"
   },
   "na": {
     "kokoro": "na",
@@ -1519,41 +227,9 @@
     "kokoro": "nas",
     "ipa": "nas"
   },
-  "nega": {
-    "kokoro": "nˈɛgæ",
-    "ipa": "nˈɛgə"
-  },
-  "nervosa": {
-    "kokoro": "neɾvˈɔzæ",
-    "ipa": "neɾvˈɔzə"
-  },
-  "neta": {
-    "kokoro": "nˈɛtæ",
-    "ipa": "nˈɛtə"
-  },
-  "neto": {
-    "kokoro": "nˈɛtʊ",
-    "ipa": "nˈɛtʊ"
-  },
-  "neve": {
-    "kokoro": "nˈɛvy",
-    "ipa": "nˈɛvi"
-  },
   "no": {
     "kokoro": "nʊ",
     "ipa": "nw"
-  },
-  "nobre": {
-    "kokoro": "nˈɔbɾy",
-    "ipa": "nˈɔbɾi"
-  },
-  "nora": {
-    "kokoro": "nˈɔɾæ",
-    "ipa": "nˈɔɾə"
-  },
-  "norma": {
-    "kokoro": "nˈɔɾmæ",
-    "ipa": "nˈɔɾmə"
   },
   "nos": {
     "kokoro": "nʊs",
@@ -1575,93 +251,17 @@
     "kokoro": "nˈɔsʊs",
     "ipa": "nˈɔsws"
   },
-  "nota": {
-    "kokoro": "nˈɔtæ",
-    "ipa": "nˈɔtə"
-  },
   "não": {
     "kokoro": "nˌɐ̃ʊ̃",
     "ipa": "nɐ̃w̃"
-  },
-  "objeto": {
-    "kokoro": "obiʒˈɛtʊ",
-    "ipa": "obiʒˈɛtʊ"
-  },
-  "obra": {
-    "kokoro": "ˈɔbɾæ",
-    "ipa": "ˈɔbɾə"
-  },
-  "oferta": {
-    "kokoro": "ofˈɛɾtæ",
-    "ipa": "ofˈɛɾtə"
-  },
-  "ola": {
-    "kokoro": "ˈɔlæ",
-    "ipa": "ˈɔlə"
-  },
-  "olhe": {
-    "kokoro": "ˈɔʎy",
-    "ipa": "ˈɔʎi"
-  },
-  "ora": {
-    "kokoro": "ˈɔɾæ",
-    "ipa": "ˈɔɾə"
-  },
-  "ordem": {
-    "kokoro": "ˈɔɾdeɲ",
-    "ipa": "ˈɔɾdeɲ"
-  },
-  "orgulhosa": {
-    "kokoro": "oɾguʎˈɔzæ",
-    "ipa": "oɾguʎˈɔzə"
-  },
-  "orquestra": {
-    "kokoro": "oɾkˈɛstɾæ",
-    "ipa": "oɾkˈɛstɾə"
   },
   "os": {
     "kokoro": "ʊs",
     "ipa": "ws"
   },
-  "overdose": {
-    "kokoro": "oveɾdˈɔzy",
-    "ipa": "oveɾdˈɔzi"
-  },
-  "oxalá": {
-    "kokoro": "ˌoʃalˈa",
-    "ipa": "ˌoʃalˈa"
-  },
-  "pacote": {
-    "kokoro": "pakˈɔʧy",
-    "ipa": "pakˈɔtʃi"
-  },
-  "painel": {
-    "kokoro": "pInˈɛʊ",
-    "ipa": "pajnˈɛw"
-  },
-  "panela": {
-    "kokoro": "panˈɛlæ",
-    "ipa": "panˈɛlə"
-  },
-  "papel": {
-    "kokoro": "papˈɛʊ",
-    "ipa": "papˈɛw"
-  },
   "para": {
     "kokoro": "pˌaɾæ",
     "ipa": "paɾə"
-  },
-  "paradoxo": {
-    "kokoro": "pˌaɾadˈɔksʊ",
-    "ipa": "pˌaɾadˈɔksʊ"
-  },
-  "passaporte": {
-    "kokoro": "pasapˈɔɾʧy",
-    "ipa": "pasapˈɔɾtʃi"
-  },
-  "pedra": {
-    "kokoro": "pˈɛdɾæ",
-    "ipa": "pˈɛdɾə"
   },
   "pega": {
     "kokoro": "pˈɛɡæ",
@@ -1671,18 +271,6 @@
     "kokoro": "pˈɛɡɐ̃ʊ̃",
     "ipa": "pˈɛgɐ̃w̃"
   },
-  "pego": {
-    "kokoro": "pˈɛgʊ",
-    "ipa": "pˈɛgʊ"
-  },
-  "peixes": {
-    "kokoro": "pˈAʃys",
-    "ipa": "pˈAʃys"
-  },
-  "peixotos": {
-    "kokoro": "pˌAʃˈotʊs",
-    "ipa": "pˌAʃˈotʊs"
-  },
   "pela": {
     "kokoro": "pˈɛlæ",
     "ipa": "pˈɛlə"
@@ -1690,10 +278,6 @@
   "pelas": {
     "kokoro": "pˈɛlæs",
     "ipa": "pˈɛləs"
-  },
-  "pele": {
-    "kokoro": "pˈɛly",
-    "ipa": "pˈɛli"
   },
   "pelo": {
     "kokoro": "pˈɛlʊ",
@@ -1703,10 +287,6 @@
     "kokoro": "pˈɛlʊs",
     "ipa": "pˈɛlws"
   },
-  "perca": {
-    "kokoro": "pˈɛɾkæ",
-    "ipa": "pˈɛɾkə"
-  },
   "perde": {
     "kokoro": "pˈɛɾʤy",
     "ipa": "pˈɛɾdʒi"
@@ -1714,22 +294,6 @@
   "perdem": {
     "kokoro": "pˈɛɾdẽj",
     "ipa": "pˈɛɾdẽj"
-  },
-  "perna": {
-    "kokoro": "pˈɛrnæ",
-    "ipa": "pˈɛrnə"
-  },
-  "perto": {
-    "kokoro": "pˈɛɾtʊ",
-    "ipa": "pˈɛɾtw"
-  },
-  "pesca": {
-    "kokoro": "pˈɛskæ",
-    "ipa": "pˈɛskə"
-  },
-  "peça": {
-    "kokoro": "pˈɛsæ",
-    "ipa": "pˈɛsə"
   },
   "pior": {
     "kokoro": "piˈɔɾ",
@@ -1739,501 +303,45 @@
     "kokoro": "piˈɔɾys",
     "ipa": "piˈɔɾis"
   },
-  "pipoca": {
-    "kokoro": "pipˈɔkæ",
-    "ipa": "pipˈɔkə"
-  },
-  "pistola": {
-    "kokoro": "pistˈɔlæ",
-    "ipa": "pistˈɔlə"
-  },
-  "plataforma": {
-    "kokoro": "platafˈɔɾmæ",
-    "ipa": "platafˈɔɾmə"
-  },
-  "plateia": {
-    "kokoro": "platˈɛjjæ",
-    "ipa": "platˈɛjjə"
-  },
-  "pobre": {
-    "kokoro": "pˈɔbɾy",
-    "ipa": "pˈɔbɾi"
-  },
-  "poema": {
-    "kokoro": "pʊˈɛmæ",
-    "ipa": "pwˈɛmə"
-  },
-  "poeta": {
-    "kokoro": "pʊˈɛtæ",
-    "ipa": "pwˈɛtə"
-  },
   "por": {
     "kokoro": "poɾ",
     "ipa": "poɾ"
-  },
-  "posse": {
-    "kokoro": "pˈɔsy",
-    "ipa": "pˈɔsi"
-  },
-  "possivelmente": {
-    "kokoro": "posivɛʊmˈAŋjʧy",
-    "ipa": "posivɛwmˈẽjtʃi"
-  },
-  "pote": {
-    "kokoro": "pˈɔʧy",
-    "ipa": "pˈɔtʃi"
   },
   "pra": {
     "kokoro": "pɾa",
     "ipa": "pɾa"
   },
-  "preciosa": {
-    "kokoro": "pɾesiˈɔzæ",
-    "ipa": "pɾesiˈɔzə"
-  },
-  "pressa": {
-    "kokoro": "pɾˈɛsæ",
-    "ipa": "pɾˈɛsə"
-  },
-  "prestes": {
-    "kokoro": "pɾˈɛsʧys",
-    "ipa": "pɾˈɛstʃis"
-  },
-  "pretexto": {
-    "kokoro": "prˌetˈestʊ",
-    "ipa": "prˌetˈestʊ"
-  },
-  "pretextos": {
-    "kokoro": "prˌetˈestʊs",
-    "ipa": "prˌetˈestʊs"
-  },
-  "primavera": {
-    "kokoro": "pɾimavˈɛɾæ",
-    "ipa": "pɾimavˈɛɾə"
-  },
   "pro": {
     "kokoro": "pɾʊ",
     "ipa": "pɾw"
-  },
-  "processo": {
-    "kokoro": "pɾosˈɛsʊ",
-    "ipa": "pɾosˈɛsʊ"
-  },
-  "procura": {
-    "kokoro": "pɾɔkˈuɾæ",
-    "ipa": "pɾɔkˈuɾə"
-  },
-  "profeta": {
-    "kokoro": "pɾofˈɛtæ",
-    "ipa": "pɾofˈɛtə"
-  },
-  "progresso": {
-    "kokoro": "pɾogɾˈɛsʊ",
-    "ipa": "pɾogɾˈɛsʊ"
-  },
-  "projeto": {
-    "kokoro": "pɾoʒˈɛtʊ",
-    "ipa": "pɾoʒˈɛtʊ"
-  },
-  "promessa": {
-    "kokoro": "pɾomˈɛsæ",
-    "ipa": "pɾomˈɛsə"
-  },
-  "proposta": {
-    "kokoro": "pɾopˈɔstæ",
-    "ipa": "pɾopˈɔstə"
-  },
-  "protesto": {
-    "kokoro": "pɾotˈɛstʊ",
-    "ipa": "pɾotˈɛstʊ"
-  },
-  "protocolo": {
-    "kokoro": "pɾotokˈɔlʊ",
-    "ipa": "pɾotokˈɔlʊ"
-  },
-  "prova": {
-    "kokoro": "pɾˈɔvæ",
-    "ipa": "pɾˈɔvə"
-  },
-  "provavelmente": {
-    "kokoro": "pɾovavɛʊmˈAŋjʧy",
-    "ipa": "pɾovavɛwmˈẽjtʃi"
-  },
-  "proximidades": {
-    "kokoro": "prˌosimidˈaʤys",
-    "ipa": "prˌosimidˈaʤys"
-  },
-  "proximos": {
-    "kokoro": "prˌosˈimʊs",
-    "ipa": "prˌosˈimʊs"
-  },
-  "próxima": {
-    "kokoro": "prˈɔsimæ",
-    "ipa": "prˈɔsimæ"
-  },
-  "próximas": {
-    "kokoro": "prˈɔsimæs",
-    "ipa": "prˈɔsimæs"
   },
   "qualquer": {
     "kokoro": "kwaʊkˈɛɾ",
     "ipa": "kwawkˈɛɾ"
   },
-  "quarentena": {
-    "kokoro": "kʊaɾAŋtˈɛnæ",
-    "ipa": "kwaɾẽtˈɛnə"
-  },
-  "quartel": {
-    "kokoro": "kʊaɾtˈɛʊ",
-    "ipa": "kwaɾtˈɛw"
-  },
-  "quebra": {
-    "kokoro": "kˈɛbɾæ",
-    "ipa": "kˈɛbɾə"
-  },
-  "queda": {
-    "kokoro": "kˈɛdæ",
-    "ipa": "kˈɛdə"
-  },
-  "queixar": {
-    "kokoro": "kAʃˈar",
-    "ipa": "kAʃˈar"
-  },
-  "queixas": {
-    "kokoro": "kˈAʃæs",
-    "ipa": "kˈAʃæs"
-  },
-  "queixumes": {
-    "kokoro": "kˌAʃˈumys",
-    "ipa": "kˌAʃˈumys"
-  },
-  "quieto": {
-    "kokoro": "kiˈɛtʊ",
-    "ipa": "kiˈɛtʊ"
-  },
-  "raiz": {
-    "kokoro": "xaˈis",
-    "ipa": "xaˈis"
-  },
-  "rebelde": {
-    "kokoro": "xebˈɛʊʤy",
-    "ipa": "xebˈɛwdʒi"
-  },
-  "recorde": {
-    "kokoro": "xekˈɔɾʤy",
-    "ipa": "xekˈɔɾdʒi"
-  },
-  "redor": {
-    "kokoro": "xedˈɔɾ",
-    "ipa": "xedˈɔɾ"
-  },
-  "reflexionemos": {
-    "kokoro": "xˌefleksˌionˈemʊs",
-    "ipa": "xˌefleksˌionˈemʊs"
-  },
-  "reflexo": {
-    "kokoro": "xeflˈɛkəsʊ",
-    "ipa": "xeflˈɛkəsʊ"
-  },
-  "reforma": {
-    "kokoro": "xefˈɔɾmæ",
-    "ipa": "xefˈɔɾmə"
-  },
-  "regra": {
-    "kokoro": "xˈɛgɾæ",
-    "ipa": "xˈɛgɾə"
-  },
-  "relaxamento": {
-    "kokoro": "xˌelaʃæmˈAŋtʊ",
-    "ipa": "xˌelaʃæmˈAŋtʊ"
-  },
-  "religiosa": {
-    "kokoro": "xeliʒiˈɔzæ",
-    "ipa": "xeliʒiˈɔzə"
-  },
-  "remoto": {
-    "kokoro": "xemˈɔtʊ",
-    "ipa": "xemˈɔtʊ"
-  },
-  "reserva": {
-    "kokoro": "xezˈɛɾvæ",
-    "ipa": "xezˈɛɾvə"
-  },
-  "resposta": {
-    "kokoro": "xespˈɔstæ",
-    "ipa": "xespˈɔstə"
-  },
   "resto": {
     "kokoro": "xˈɛstʊ",
     "ipa": "xˈɛstw"
-  },
-  "reta": {
-    "kokoro": "xˈɛtæ",
-    "ipa": "xˈɛtə"
-  },
-  "rocha": {
-    "kokoro": "xˈɔʃæ",
-    "ipa": "xˈɔʃə"
-  },
-  "roda": {
-    "kokoro": "xˈɔdæ",
-    "ipa": "xˈɔdə"
-  },
-  "rosa": {
-    "kokoro": "xˈɔzæ",
-    "ipa": "xˈɔzə"
-  },
-  "rota": {
-    "kokoro": "xˈɔtæ",
-    "ipa": "xˈɔtə"
-  },
-  "sacerdote": {
-    "kokoro": "saseɾdˈɔʧy",
-    "ipa": "saseɾdˈɔtʃi"
-  },
-  "sacola": {
-    "kokoro": "sakˈɔlæ",
-    "ipa": "sakˈɔlə"
-  },
-  "saxonias": {
-    "kokoro": "sˌaksonˈiæs",
-    "ipa": "sˌaksonˈiæs"
-  },
-  "score": {
-    "kokoro": "skˈɔɾy",
-    "ipa": "skˈɔɾy"
   },
   "se": {
     "kokoro": "sy",
     "ipa": "si"
   },
-  "seca": {
-    "kokoro": "sˈɛkæ",
-    "ipa": "sˈɛkə"
-  },
-  "secreta": {
-    "kokoro": "sekɾˈɛtæ",
-    "ipa": "sekɾˈɛtə"
-  },
-  "secretamente": {
-    "kokoro": "sekɾɛtamˈAŋjʧy",
-    "ipa": "sekɾɛtamˈẽjtʃi"
-  },
-  "secreto": {
-    "kokoro": "sekɾˈɛtʊ",
-    "ipa": "sekɾˈɛtʊ"
-  },
-  "selva": {
-    "kokoro": "sˈɛʊvæ",
-    "ipa": "sˈɛwvə"
-  },
-  "semestre": {
-    "kokoro": "semˈɛstɾy",
-    "ipa": "semˈɛstɾi"
-  },
-  "senex": {
-    "kokoro": "senˈɛks",
-    "ipa": "senˈɛks"
-  },
-  "senha": {
-    "kokoro": "sˈɛɲæ",
-    "ipa": "sˈɛɲə"
-  },
-  "sequer": {
-    "kokoro": "sekˈɛɾ",
-    "ipa": "sekˈɛɾ"
-  },
-  "sequestro": {
-    "kokoro": "sekˈɛstɾʊ",
-    "ipa": "sekˈɛstɾʊ"
-  },
-  "serena": {
-    "kokoro": "seɾˈɛnæ",
-    "ipa": "seɾˈɛnə"
-  },
-  "seriamente": {
-    "kokoro": "sɛɾjamˈAŋjʧy",
-    "ipa": "sɛɾjamˈẽjtʃi"
-  },
-  "servo": {
-    "kokoro": "sˈɛɾvʊ",
-    "ipa": "sˈɛɾvʊ"
-  },
-  "sete": {
-    "kokoro": "sˈɛʧy",
-    "ipa": "sˈɛtʃi"
-  },
-  "sexo": {
-    "kokoro": "sˈɛksʊ",
-    "ipa": "sˈɛksʊ"
-  },
-  "sinceramente": {
-    "kokoro": "sĩsɛɾamˈAŋjʧy",
-    "ipa": "sĩsɛɾamˈẽjtʃi"
-  },
-  "sincero": {
-    "kokoro": "sĩsˈɛɾʊ",
-    "ipa": "sĩsˈɛɾʊ"
-  },
-  "sistema": {
-    "kokoro": "sistˈɛmæ",
-    "ipa": "sistˈɛmə"
-  },
-  "sobra": {
-    "kokoro": "sˈɔbɾæ",
-    "ipa": "sˈɔbɾə"
-  },
-  "solo": {
-    "kokoro": "sˈɔlʊ",
-    "ipa": "sˈɔlʊ"
-  },
-  "somente": {
-    "kokoro": "sɔmˈAŋjʧy",
-    "ipa": "sɔmˈẽjtʃi"
-  },
-  "sozinho": {
-    "kokoro": "sɔzˈiɲʊ",
-    "ipa": "sɔzˈiɲʊ"
-  },
-  "sucesso": {
-    "kokoro": "susˈɛsʊ",
-    "ipa": "susˈɛsʊ"
-  },
-  "suor": {
-    "kokoro": "suˈɔɾ",
-    "ipa": "suˈɔɾ"
-  },
-  "supremo": {
-    "kokoro": "supɾˈɛmʊ",
-    "ipa": "supɾˈɛmʊ"
-  },
   "também": {
     "kokoro": "tɐ̃mbˈAŋ",
     "ipa": "tɐ̃mbẽj"
-  },
-  "tarefa": {
-    "kokoro": "taɾˈɛfæ",
-    "ipa": "taɾˈɛfə"
-  },
-  "taxa": {
-    "kokoro": "tˈaʃæ",
-    "ipa": "tˈaʃæ"
-  },
-  "taxas": {
-    "kokoro": "tˈaʃæs",
-    "ipa": "tˈaʃæs"
   },
   "te": {
     "kokoro": "ʧy",
     "ipa": "ti"
   },
-  "tela": {
-    "kokoro": "tˈɛlæ",
-    "ipa": "tˈɛlə"
-  },
   "telefone": {
     "kokoro": "ˌteli-fˈɔny",
     "ipa": "telefˈɔni"
   },
-  "telefonema": {
-    "kokoro": "telefonˈɛmæ",
-    "ipa": "telefonˈɛmə"
-  },
   "telefones": {
     "kokoro": "ˌteli-fˈɔnys",
     "ipa": "telefˈɔnis"
-  },
-  "tema": {
-    "kokoro": "tˈɛmæ",
-    "ipa": "tˈɛmə"
-  },
-  "terno": {
-    "kokoro": "tˈɛrnʊ",
-    "ipa": "tˈɛrnʊ"
-  },
-  "terremoto": {
-    "kokoro": "texemˈɔtʊ",
-    "ipa": "texemˈɔtʊ"
-  },
-  "terreno": {
-    "kokoro": "texˈɛnʊ",
-    "ipa": "texˈɛnʊ"
-  },
-  "terrivelmente": {
-    "kokoro": "texivɛʊmˈAŋjʧy",
-    "ipa": "texivɛwmˈẽjtʃi"
-  },
-  "teto": {
-    "kokoro": "tˈɛtʊ",
-    "ipa": "tˈɛtʊ"
-  },
-  "texturas": {
-    "kokoro": "tˌestˈuɾæs",
-    "ipa": "tˌestˈuɾæs"
-  },
-  "tigela": {
-    "kokoro": "ʧiʒˈɛlæ",
-    "ipa": "tʃiʒˈɛlə"
-  },
-  "toca": {
-    "kokoro": "tˈɔkæ",
-    "ipa": "tˈɔkə"
-  },
-  "tola": {
-    "kokoro": "tˈɔlæ",
-    "ipa": "tˈɔlə"
-  },
-  "toma": {
-    "kokoro": "tˈɔmæ",
-    "ipa": "tˈɔmə"
-  },
-  "tomo": {
-    "kokoro": "tˈɔmʊ",
-    "ipa": "tˈɔmʊ"
-  },
-  "toque": {
-    "kokoro": "tˈɔky",
-    "ipa": "tˈɔki"
-  },
-  "torna": {
-    "kokoro": "tˈɔrnæ",
-    "ipa": "tˈɔrnə"
-  },
-  "transporte": {
-    "kokoro": "tɾɐ̃ŋspˈɔɾʧy",
-    "ipa": "tɾə̃spˈɔɾtʃi"
-  },
-  "troca": {
-    "kokoro": "tɾˈɔkæ",
-    "ipa": "tɾˈɔkə"
-  },
-  "tropa": {
-    "kokoro": "tɾˈɔpæ",
-    "ipa": "tɾˈɔpə"
-  },
-  "trouxe": {
-    "kokoro": "trˈowsy",
-    "ipa": "trˈowsy"
-  },
-  "trouxeram": {
-    "kokoro": "trˌowsˈɛɾɐ̃ʊ̃",
-    "ipa": "trˌowsˈɛɾɐ̃ʊ̃"
-  },
-  "trouxesse": {
-    "kokoro": "trˌowsˈɛsy",
-    "ipa": "trˌowsˈɛsy"
-  },
-  "trouxesses": {
-    "kokoro": "trˌowsˈɛsys",
-    "ipa": "trˌowsˈɛsys"
-  },
-  "trouxestes": {
-    "kokoro": "trˌowsˈɛsʧys",
-    "ipa": "trˌowsˈɛsʧys"
-  },
-  "têxtil": {
-    "kokoro": "tˈesʧiʊ",
-    "ipa": "tˈesʧiʊ"
   },
   "um": {
     "kokoro": "ũŋ",
@@ -2247,21 +355,9 @@
     "kokoro": "ˌumæs",
     "ipa": "uməs"
   },
-  "uniforme": {
-    "kokoro": "unifˈɔɾmy",
-    "ipa": "unifˈɔɾmi"
-  },
-  "universo": {
-    "kokoro": "univˈɛɾsʊ",
-    "ipa": "univˈɛɾsʊ"
-  },
   "uns": {
     "kokoro": "ũŋs",
     "ipa": "ũs"
-  },
-  "vela": {
-    "kokoro": "vˈɛlæ",
-    "ipa": "vˈɛlə"
   },
   "velha": {
     "kokoro": "vˈɛʎæ",
@@ -2279,30 +375,6 @@
     "kokoro": "vˈɛʎʊs",
     "ipa": "vˈɛʎws"
   },
-  "velhote": {
-    "kokoro": "veʎˈɔʧy",
-    "ipa": "veʎˈɔtʃi"
-  },
-  "veneno": {
-    "kokoro": "venˈɛnʊ",
-    "ipa": "venˈɛnʊ"
-  },
-  "vergonha": {
-    "kokoro": "veɾgˈɔɲæ",
-    "ipa": "veɾgˈɔɲə"
-  },
-  "verme": {
-    "kokoro": "vˈɛɾmy",
-    "ipa": "vˈɛɾmi"
-  },
-  "vexame": {
-    "kokoro": "vˌeʃˈɐ̃my",
-    "ipa": "vˌeʃˈɐ̃my"
-  },
-  "voeux": {
-    "kokoro": "vˌoeˈuks",
-    "ipa": "vˌoeˈuks"
-  },
   "volta": {
     "kokoro": "vˈɔʊtæ",
     "ipa": "vˈɔwtə"
@@ -2310,37 +382,5 @@
   "voltam": {
     "kokoro": "vˈɔʊtɐ̃ʊ̃",
     "ipa": "vˈɔwtɐ̃w̃"
-  },
-  "volte": {
-    "kokoro": "vˈɔʊʧy",
-    "ipa": "vˈɔwtʃi"
-  },
-  "vosso": {
-    "kokoro": "vˈɔsʊ",
-    "ipa": "vˈɔsʊ"
-  },
-  "voto": {
-    "kokoro": "vˈɔtʊ",
-    "ipa": "vˈɔtʊ"
-  },
-  "voz": {
-    "kokoro": "vˈɔs",
-    "ipa": "vˈɔs"
-  },
-  "xavier": {
-    "kokoro": "ʃˌaviˈɛɾ",
-    "ipa": "ʃˌaviˈɛɾ"
-  },
-  "yeux": {
-    "kokoro": "jeˈuks",
-    "ipa": "jeˈuks"
-  },
-  "álcool": {
-    "kokoro": "ˈWkɔʊ",
-    "ipa": "ˈawkɔw"
-  },
-  "êxtase": {
-    "kokoro": "ˈestæzy",
-    "ipa": "ˈestæzy"
   }
 }

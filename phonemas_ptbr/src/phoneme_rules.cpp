@@ -593,8 +593,17 @@ void phonemize_rules_only_buf(std::string_view lw, char*& dst, const char* dst_e
                                     lw.substr(lw.size() - 5) == "estes" ||
                                     lw.substr(lw.size() - 5) == "estos" ||
                                     lw.substr(lw.size() - 5) == "erras")) ||
-                lw == "mulher" || lw == "certo" || lw == "certa" ||
-                lw == "certos" || lw == "certas" || lw == "zero")) {
+                (lw.size() >= 4 && (lw.substr(lw.size() - 4) == "erto" ||
+                                    lw.substr(lw.size() - 4) == "erta")) ||
+                (lw.size() >= 5 && (lw.substr(lw.size() - 5) == "ertos" ||
+                                    lw.substr(lw.size() - 5) == "ertas")) ||
+                (lw.size() >= 4 && (lw.substr(lw.size() - 4) == "reto" ||
+                                    lw.substr(lw.size() - 4) == "reta")) ||
+                (lw.size() >= 5 && (lw.substr(lw.size() - 5) == "retos" ||
+                                    lw.substr(lw.size() - 5) == "retas")) ||
+                (lw.size() >= 2 && lw.substr(lw.size() - 2) == "el") ||
+                lw == "perto" || lw == "certo" || lw == "certa" ||
+                lw == "certos" || lw == "certas" || lw == "mulher" || lw == "zero")) {
                 emit_str(dst, dst_end, "ɛ"); // Abertura vocálica morfológica
             } else {
                 emit_str(dst, dst_end, "e");
@@ -611,6 +620,9 @@ void phonemize_rules_only_buf(std::string_view lw, char*& dst, const char* dst_e
                                     lw.substr(lw.size() - 4) == "orte")) ||
                 (lw.size() >= 5 && (lw.substr(lw.size() - 5) == "ortas" ||
                                     lw.substr(lw.size() - 5) == "ortes")) ||
+                (lw.size() >= 3 && lw.substr(lw.size() - 3) == "osa") ||
+                (lw.size() >= 4 && lw.substr(lw.size() - 4) == "osas") ||
+                (lw.size() >= 2 && lw.substr(lw.size() - 2) == "ol") ||
                 lw == "sol" || lw == "hora" || lw == "horas" || lw == "agora" ||
                 lw == "bola" || lw == "bolas" || lw == "mola" || lw == "molas" ||
                 lw == "escola" || lw == "escolas" || lw == "nova" || lw == "novas" ||
