@@ -300,10 +300,11 @@ void analyze_and_syllabify_word(std::string_view word_str, WordAnalysis& wa) {
         wa.tonic_char_idx = -1;
     }
 
-    // 7. Acentuação métrica secundária (ˌ) em polissílabos (>= 3 sílabas)
+    // 7. Acentuação métrica secundária (ˌ) em polissílabos reais (>= 4 sílabas ou -mente)
     wa.sec_syl_idx = -1;
     wa.sec_char_idx = -1;
-    if (wa.num_nuclei >= 3 && wa.tonic_syl_idx > 0) {
+    bool ends_with_mente = (wa.word_len >= 5 && strcmp(wa.lower_word + wa.word_len - 5, "mente") == 0);
+    if ((wa.num_nuclei >= 4 || ends_with_mente) && wa.tonic_syl_idx > 1) {
         wa.sec_syl_idx = 0;
         wa.sec_char_idx = static_cast<int>(wa.nuclei[0].start_idx);
     }

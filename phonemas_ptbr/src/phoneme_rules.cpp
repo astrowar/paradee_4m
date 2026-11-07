@@ -108,6 +108,57 @@ const char* find_exception(std::string_view word) {
     return nullptr;
 }
 
+// Expande inteiros (0 a 9999) para palavras em português por extenso
+static void expand_number_ptbr(int n, char*& dst, const char* dst_end, PhonemasOutputMode mode) {
+    if (n < 0 || n > 9999) return;
+    if (n == 0) { phonemize_single_word_buf("zero", dst, dst_end, mode); return; }
+    if (n == 100) { phonemize_single_word_buf("cem", dst, dst_end, mode); return; }
+
+    static const char* unidades[] = {"", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove"};
+    static const char* especiais[] = {"dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"};
+    static const char* dezenas[] = {"", "", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"};
+    static const char* centenas[] = {"", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"};
+
+    bool first = true;
+    auto emit_word = [&](const char* w) {
+        if (!first && dst < dst_end - 1) *dst++ = ' ';
+        phonemize_single_word_buf(w, dst, dst_end, mode);
+        first = false;
+    };
+
+    if (n >= 1000) {
+        int milhar = n / 1000;
+        n %= 1000;
+        if (milhar > 1) {
+            expand_number_ptbr(milhar, dst, dst_end, mode);
+            first = false;
+        }
+        emit_word("mil");
+        if (n > 0 && n < 100) emit_word("e");
+    }
+
+    if (n >= 100) {
+        int c = n / 100;
+        n %= 100;
+        emit_word(centenas[c]);
+        if (n > 0) emit_word("e");
+    }
+
+    if (n >= 20) {
+        int d = n / 10;
+        int u = n % 10;
+        emit_word(dezenas[d]);
+        if (u > 0) {
+            emit_word("e");
+            emit_word(unidades[u]);
+        }
+    } else if (n >= 10) {
+        emit_word(especiais[n - 10]);
+    } else if (n > 0) {
+        emit_word(unidades[n]);
+    }
+}
+
 // ============================================================================
 // 4. MOTOR DE TRANSCRIÇÃO FONÉTICA DE PALAVRA INDIVIDUAL
 // ============================================================================
@@ -123,6 +174,28 @@ void phonemize_single_word_buf(std::string_view word_str, char*& dst, const char
     }
     lower_word[w_len] = '\0';
     std::string_view lw(lower_word, w_len);
+
+    // 0. Clíticos átonos e letras isoladas essenciais
+    if (lw == "em") {
+        emit_str(dst, dst_end, "ẽj");
+        return;
+    }
+    if (lw == "que") {
+        emit_str(dst, dst_end, (mode == PHONEMAS_MODE_STANDARD_IPA) ? "ki" : "ky");
+        return;
+    }
+    if (lw == "c") {
+        emit_str(dst, dst_end, "sˈe"); // Letra C / C++ / Vitamina C
+        return;
+    }
+    if (lw == "view") {
+        emit_str(dst, dst_end, "vjˈu"); // Termo técnico 'view'
+        return;
+    }
+    if (lw == "ipa") {
+        emit_str(dst, dst_end, "ˌipˌeˈa"); // Sigla I-P-A
+        return;
+    }
 
     // 1. Busca na tabela de exceções em Flash (.rodata)
     const char* exc = find_exception(lw);
@@ -465,17 +538,79 @@ void phonemize_single_word_buf(std::string_view word_str, char*& dst, const char
 void rule_based_ptbr_word_buf(std::string_view word_str, char*& dst, const char* dst_end, PhonemasOutputMode mode) {
     if (word_str.empty()) return;
 
-    // Se a palavra contém hífen interno (ex: além-mar, guarda-chuva, bem-bom)
+    // 1. Números puros (ex: "17", "32", "2026")
+    bool all_digits = true;
+    for (char c : word_str) {
+        if (!isdigit(static_cast<unsigned char>(c))) { all_digits = false; break; }
+    }
+    if (all_digits && word_str.size() <= 4) {
+        int val = 0;
+        for (char c : word_str) val = val * 10 + (c - '0');
+        expand_number_ptbr(val, dst, dst_end, mode);
+        return;
+    }
+
+    // 2. Se a palavra contém hífen interno (ex: além-mar, guarda-chuva, bem-bom)
     size_t hyphen_pos = word_str.find('-');
     if (hyphen_pos != std::string_view::npos && hyphen_pos > 0 && hyphen_pos < word_str.size() - 1) {
         std::string_view part1 = word_str.substr(0, hyphen_pos);
-        phonemize_single_word_buf(part1, dst, dst_end, mode);
+        rule_based_ptbr_word_buf(part1, dst, dst_end, mode);
         if (dst < dst_end - 1) {
             *dst++ = '-';
             *dst = '\0';
         }
         std::string_view part2 = word_str.substr(hyphen_pos + 1);
         rule_based_ptbr_word_buf(part2, dst, dst_end, mode);
+        return;
+    }
+
+    // 3. Se a palavra contém underscore interno (ex: string_view)
+    size_t underscore_pos = word_str.find('_');
+    if (underscore_pos != std::string_view::npos && underscore_pos > 0 && underscore_pos < word_str.size() - 1) {
+        std::string_view part1 = word_str.substr(0, underscore_pos);
+        rule_based_ptbr_word_buf(part1, dst, dst_end, mode);
+        if (dst < dst_end - 1) {
+            *dst++ = ' ';
+            *dst = '\0';
+        }
+        std::string_view part2 = word_str.substr(underscore_pos + 1);
+        rule_based_ptbr_word_buf(part2, dst, dst_end, mode);
+        return;
+    }
+
+    // 4. Se a palavra contém o símbolo '+' (ex: C++, C++17)
+    size_t plus_pos = word_str.find('+');
+    if (plus_pos != std::string_view::npos) {
+        std::string_view part1 = word_str.substr(0, plus_pos);
+        if (!part1.empty()) {
+            rule_based_ptbr_word_buf(part1, dst, dst_end, mode);
+            if (dst < dst_end - 1) *dst++ = ' ';
+        }
+        size_t plus_end = plus_pos;
+        while (plus_end < word_str.size() && word_str[plus_end] == '+') {
+            if (plus_end > plus_pos && dst < dst_end - 1) *dst++ = ' ';
+            phonemize_single_word_buf("mais", dst, dst_end, mode);
+            plus_end++;
+        }
+        if (plus_end < word_str.size()) {
+            if (dst < dst_end - 1) *dst++ = ' ';
+            std::string_view remainder = word_str.substr(plus_end);
+            rule_based_ptbr_word_buf(remainder, dst, dst_end, mode);
+        }
+        return;
+    }
+
+    // 5. Se a palavra contém letras seguidas de números (ex: ESP32)
+    size_t digit_start = 0;
+    while (digit_start < word_str.size() && !isdigit(static_cast<unsigned char>(word_str[digit_start]))) {
+        digit_start++;
+    }
+    if (digit_start > 0 && digit_start < word_str.size()) {
+        std::string_view letters = word_str.substr(0, digit_start);
+        std::string_view digits = word_str.substr(digit_start);
+        rule_based_ptbr_word_buf(letters, dst, dst_end, mode);
+        if (dst < dst_end - 1) *dst++ = ' ';
+        rule_based_ptbr_word_buf(digits, dst, dst_end, mode);
         return;
     }
 
