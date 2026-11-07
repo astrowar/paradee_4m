@@ -299,18 +299,6 @@
     "kokoro": "kavˈɛrnæ",
     "ipa": "kavˈɛrnə"
   },
-  "ccix": {
-    "kokoro": "ksˈiks",
-    "ipa": "ksˈiks"
-  },
-  "ccxii": {
-    "kokoro": "kkʃjˈi",
-    "ipa": "kkʃjˈi"
-  },
-  "ccxiii": {
-    "kokoro": "kkʃjjˈi",
-    "ipa": "kkʃjjˈi"
-  },
   "cega": {
     "kokoro": "sˈɛgæ",
     "ipa": "sˈɛgə"
@@ -354,74 +342,6 @@
   "cieux": {
     "kokoro": "sˌieˈuks",
     "ipa": "sˌieˈuks"
-  },
-  "cix": {
-    "kokoro": "sˈiks",
-    "ipa": "sˈiks"
-  },
-  "clix": {
-    "kokoro": "klˈiks",
-    "ipa": "klˈiks"
-  },
-  "clx": {
-    "kokoro": "sˌeˌɛlyʃˈis",
-    "ipa": "sˌeˌɛlyʃˈis"
-  },
-  "clxi": {
-    "kokoro": "klʃˈi",
-    "ipa": "klʃˈi"
-  },
-  "clxix": {
-    "kokoro": "klʃˈiks",
-    "ipa": "klʃˈiks"
-  },
-  "clxviii": {
-    "kokoro": "sˈelsvjjˈi",
-    "ipa": "sˈelsvjjˈi"
-  },
-  "clxx": {
-    "kokoro": "sˌeˌɛlyʃˌisʃˈis",
-    "ipa": "sˌeˌɛlyʃˌisʃˈis"
-  },
-  "clxxii": {
-    "kokoro": "sˈelsʃjˈi",
-    "ipa": "sˈelsʃjˈi"
-  },
-  "clxxiii": {
-    "kokoro": "sˈelsʃjjˈi",
-    "ipa": "sˈelsʃjjˈi"
-  },
-  "clxxix": {
-    "kokoro": "sˈelsʃˈiks",
-    "ipa": "sˈelsʃˈiks"
-  },
-  "clxxvi": {
-    "kokoro": "sˌeˈɛlyssvˈi",
-    "ipa": "sˌeˈɛlyssvˈi"
-  },
-  "clxxx": {
-    "kokoro": "sˌeˌɛlyʃˈisʃˌisʃˈis",
-    "ipa": "sˌeˌɛlyʃˈisʃˌisʃˈis"
-  },
-  "clxxxii": {
-    "kokoro": "sˌeˈɛlyssʃjˈi",
-    "ipa": "sˌeˈɛlyssʃjˈi"
-  },
-  "clxxxiv": {
-    "kokoro": "sˌeˈɛlyssʃˈiv",
-    "ipa": "sˌeˈɛlyssʃˈiv"
-  },
-  "clxxxix": {
-    "kokoro": "sˌeˈɛlyssʃˈiks",
-    "ipa": "sˌeˈɛlyssʃˈiks"
-  },
-  "clxxxv": {
-    "kokoro": "sˌeˌɛlyʃˈisʃˌisʃˌizvˈe",
-    "ipa": "sˌeˌɛlyʃˈisʃˌisʃˌizvˈe"
-  },
-  "clxxxviii": {
-    "kokoro": "sˌeˌɛlyʃˈisssvjjˈi",
-    "ipa": "sˌeˌɛlyʃˈisssvjjˈi"
   },
   "coberta": {
     "kokoro": "kobˈɛɾtæ",
@@ -574,86 +494,6 @@
   "curiosa": {
     "kokoro": "kuɾiˈɔzæ",
     "ipa": "kuɾiˈɔzə"
-  },
-  "cxcii": {
-    "kokoro": "ksjˈi",
-    "ipa": "ksjˈi"
-  },
-  "cxcv": {
-    "kokoro": "sˌeʃˌissˌevˈe",
-    "ipa": "sˌeʃˌissˌevˈe"
-  },
-  "cxcvi": {
-    "kokoro": "sˈeskvˈi",
-    "ipa": "sˈeskvˈi"
-  },
-  "cxcviii": {
-    "kokoro": "sˈeskvjjˈi",
-    "ipa": "sˈeskvjjˈi"
-  },
-  "cxii": {
-    "kokoro": "kʃjˈi",
-    "ipa": "kʃjˈi"
-  },
-  "cxiv": {
-    "kokoro": "kʃˈiv",
-    "ipa": "kʃˈiv"
-  },
-  "cxliv": {
-    "kokoro": "kslˈiv",
-    "ipa": "kslˈiv"
-  },
-  "cxlvi": {
-    "kokoro": "sˈeslvˈi",
-    "ipa": "sˈeslvˈi"
-  },
-  "cxv": {
-    "kokoro": "sˌeʃˌizvˈe",
-    "ipa": "sˌeʃˌizvˈe"
-  },
-  "cxvii": {
-    "kokoro": "ksvjˈi",
-    "ipa": "ksvjˈi"
-  },
-  "cxxi": {
-    "kokoro": "ksʃˈi",
-    "ipa": "ksʃˈi"
-  },
-  "cxxiii": {
-    "kokoro": "ksʃjjˈi",
-    "ipa": "ksʃjjˈi"
-  },
-  "cxxiv": {
-    "kokoro": "ksʃˈiv",
-    "ipa": "ksʃˈiv"
-  },
-  "cxxv": {
-    "kokoro": "sˌeʃˌisʃˌizvˈe",
-    "ipa": "sˌeʃˌisʃˌizvˈe"
-  },
-  "cxxvii": {
-    "kokoro": "sˈessvjˈi",
-    "ipa": "sˈessvjˈi"
-  },
-  "cxxx": {
-    "kokoro": "sˌeʃˌisʃˌisʃˈis",
-    "ipa": "sˌeʃˌisʃˌisʃˈis"
-  },
-  "cxxxi": {
-    "kokoro": "sˈessʃˈi",
-    "ipa": "sˈessʃˈi"
-  },
-  "cxxxiv": {
-    "kokoro": "sˈessʃˈiv",
-    "ipa": "sˈessʃˈiv"
-  },
-  "cxxxvi": {
-    "kokoro": "sˌeʃˈisssvˈi",
-    "ipa": "sˌeʃˈisssvˈi"
-  },
-  "cxxxvii": {
-    "kokoro": "sˌeʃˈisssvjˈi",
-    "ipa": "sˌeʃˈisssvjˈi"
   },
   "da": {
     "kokoro": "da",
@@ -1526,46 +1366,6 @@
   "luxuosa": {
     "kokoro": "lˌuʃwˈɔzæ",
     "ipa": "lˌuʃwˈɔzæ"
-  },
-  "lxi": {
-    "kokoro": "lʃˈi",
-    "ipa": "lʃˈi"
-  },
-  "lxiii": {
-    "kokoro": "lʃjjˈi",
-    "ipa": "lʃjjˈi"
-  },
-  "lxxiv": {
-    "kokoro": "lsʃˈiv",
-    "ipa": "lsʃˈiv"
-  },
-  "lxxv": {
-    "kokoro": "ˌɛlyʃˌisʃˌizvˈe",
-    "ipa": "ˌɛlyʃˌisʃˌizvˈe"
-  },
-  "lxxviii": {
-    "kokoro": "ˈɛlyssvjjˈi",
-    "ipa": "ˈɛlyssvjjˈi"
-  },
-  "lxxxi": {
-    "kokoro": "ˈɛlyssʃˈi",
-    "ipa": "ˈɛlyssʃˈi"
-  },
-  "lxxxii": {
-    "kokoro": "ˈɛlyssʃjˈi",
-    "ipa": "ˈɛlyssʃjˈi"
-  },
-  "lxxxiv": {
-    "kokoro": "ˈɛlyssʃˈiv",
-    "ipa": "ˈɛlyssʃˈiv"
-  },
-  "lxxxv": {
-    "kokoro": "ˌɛlyʃˌisʃˈisʃˌizvˈe",
-    "ipa": "ˌɛlyʃˌisʃˈisʃˌizvˈe"
-  },
-  "lxxxvii": {
-    "kokoro": "ˌɛlyʃˈisssvjˈi",
-    "ipa": "ˌɛlyʃˈisssvjˈi"
   },
   "maconha": {
     "kokoro": "makˈɔɲæ",
@@ -2530,82 +2330,6 @@
   "xavier": {
     "kokoro": "ʃˌaviˈɛɾ",
     "ipa": "ʃˌaviˈɛɾ"
-  },
-  "xc": {
-    "kokoro": "ʃˌissˈe",
-    "ipa": "ʃˌissˈe"
-  },
-  "xcii": {
-    "kokoro": "sjˈi",
-    "ipa": "sjˈi"
-  },
-  "xciv": {
-    "kokoro": "sˈiv",
-    "ipa": "sˈiv"
-  },
-  "xcvii": {
-    "kokoro": "skvjˈi",
-    "ipa": "skvjˈi"
-  },
-  "xcviii": {
-    "kokoro": "skvjjˈi",
-    "ipa": "skvjjˈi"
-  },
-  "xl": {
-    "kokoro": "ʃˌizˈɛly",
-    "ipa": "ʃˌizˈɛly"
-  },
-  "xliii": {
-    "kokoro": "slijˈi",
-    "ipa": "slijˈi"
-  },
-  "xlv": {
-    "kokoro": "ʃˌizˌɛlyvˈe",
-    "ipa": "ʃˌizˌɛlyvˈe"
-  },
-  "xlvi": {
-    "kokoro": "slvˈi",
-    "ipa": "slvˈi"
-  },
-  "xlviii": {
-    "kokoro": "slvjjˈi",
-    "ipa": "slvjjˈi"
-  },
-  "xxii": {
-    "kokoro": "sʃjˈi",
-    "ipa": "sʃjˈi"
-  },
-  "xxiv": {
-    "kokoro": "sʃˈiv",
-    "ipa": "sʃˈiv"
-  },
-  "xxix": {
-    "kokoro": "sʃˈiks",
-    "ipa": "sʃˈiks"
-  },
-  "xxvi": {
-    "kokoro": "ssvˈi",
-    "ipa": "ssvˈi"
-  },
-  "xxviii": {
-    "kokoro": "ssvjjˈi",
-    "ipa": "ssvjjˈi"
-  },
-  "xxxiii": {
-    "kokoro": "ssʃjjˈi",
-    "ipa": "ssʃjjˈi"
-  },
-  "xxxiv": {
-    "kokoro": "ssʃˈiv",
-    "ipa": "ssʃˈiv"
-  },
-  "xxxvi": {
-    "kokoro": "ʃˈisssvˈi",
-    "ipa": "ʃˈisssvˈi"
-  },
-  "xxxviii": {
-    "kokoro": "ʃˈisssvjjˈi",
-    "ipa": "ʃˈisssvjjˈi"
   },
   "yeux": {
     "kokoro": "jeˈuks",

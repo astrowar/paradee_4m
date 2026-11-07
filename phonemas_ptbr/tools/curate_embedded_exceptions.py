@@ -24,8 +24,24 @@ def rules_only(w, mode=0):
 with open(loanwords_json_path, encoding='utf-8') as f:
     loanwords = set(json.load(f).keys())
 
-# 2. Conjunto de numerais romanos conhecidos
-roman_set = {'i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi'}
+# 2. Detector dinâmico de numerais romanos (I a MMMCMXCIX)
+def is_roman_numeral(s):
+    roman_map = {'i': 1, 'v': 5, 'x': 10, 'l': 50, 'c': 100, 'd': 500, 'm': 1000}
+    s = s.lower()
+    if not all(ch in roman_map for ch in s) or len(s) == 0:
+        return False
+    if len(s) == 1:
+        return False
+    total = 0
+    prev = 0
+    for ch in reversed(s):
+        val = roman_map[ch]
+        if val < prev:
+            total -= val
+        else:
+            total += val
+            prev = val
+    return total > 0 and total <= 3999
 
 # 3. Palavras comprovadamente corrompidas, arcaicas ou grafias antigas de espeak
 junk_words = {
@@ -90,7 +106,7 @@ for w, val in current_exceptions.items():
     if w in loanwords:
         pruned_counts['loan'] += 1
         continue
-    if w in roman_set:
+    if is_roman_numeral(w):
         pruned_counts['roman'] += 1
         continue
     if w in junk_words or len(w) <= 1:

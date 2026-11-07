@@ -767,17 +767,22 @@ size_t translate_text_buf(std::string_view text, char* out_buf, size_t max_len, 
             bool is_roman = false;
             if (roman_val > 0) {
                 bool is_context = !prev_core.empty() && is_roman_context_title(prev_core);
-                if (core.size() == 1) {
-                    // Letra isolada: apenas se estiver em contexto ou for V ou X em maiúsculo
-                    if (is_context || core == "V" || (is_context && (core == "X" || core == "I"))) {
-                        is_roman = true;
-                    }
-                } else {
-                    // Composto (ex: II, III, IV, IX, XI, XXI): se estiver em contexto ou todo maiúsculo
-                    bool all_upper = true;
-                    for (char c : core) if (!isupper(static_cast<unsigned char>(c))) { all_upper = false; break; }
-                    if (is_context || all_upper) {
-                        is_roman = true;
+                bool is_real_word = (core == "vi" || core == "li" || core == "mil" || core == "id");
+                if (!is_real_word) {
+                    if (core.size() == 1) {
+                        // Letra isolada: apenas se estiver em contexto ou for V ou X em maiúsculo
+                        if (is_context || core == "V" || (is_context && (core == "X" || core == "I"))) {
+                            is_roman = true;
+                        }
+                    } else {
+                        // Composto (ex: II, III, XXI, xxxvi, cxxiii)
+                        bool all_upper = true;
+                        for (char c : core) if (!isupper(static_cast<unsigned char>(c))) { all_upper = false; break; }
+                        if (is_context || all_upper || core.size() >= 3 ||
+                            core == "xi" || core == "ix" || core == "iv" || core == "xv" ||
+                            core == "xx" || core == "xl" || core == "xc") {
+                            is_roman = true;
+                        }
                     }
                 }
 
