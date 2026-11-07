@@ -97,8 +97,29 @@ static inline bool is_diphthong(CharRef c1, CharRef c2) {
         if (ch1 == 'u' && ch2 == 'i') return true;
     } else if (c1.len == 2 && (unsigned char)c1.p[0] == 0xC3 && c2.len == 1) {
         unsigned char b1 = (unsigned char)c1.p[1];
-        if (b1 == 0xA3 && (c2.p[0] == 'o' || c2.p[0] == 'e')) return true; // ão, ãe
-        if (b1 == 0xB5 && c2.p[0] == 'e') return true; // õe
+        char ch2 = c2.p[0];
+        if (b1 == 0xA1 && (ch2 == 'i' || ch2 == 'u')) return true; // ái, áu
+        if (b1 == 0xA9 && (ch2 == 'i' || ch2 == 'u')) return true; // éi, éu
+        if (b1 == 0xAA && (ch2 == 'i' || ch2 == 'u')) return true; // êi, êu
+        if (b1 == 0xB3 && (ch2 == 'i' || ch2 == 'u')) return true; // ói, óu
+        if (b1 == 0xA3 && (ch2 == 'o' || ch2 == 'e')) return true; // ão, ãe
+        if (b1 == 0xB5 && ch2 == 'e') return true; // õe
+    }
+    return false;
+}
+
+// Verifica se duas consoantes consecutivas formam encontro consonantal inseparável
+static inline bool is_inseparable_cluster(CharRef c1, CharRef c2) {
+    if (c1.len == 1 && c2.len == 1) {
+        char a = c1.p[0], b = c2.p[0];
+        // Dígrafos inseparáveis: ch, lh, nh, qu, gu
+        if (b == 'h' && (a == 'c' || a == 'l' || a == 'n')) return true;
+        if (b == 'u' && (a == 'q' || a == 'g')) return true;
+        // Consoante + líquida (r ou l)
+        if (b == 'r' && (a == 'p' || a == 'b' || a == 't' || a == 'd' ||
+                         a == 'c' || a == 'g' || a == 'f' || a == 'v')) return true;
+        if (b == 'l' && (a == 'p' || a == 'b' || a == 't' || a == 'c' ||
+                         a == 'g' || a == 'f' || a == 'v')) return true;
     }
     return false;
 }
@@ -120,43 +141,71 @@ static inline bool prefix_match(const CharRef* chars, size_t n, const char* pfx)
 }
 
 // Classificador contextual de X usando ponteiros diretos (Zero Alocações)
-static const char* classify_x_ptbr(const CharRef* chars, size_t n, size_t i) {
+static const char* classify_x_ptbr(const char* word, const CharRef* chars, size_t n, size_t i) {
     if (!char_eq(chars[i], "x")) return NULL;
 
     CharRef prev = (i > 0) ? chars[i - 1] : (CharRef){"", 0};
     CharRef next = (i + 1 < n) ? chars[i + 1] : (CharRef){"", 0};
-    CharRef next2 = (i + 2 < n) ? chars[i + 2] : (CharRef){"", 0};
 
-    // Sequência 'ex' inicial
-    if (i == 1 && char_eq(chars[0], "e")) {
-        if (is_vowel_char(next)) return "z";
-        if (char_eq(next, "p") || char_eq(next, "t") || char_eq(next, "c") ||
-            char_eq(next, "s") || char_eq(next, "f")) return "s";
-        return NULL;
+    // 1. X inicial: SEMPRE som de /ʃ/ (xícara, xadrez, xarope, xampu, xale, xaveco, xerife)
+    if (i == 0) return "ʃ";
+
+    // 2. Prefixo en- + X: SEMPRE som de /ʃ/ (enxame, enxada, enxugar, enxofre, enxaqueca)
+    if (i >= 2 && char_eq(chars[i - 2], "e") && char_eq(chars[i - 1], "n")) {
+        return "ʃ";
     }
 
-    // Ditongo + X
+    // 3. Sequência 'ex' inicial
+    if (i == 1 && char_eq(chars[0], "e")) {
+        if (is_vowel_char(next)) return "z"; // exame, exemplo, existir, exército, exato
+        if (char_eq(next, "p") || char_eq(next, "t") || char_eq(next, "c") ||
+            char_eq(next, "s") || char_eq(next, "f")) return "s"; // explicar, extra, excelente
+        return "s";
+    }
+
+    // 4. Palavras comuns com som de /s/ (aproximar, próximo, máximo, auxílio, trouxe)
+    if (strncmp(word, "próxim", strlen("próxim")) == 0 || strncmp(word, "proxim", 6) == 0 ||
+        strncmp(word, "aproxim", 7) == 0 || strncmp(word, "máxim", strlen("máxim")) == 0 ||
+        strncmp(word, "maxim", 5) == 0 || strncmp(word, "auxili", 6) == 0 ||
+        strncmp(word, "auxíli", strlen("auxíli")) == 0 || strncmp(word, "troux", 5) == 0) {
+        return "s";
+    }
+
+    // 5. Palavras com som de /ks/ (raízes cultas greco-latinas)
+    if (strncmp(word, "fix", 3) == 0 || strncmp(word, "sex", 3) == 0 ||
+        strncmp(word, "conex", 5) == 0 || strncmp(word, "complex", 7) == 0 ||
+        strncmp(word, "flex", 4) == 0 || strncmp(word, "reflex", 6) == 0 ||
+        strncmp(word, "paradox", 7) == 0 || strncmp(word, "táxi", strlen("táxi")) == 0 ||
+        strncmp(word, "taxi", 4) == 0 || strncmp(word, "tóx", strlen("tóx")) == 0 ||
+        strncmp(word, "tox", 3) == 0 || strncmp(word, "léx", strlen("léx")) == 0 ||
+        strncmp(word, "lex", 3) == 0 || strncmp(word, "oxig", 4) == 0 ||
+        strncmp(word, "asfix", 5) == 0 || strncmp(word, "anex", 4) == 0 ||
+        strncmp(word, "nex", 3) == 0 || strncmp(word, "maxil", 5) == 0 ||
+        strncmp(word, "prolix", 6) == 0 || strncmp(word, "ortodox", 7) == 0 ||
+        strncmp(word, "heterodox", 9) == 0) {
+        return "ks";
+    }
+
+    // 6. Ditongo + X: som de /ʃ/ (caixa, peixe, frouxo, baixo, feixe)
     if (i >= 2) {
         CharRef preprev = chars[i - 2];
         if ((char_eq(preprev, "a") && char_eq(prev, "i")) ||
             (char_eq(preprev, "e") && char_eq(prev, "i")) ||
-            (char_eq(preprev, "o") && char_eq(prev, "u"))) return "ʃ";
+            (char_eq(preprev, "o") && char_eq(prev, "u")) ||
+            (char_eq(preprev, "a") && char_eq(prev, "u"))) return "ʃ";
     }
 
-    if (char_eq(prev, "u")) return "ʃ"; // luxo, puxar, bruxa
+    // 7. Após 'u' ou 'i': som de /ʃ/ (luxo, puxar, bruxa, lixo)
+    if (char_eq(prev, "u") || char_eq(prev, "i")) return "ʃ";
 
-    if (prefix_match(chars, n, "fix") || prefix_match(chars, n, "sex") ||
-        prefix_match(chars, n, "conex") || prefix_match(chars, n, "complex") ||
-        prefix_match(chars, n, "flex") || prefix_match(chars, n, "reflex") ||
-        prefix_match(chars, n, "paradox")) return "ks";
+    // 8. X em final de palavra: SEMPRE /ks/ em pt-BR (tórax, clímax, duplex, látex, fênix, córtex)
+    if (i == n - 1) return "ks";
 
-    if (n >= 4 && char_eq(chars[0], "t") && char_eq(chars[1], "á") &&
-        char_eq(chars[2], "x") && i == 2) return "ks";
+    // 9. X antes de consoante interna: som de /s/ (texto, sexta, contexto)
+    if (!is_vowel_char(next)) return "s";
 
-    if (prefix_match(chars, n, "mex") || prefix_match(chars, n, "vex") ||
-        prefix_match(chars, n, "bex")) return "ʃ";
-
-    return NULL;
+    // 10. Fallback padrão para X em português: som de /ʃ/ (abacaxi, faxina, graxa, taxa, mexer)
+    return "ʃ";
 }
 
 // Fonetizador de palavra única (Zero Heap: executa em buffers da stack)
@@ -200,21 +249,55 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
     Nucleus nuclei[32];
     size_t num_nuclei = 0;
     for (size_t i = 0; i < n && num_nuclei < 32; ) {
+        // Se 'u' segue 'q' ou 'g' antes de qualquer vogal, não é núcleo silábico independente
+        // (é dígrafo mudo diante de e/i ou glide [w] diante de a/o)
+        if (char_eq(chars[i], "u") && i > 0 && (char_eq(chars[i - 1], "q") || char_eq(chars[i - 1], "g")) &&
+            i + 1 < n && is_vowel_char(chars[i + 1])) {
+            i += 1;
+            continue;
+        }
+
         if (is_vowel_char(chars[i])) {
             bool acc = has_graphic_accent(chars[i]);
-            if (i + 1 < n && is_diphthong(chars[i], chars[i + 1])) {
-                nuclei[num_nuclei].start_idx = (uint8_t)i;
-                nuclei[num_nuclei].len = 2;
-                nuclei[num_nuclei].has_accent = (acc || has_graphic_accent(chars[i + 1]));
-                num_nuclei++;
-                i += 2;
-            } else {
-                nuclei[num_nuclei].start_idx = (uint8_t)i;
-                nuclei[num_nuclei].len = 1;
-                nuclei[num_nuclei].has_accent = acc;
-                num_nuclei++;
-                i += 1;
+            if (i + 1 < n && is_vowel_char(chars[i + 1])) {
+                CharRef v1 = chars[i];
+                CharRef v2 = chars[i + 1];
+
+                // Hiato se duas vogais iguais: aa, ee, oo, ii, uu
+                bool is_hiatus_equal = (v1.len == v2.len && memcmp(v1.p, v2.p, v1.len) == 0);
+                // Hiato se ambas são abertas/médias: a, e, o com a, e, o
+                bool v1_open = (char_eq(v1, "a") || char_eq(v1, "e") || char_eq(v1, "o") ||
+                                char_eq(v1, "á") || char_eq(v1, "é") || char_eq(v1, "ó") ||
+                                char_eq(v1, "â") || char_eq(v1, "ê") || char_eq(v1, "ô"));
+                bool v2_open = (char_eq(v2, "a") || char_eq(v2, "e") || char_eq(v2, "o") ||
+                                char_eq(v2, "á") || char_eq(v2, "é") || char_eq(v2, "ó") ||
+                                char_eq(v2, "â") || char_eq(v2, "ê") || char_eq(v2, "ô"));
+                bool is_hiatus_open = (v1_open && v2_open);
+                // Hiato se v2 possui acento gráfico: saúde, país, baú, ruído
+                bool is_hiatus_accent = has_graphic_accent(v2);
+                // Hiato se v2 é i diante de nh: rainha, moinho
+                bool is_hiatus_nh = ((char_eq(v2, "i") || char_eq(v2, "í")) &&
+                                     i + 3 < n && char_eq(chars[i + 2], "n") && char_eq(chars[i + 3], "h"));
+                // Hiato se verbo em -ir (ex: construir, afluir, retrair, sair)
+                bool is_hiatus_ir = ((char_eq(v2, "i") || char_eq(v2, "í")) &&
+                                     i + 2 == n - 1 && char_eq(chars[i + 2], "r"));
+
+                bool is_diph = is_diphthong(v1, v2);
+
+                if (is_diph && !(is_hiatus_equal || is_hiatus_open || is_hiatus_accent || is_hiatus_nh || is_hiatus_ir)) {
+                    nuclei[num_nuclei].start_idx = (uint8_t)i;
+                    nuclei[num_nuclei].len = 2;
+                    nuclei[num_nuclei].has_accent = (acc || has_graphic_accent(chars[i + 1]));
+                    num_nuclei++;
+                    i += 2;
+                    continue;
+                }
             }
+            nuclei[num_nuclei].start_idx = (uint8_t)i;
+            nuclei[num_nuclei].len = 1;
+            nuclei[num_nuclei].has_accent = acc;
+            num_nuclei++;
+            i += 1;
         } else {
             i += 1;
         }
@@ -280,7 +363,7 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
 
         // X contextual
         if (char_eq(c, "x")) {
-            const char* x_ph = classify_x_ptbr(chars, n, i);
+            const char* x_ph = classify_x_ptbr(lower_word, chars, n, i);
             if (x_ph != NULL) {
                 emit_str(dst, dst_end, x_ph);
                 if (i == 1 && char_eq(next, "c") && is_front_vowel(next2)) i += 2;
@@ -301,8 +384,9 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
             if (is_front_vowel(next2)) { emit_str(dst, dst_end, "k"); i += 2; continue; }
             else { emit_str(dst, dst_end, "kw"); i += 2; continue; }
         }
-        if (char_eq(c, "g") && char_eq(next, "u") && is_front_vowel(next2)) {
-            emit_str(dst, dst_end, "ɡ"); i += 2; continue;
+        if (char_eq(c, "g") && char_eq(next, "u")) {
+            if (is_front_vowel(next2)) { emit_str(dst, dst_end, "ɡ"); i += 2; continue; }
+            else if (is_vowel_char(next2)) { emit_str(dst, dst_end, "ɡw"); i += 2; continue; }
         }
 
         // C e Ç
@@ -346,6 +430,15 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
                 emit_str(dst, dst_end, "s");
             }
             i++; continue;
+        }
+
+        // Z em final de palavra ou antes de consoante surda
+        if (char_eq(c, "z")) {
+            if (i == n - 1 || (!is_vowel_char(next) && (char_eq(next, "p") || char_eq(next, "t") ||
+                char_eq(next, "c") || char_eq(next, "f") || char_eq(next, "s") || char_eq(next, "k")))) {
+                emit_str(dst, dst_end, "s");
+                i++; continue;
+            }
         }
 
         // T e D (palatalização brasileira diante de i/í ou e/es átono final)
@@ -397,6 +490,13 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
 
         // Ditongos nasais
         if (char_eq(c, "ã") && char_eq(next, "o")) { emit_str(dst, dst_end, "ɐ̃ʊ̃"); i += 2; continue; }
+        if (char_eq(c, "ã") && char_eq(next, "e")) {
+            if (char_eq(next2, "s") && i + 2 == n - 1) {
+                emit_str(dst, dst_end, "ɐ̃js"); i += 3; continue;
+            } else {
+                emit_str(dst, dst_end, "ɐ̃j"); i += 2; continue;
+            }
+        }
         if (char_eq(c, "õ") && char_eq(next, "e") && char_eq(next2, "s") && i + 2 == n - 1) {
             emit_str(dst, dst_end, "õjs"); i += 3; continue;
         }
@@ -414,7 +514,7 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
         // Nasalização diante de M/N em coda
         if (is_vowel_char(c) && (char_eq(next, "m") || char_eq(next, "n")) && !char_eq(next2, "h") &&
             (i + 2 == n || !is_vowel_char(next2))) {
-            if (char_eq(c, "a") || char_eq(c, "á")) emit_str(dst, dst_end, "ɐ̃ŋ");
+            if (char_eq(c, "a") || char_eq(c, "á") || char_eq(c, "â") || char_eq(c, "à")) emit_str(dst, dst_end, "ɐ̃ŋ");
             else if (char_eq(c, "e") || char_eq(c, "é") || char_eq(c, "ê")) emit_str(dst, dst_end, "Aŋ");
             else if (char_eq(c, "i") || char_eq(c, "í")) emit_str(dst, dst_end, "iŋ");
             else if (char_eq(c, "o") || char_eq(c, "ó") || char_eq(c, "ô")) emit_str(dst, dst_end, "oŋ");
@@ -466,7 +566,231 @@ static void rule_based_ptbr_word_buf(const char* word_str, size_t word_len, char
     }
 }
 
+// Silabifica uma única palavra UTF-8 escrevendo no buffer dst com separador sep (Zero Heap)
+static void syllabify_ptbr_word_buf(const char* word_str, size_t word_len, char** dst, const char* dst_end, char sep) {
+    if (word_len == 0) return;
+
+    // Buffer local para lowercase (máximo 64 bytes para uma única palavra em pt-BR)
+    char lower_word[64];
+    size_t w_len = word_len < sizeof(lower_word) - 1 ? word_len : sizeof(lower_word) - 1;
+    for (size_t k = 0; k < w_len; ++k) {
+        lower_word[k] = (char)tolower((unsigned char)word_str[k]);
+    }
+    lower_word[w_len] = '\0';
+
+    // Extração de caracteres UTF-8 mantendo ponteiros para o texto original
+    CharRef orig_chars[64];
+    CharRef lower_chars[64];
+    size_t n = 0;
+    for (size_t i = 0; i < w_len && n < 64; ) {
+        unsigned char c = (unsigned char)lower_word[i];
+        uint8_t len = 1;
+        if ((c & 0xE0) == 0xC0) len = 2;
+        else if ((c & 0xF0) == 0xE0) len = 3;
+        else if ((c & 0xF8) == 0xF0) len = 4;
+        if (i + len > w_len) len = (uint8_t)(w_len - i);
+
+        orig_chars[n].p = word_str + i;
+        orig_chars[n].len = len;
+        lower_chars[n].p = lower_word + i;
+        lower_chars[n].len = len;
+        n++;
+        i += len;
+    }
+    if (n == 0) return;
+
+    // 1. Identificar vogais (excluindo 'u' dígrafo de qu/gu antes de vogal)
+    bool is_v[64];
+    for (size_t i = 0; i < n; ++i) {
+        if (is_vowel_char(lower_chars[i])) {
+            if (char_eq(lower_chars[i], "u") && i > 0 &&
+                (char_eq(lower_chars[i - 1], "q") || char_eq(lower_chars[i - 1], "g")) &&
+                i + 1 < n && is_vowel_char(lower_chars[i + 1])) {
+                is_v[i] = false;
+            } else {
+                is_v[i] = true;
+            }
+        } else {
+            is_v[i] = false;
+        }
+    }
+
+    // 2. Identificar núcleos vocálicos (ditongos vs hiatos)
+    Nucleus nuclei[32];
+    size_t num_nuclei = 0;
+    for (size_t i = 0; i < n && num_nuclei < 32; ) {
+        if (is_v[i]) {
+            uint8_t start = (uint8_t)i;
+            if (i + 1 < n && is_v[i + 1]) {
+                CharRef v1 = lower_chars[i];
+                CharRef v2 = lower_chars[i + 1];
+
+                // Hiato se duas vogais iguais: aa, ee, oo, ii, uu
+                bool is_hiatus_equal = (v1.len == v2.len && memcmp(v1.p, v2.p, v1.len) == 0);
+                // Hiato se ambas são abertas/médias: a, e, o com a, e, o
+                bool v1_open = (char_eq(v1, "a") || char_eq(v1, "e") || char_eq(v1, "o") ||
+                                char_eq(v1, "á") || char_eq(v1, "é") || char_eq(v1, "ó") ||
+                                char_eq(v1, "â") || char_eq(v1, "ê") || char_eq(v1, "ô"));
+                bool v2_open = (char_eq(v2, "a") || char_eq(v2, "e") || char_eq(v2, "o") ||
+                                char_eq(v2, "á") || char_eq(v2, "é") || char_eq(v2, "ó") ||
+                                char_eq(v2, "â") || char_eq(v2, "ê") || char_eq(v2, "ô"));
+                bool is_hiatus_open = (v1_open && v2_open);
+                // Hiato se v2 possui acento gráfico: saúde, país, baú, ruído
+                bool is_hiatus_accent = has_graphic_accent(v2);
+                // Hiato se v2 é i diante de nh: rainha, moinho
+                bool is_hiatus_nh = ((char_eq(v2, "i") || char_eq(v2, "í")) &&
+                                     i + 3 < n && char_eq(lower_chars[i + 2], "n") && char_eq(lower_chars[i + 3], "h"));
+                // Hiato se verbo em -ir (ex: construir, afluir, retrair, sair)
+                bool is_hiatus_ir = ((char_eq(v2, "i") || char_eq(v2, "í")) &&
+                                     i + 2 == n - 1 && char_eq(lower_chars[i + 2], "r"));
+
+                bool is_diph = is_diphthong(v1, v2);
+
+                if (is_diph && !(is_hiatus_equal || is_hiatus_open || is_hiatus_accent || is_hiatus_nh || is_hiatus_ir)) {
+                    nuclei[num_nuclei].start_idx = start;
+                    nuclei[num_nuclei].len = 2;
+                    nuclei[num_nuclei].has_accent = (has_graphic_accent(v1) || has_graphic_accent(v2));
+                    num_nuclei++;
+                    i += 2;
+                    continue;
+                }
+            }
+            nuclei[num_nuclei].start_idx = start;
+            nuclei[num_nuclei].len = 1;
+            nuclei[num_nuclei].has_accent = has_graphic_accent(lower_chars[i]);
+            num_nuclei++;
+            i += 1;
+        } else {
+            i += 1;
+        }
+    }
+
+    if (num_nuclei == 0) {
+        for (size_t k = 0; k < n; ++k) {
+            for (uint8_t b = 0; b < orig_chars[k].len && *dst < dst_end - 1; ++b) {
+                *(*dst)++ = orig_chars[k].p[b];
+            }
+        }
+        **dst = '\0';
+        return;
+    }
+
+    // 3. Determinar cortes entre núcleos
+    uint8_t cuts[32];
+    size_t num_cuts = 0;
+    cuts[num_cuts++] = 0;
+
+    for (size_t k = 0; k + 1 < num_nuclei; ++k) {
+        size_t n1_end = nuclei[k].start_idx + nuclei[k].len;
+        size_t n2_start = nuclei[k + 1].start_idx;
+        size_t num_c = n2_start - n1_end;
+
+        if (num_c == 0) {
+            cuts[num_cuts++] = (uint8_t)n2_start;
+        } else if (num_c == 1) {
+            cuts[num_cuts++] = (uint8_t)n1_end;
+        } else if (num_c == 2) {
+            CharRef c1 = lower_chars[n1_end];
+            CharRef c2 = lower_chars[n1_end + 1];
+            if (is_inseparable_cluster(c1, c2)) {
+                cuts[num_cuts++] = (uint8_t)n1_end;
+            } else {
+                cuts[num_cuts++] = (uint8_t)(n1_end + 1);
+            }
+        } else if (num_c == 3) {
+            CharRef c2 = lower_chars[n1_end + 1];
+            CharRef c3 = lower_chars[n1_end + 2];
+            if (is_inseparable_cluster(c2, c3)) {
+                cuts[num_cuts++] = (uint8_t)(n1_end + 1);
+            } else {
+                cuts[num_cuts++] = (uint8_t)(n1_end + 2);
+            }
+        } else {
+            cuts[num_cuts++] = (uint8_t)(n1_end + 2);
+        }
+    }
+    cuts[num_cuts++] = (uint8_t)n;
+
+    // 4. Emissão das sílabas separadas por sep
+    for (size_t s = 0; s + 1 < num_cuts; ++s) {
+        if (s > 0 && *dst < dst_end - 1) {
+            *(*dst)++ = sep;
+        }
+        for (size_t idx = cuts[s]; idx < cuts[s + 1] && *dst < dst_end - 1; ++idx) {
+            for (uint8_t b = 0; b < orig_chars[idx].len && *dst < dst_end - 1; ++b) {
+                *(*dst)++ = orig_chars[idx].p[b];
+            }
+        }
+    }
+    **dst = '\0';
+}
+
 extern "C" {
+
+size_t phonemas_ptbr_syllabify_buffer(const char* text, char* out_buf, size_t max_len, char sep) {
+    if (!text || !out_buf || max_len == 0) return 0;
+
+    char* dst = out_buf;
+    const char* dst_end = out_buf + max_len;
+    *dst = '\0';
+
+    const char* p = text;
+
+    while (*p) {
+        // Pula e copia espaços em branco
+        while (*p && isspace((unsigned char)*p)) {
+            if (dst < dst_end - 1) *dst++ = *p;
+            p++;
+        }
+        if (!*p) break;
+
+        const char* token_start = p;
+        while (*p && !isspace((unsigned char)*p)) p++;
+        const char* token_end = p;
+
+        // Extrai pontuação à esquerda
+        const char* core_start = token_start;
+        while (core_start < token_end && is_punct(*core_start)) {
+            core_start++;
+        }
+
+        // Extrai pontuação à direita
+        const char* core_end = token_end;
+        while (core_end > core_start && is_punct(*(core_end - 1))) {
+            core_end--;
+        }
+
+        // Emite pontuação à esquerda
+        while (token_start < core_start && dst < dst_end - 1) {
+            *dst++ = *token_start++;
+            *dst = '\0';
+        }
+
+        // Emite a palavra silabificada
+        size_t core_len = (size_t)(core_end - core_start);
+        if (core_len > 0) {
+            syllabify_ptbr_word_buf(core_start, core_len, &dst, dst_end, sep);
+        }
+
+        // Emite pontuação à direita
+        while (core_end < token_end && dst < dst_end - 1) {
+            *dst++ = *core_end++;
+            *dst = '\0';
+        }
+    }
+
+    *dst = '\0';
+    return (size_t)(dst - out_buf);
+}
+
+char* phonemas_ptbr_syllabify(const char* text, char sep) {
+    if (!text) return NULL;
+    size_t needed = strlen(text) * 2 + 64;
+    char* buf = (char*)malloc(needed);
+    if (!buf) return NULL;
+    phonemas_ptbr_syllabify_buffer(text, buf, needed, sep);
+    return buf;
+}
 
 size_t phonemas_ptbr_translate_buffer(const char* text, char* out_buf, size_t max_len) {
     if (!text || !out_buf || max_len == 0) return 0;

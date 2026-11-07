@@ -39,6 +39,62 @@ int main() {
     std::cout << "Teste 5 (C Translate): \"Bom dia!\" -> " << c_ph << "\n";
     phonemas_ptbr_free(c_ph);
 
+    // Teste 6: Preservação de sílabas nasais circunflexas (ân, âm)
+    std::string ph6_1 = phonemas_ptbr::text_to_phonemes("infância");
+    std::string ph6_2 = phonemas_ptbr::text_to_phonemes("lâmpada");
+    std::cout << "Teste 6 (Circunflexo Nasal): \"infância\" -> " << ph6_1 << ", \"lâmpada\" -> " << ph6_2 << "\n";
+    assert(ph6_1.find("ɐ̃ŋ") != std::string::npos);
+    assert(ph6_2.find("ɐ̃ŋ") != std::string::npos);
+
+    // Teste 7: Acentuação tônica em palavras com dígrafos qu / gu
+    std::string ph7_1 = phonemas_ptbr::text_to_phonemes("porque");
+    std::string ph7_2 = phonemas_ptbr::text_to_phonemes("pesquisa");
+    std::cout << "Teste 7 (Acento em qu/gu): \"porque\" -> " << ph7_1 << ", \"pesquisa\" -> " << ph7_2 << "\n";
+    assert(ph7_1.find("pˈoɾ") != std::string::npos);
+    assert(ph7_2.find("kˈiz") != std::string::npos);
+
+    // Teste 8: Resolução da letra X (ʃ, ks, s)
+    std::string ph8_1 = phonemas_ptbr::text_to_phonemes("abacaxi");
+    std::string ph8_2 = phonemas_ptbr::text_to_phonemes("tóxico");
+    std::string ph8_3 = phonemas_ptbr::text_to_phonemes("máxima");
+    std::cout << "Teste 8 (Letra X): \"abacaxi\" -> " << ph8_1 << ", \"tóxico\" -> " << ph8_2 << ", \"máxima\" -> " << ph8_3 << "\n";
+    assert(ph8_1.find("ʃ") != std::string::npos);
+    assert(ph8_2.find("ks") != std::string::npos);
+    assert(ph8_3.find("s") != std::string::npos);
+
+    // Teste 9: Ditongo nasal ãe e dessonorização de z final
+    std::string ph9_1 = phonemas_ptbr::text_to_phonemes("mãe");
+    std::string ph9_2 = phonemas_ptbr::text_to_phonemes("luz");
+    std::cout << "Teste 9 (ãe e z final): \"mãe\" -> " << ph9_1 << ", \"luz\" -> " << ph9_2 << "\n";
+    assert(ph9_1.find("ɐ̃j") != std::string::npos);
+    assert(ph9_2.find("lˈus") != std::string::npos);
+
+    // Teste 10: Divisão Silábica Estruturada C++ e C (Zero Heap)
+    std::string s1 = phonemas_ptbr::syllabify("constitucional");
+    std::string s2 = phonemas_ptbr::syllabify("abacate");
+    std::string s3 = phonemas_ptbr::syllabify("carro");
+    std::string s4 = phonemas_ptbr::syllabify("rainha");
+    std::string s5 = phonemas_ptbr::syllabify("advogado");
+    std::string s6 = phonemas_ptbr::syllabify("construir");
+    std::cout << "Teste 10 (Silabificacao C++): \"constitucional\" -> " << s1 << "\n";
+    std::cout << "                            \"abacate\"        -> " << s2 << "\n";
+    std::cout << "                            \"carro\"          -> " << s3 << "\n";
+    std::cout << "                            \"rainha\"         -> " << s4 << "\n";
+    std::cout << "                            \"advogado\"       -> " << s5 << "\n";
+    std::cout << "                            \"construir\"      -> " << s6 << "\n";
+    assert(s1 == "cons-ti-tu-ci-o-nal");
+    assert(s2 == "a-ba-ca-te");
+    assert(s3 == "car-ro");
+    assert(s4 == "ra-i-nha");
+    assert(s5 == "ad-vo-ga-do");
+    assert(s6 == "cons-tru-ir");
+
+    // Teste 10b: API C pura com buffer local estático (Zero Heap)
+    char c_syl_buf[128];
+    size_t c_syl_len = phonemas_ptbr_syllabify_buffer("O abacaxi e o carro.", c_syl_buf, sizeof(c_syl_buf), '-');
+    std::cout << "Teste 10b (API C Buffer Silabas): \"" << c_syl_buf << "\" (" << c_syl_len << " bytes)\n";
+    assert(std::string(c_syl_buf) == "O a-ba-ca-xi e o car-ro.");
+
     std::cout << "\n>>> TODOS OS TESTES PASSARAM COM SUCESSO! ZERO ARQUIVOS EXTERNOS. <<<\n";
     return 0;
 }

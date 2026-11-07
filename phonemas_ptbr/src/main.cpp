@@ -7,7 +7,7 @@
 void print_help(const char* prog) {
     std::cout << "Uso: " << prog << " \"Texto em português brasileiro\" [opções]\n\n"
               << "Opções:\n"
-              << "  --no-tokens        Exibe apenas os fonemas, ocultando os tokens numéricos\n"
+              << "  --no-tokens        Exibe apenas os fonemas e sílabas, ocultando os tokens numéricos\n"
               << "  --help, -h         Exibe esta mensagem de ajuda\n";
 }
 
@@ -37,10 +37,12 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    std::string syllables = phonemas_ptbr::syllabify(text, '-');
     std::string phonemes = phonemas_ptbr::text_to_phonemes(text);
 
     std::cout << "========================================\n";
     std::cout << "Texto de Entrada : " << text << "\n";
+    std::cout << "Divisão Silábica : " << syllables << "\n";
     std::cout << "Fonemas pt-BR    : " << phonemes << "\n";
     std::cout << "========================================\n";
 
