@@ -186,6 +186,62 @@ static void expand_number_ptbr(int n, char*& dst, const char* dst_end, PhonemasO
     }
 }
 
+// Expande números ordinais de 1 a 10 em português
+static inline void expand_ordinal_ptbr(int n, char*& dst, const char* dst_end, PhonemasOutputMode mode) {
+    static const char* ordinais[] = {
+        "", "primeiro", "segundo", "terceiro", "quarto", "quinto",
+        "sexto", "sétimo", "oitavo", "nono", "décimo"
+    };
+    if (n >= 1 && n <= 10) {
+        phonemize_single_word_buf(ordinais[n], dst, dst_end, mode);
+    }
+}
+
+// Detecta se a string é um algarismo romano e retorna seu valor (1 a 3999), ou 0 se inválido
+static int parse_roman_numeral(std::string_view s) {
+    if (s.empty() || s.size() > 15) return 0;
+    int total = 0;
+    int prev = 0;
+    for (int k = static_cast<int>(s.size()) - 1; k >= 0; --k) {
+        char ch = static_cast<char>(toupper(static_cast<unsigned char>(s[k])));
+        int val = 0;
+        switch (ch) {
+            case 'I': val = 1; break;
+            case 'V': val = 5; break;
+            case 'X': val = 10; break;
+            case 'L': val = 50; break;
+            case 'C': val = 100; break;
+            case 'D': val = 500; break;
+            case 'M': val = 1000; break;
+            default: return 0;
+        }
+        if (val < prev) {
+            total -= val;
+        } else {
+            total += val;
+            prev = val;
+        }
+    }
+    if (total <= 0 || total > 3999) return 0;
+    return total;
+}
+
+// Verifica se a palavra anterior contextualiza um número romano (ex: século XXI, Dom Pedro II)
+static bool is_roman_context_title(std::string_view w) {
+    char lower[32];
+    size_t len = w.size() < sizeof(lower) - 1 ? w.size() : sizeof(lower) - 1;
+    for (size_t k = 0; k < len; ++k) lower[k] = static_cast<char>(tolower(static_cast<unsigned char>(w[k])));
+    lower[len] = '\0';
+    std::string_view lw(lower, len);
+    return (lw == "século" || lw == "seculo" || lw == "dom" || lw == "d" ||
+            lw == "papa" || lw == "rei" || lw == "rainha" || lw == "capítulo" ||
+            lw == "capitulo" || lw == "tomo" || lw == "volume" || lw == "ato" ||
+            lw == "parte" || lw == "anexo" || lw == "artigo" || lw == "item" ||
+            lw == "pedro" || lw == "paulo" || lw == "joão" || lw == "bento" ||
+            lw == "luís" || lw == "luis" || lw == "carlos" || lw == "henrique" ||
+            lw == "filipe" || lw == "afonso" || lw == "eduardo" || lw == "george");
+}
+
 // ============================================================================
 // 4. MOTOR DE TRANSCRIÇÃO FONÉTICA DE PALAVRA INDIVIDUAL
 // ============================================================================
@@ -653,6 +709,7 @@ size_t translate_text_buf(std::string_view text, char* out_buf, size_t max_len, 
     size_t i = 0;
     size_t text_len = text.size();
     bool first_token = true;
+    std::string_view prev_core;
 
     while (i < text_len) {
         // Pula espaços em branco
@@ -690,7 +747,39 @@ size_t translate_text_buf(std::string_view text, char* out_buf, size_t max_len, 
         // Emite a palavra fonetizada
         if (core_end > core_start) {
             std::string_view core = text.substr(core_start, core_end - core_start);
-            rule_based_ptbr_word_buf(core, dst, dst_end, mode);
+
+            // Verifica se é número romano
+            int roman_val = parse_roman_numeral(core);
+            bool is_roman = false;
+            if (roman_val > 0) {
+                bool is_context = !prev_core.empty() && is_roman_context_title(prev_core);
+                if (core.size() == 1) {
+                    // Letra isolada: apenas se estiver em contexto ou for V ou X em maiúsculo
+                    if (is_context || core == "V" || (is_context && (core == "X" || core == "I"))) {
+                        is_roman = true;
+                    }
+                } else {
+                    // Composto (ex: II, III, IV, IX, XI, XXI): se estiver em contexto ou todo maiúsculo
+                    bool all_upper = true;
+                    for (char c : core) if (!isupper(static_cast<unsigned char>(c))) { all_upper = false; break; }
+                    if (is_context || all_upper) {
+                        is_roman = true;
+                    }
+                }
+
+                if (is_roman) {
+                    if (is_context && roman_val <= 10) {
+                        expand_ordinal_ptbr(roman_val, dst, dst_end, mode);
+                    } else {
+                        expand_number_ptbr(roman_val, dst, dst_end, mode);
+                    }
+                }
+            }
+
+            if (!is_roman) {
+                rule_based_ptbr_word_buf(core, dst, dst_end, mode);
+            }
+            prev_core = core;
         }
 
         // Emite pontuação à direita

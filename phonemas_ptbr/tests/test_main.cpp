@@ -152,6 +152,17 @@ int main() {
     assert(ph16_4.find("fˌidibˈɛki") != std::string::npos);
     assert(ph16_5.find("mˈaws") != std::string::npos);
 
+    // Teste 17: Algarismos Romanos Contextuais (Ordinais <= 10 e Cardinais > 10)
+    std::string ph17_1 = phonemas_ptbr::text_to_phonemes("século XXI");
+    std::string ph17_2 = phonemas_ptbr::text_to_phonemes("Dom Pedro II");
+    std::string ph17_3 = phonemas_ptbr::text_to_phonemes("Capítulo IV");
+    std::cout << "Teste 17 (Algarismos Romanos): \"século XXI\"    -> " << ph17_1 << "\n";
+    std::cout << "                             \"Dom Pedro II\"  -> " << ph17_2 << "\n";
+    std::cout << "                             \"Capítulo IV\"   -> " << ph17_3 << "\n";
+    assert(ph17_1.find("vˈiŋʧy") != std::string::npos); // vinte e um
+    assert(ph17_2.find("seɡˈũŋdʊ") != std::string::npos); // segundo
+    assert(ph17_3.find("kwˈaɾtʊ") != std::string::npos); // quarto
+
     std::cout << "\n>>> TODOS OS TESTES PASSARAM COM SUCESSO! ZERO ARQUIVOS EXTERNOS. <<<\n";
     return 0;
 }
