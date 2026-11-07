@@ -55,4 +55,4 @@ install(TARGETS phonemas_ptbr phonemas_ptbr_static phonemas_ptbr_cli
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
 )
-install(FILES include/phonemas_ptbr.h include/embedded_vocab.h include/embedded_exceptions.h DESTINATION include)
+install(FILES include/phonemas_ptbr.h include/embedded_vocab.h include/embedded_exceptions.h include/embedded_loanwords.h DESTINATION include)

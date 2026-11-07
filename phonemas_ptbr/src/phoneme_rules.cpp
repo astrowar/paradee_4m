@@ -1,6 +1,7 @@
 #include "phoneme_rules.h"
 #include "syllabifier.h"
 #include "embedded_exceptions.h"
+#include "embedded_loanwords.h"
 #include <string.h>
 #include <ctype.h>
 
@@ -17,6 +18,30 @@ static inline void emit_str(char*& dst, const char* end, std::string_view str) {
         }
     }
     *dst = '\0';
+}
+
+// ============================================================================
+// 2. BUSCA BINÁRIA NO DICIONÁRIO DE ESTRANGEIRISMOS (LOANWORDS EM FLASH)
+// ============================================================================
+
+const char* find_loanword(std::string_view word, PhonemasOutputMode mode) {
+    if (EMBEDDED_LOANWORDS_SIZE == 0) return nullptr;
+    int low = 0;
+    int high = static_cast<int>(EMBEDDED_LOANWORDS_SIZE) - 1;
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        int cmp = word.compare(EMBEDDED_LOANWORDS[mid].word);
+        if (cmp == 0) {
+            return (mode == PHONEMAS_MODE_STANDARD_IPA)
+                ? EMBEDDED_LOANWORDS[mid].phonemes_ipa
+                : EMBEDDED_LOANWORDS[mid].phonemes_kokoro;
+        } else if (cmp < 0) {
+            high = mid - 1;
+        } else {
+            low = mid + 1;
+        }
+    }
+    return nullptr;
 }
 
 // ============================================================================
@@ -188,16 +213,15 @@ void phonemize_single_word_buf(std::string_view word_str, char*& dst, const char
         emit_str(dst, dst_end, "sˈe"); // Letra C / C++ / Vitamina C
         return;
     }
-    if (lw == "view") {
-        emit_str(dst, dst_end, "vjˈu"); // Termo técnico 'view'
-        return;
-    }
-    if (lw == "ipa") {
-        emit_str(dst, dst_end, "ˌipˌeˈa"); // Sigla I-P-A
+
+    // 1. Dicionário dedicado de Estrangeirismos e Empréstimos Linguísticos (Loanwords em Flash)
+    const char* loan = find_loanword(lw, mode);
+    if (loan != nullptr) {
+        emit_str(dst, dst_end, loan);
         return;
     }
 
-    // 1. Busca na tabela de exceções em Flash (.rodata)
+    // 2. Busca na tabela de exceções gerais em Flash (.rodata)
     const char* exc = find_exception(lw);
     if (exc != nullptr) {
         emit_str(dst, dst_end, exc);

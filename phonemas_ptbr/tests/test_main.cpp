@@ -135,6 +135,23 @@ int main() {
     assert(ph15_ipa.find("lˈejtʃi") != std::string::npos);
     assert(ph15_ipa.find("sˈɔw") != std::string::npos);
 
+    // Teste 16: Dicionário Dedicado de Estrangeirismos (Loanwords em Flash)
+    std::string ph16_1 = phonemas_ptbr::text_to_phonemes("wifi");
+    std::string ph16_2 = phonemas_ptbr::text_to_phonemes("bluetooth");
+    std::string ph16_3 = phonemas_ptbr::text_to_phonemes("software");
+    std::string ph16_4 = phonemas_ptbr::text_to_phonemes("feedback");
+    std::string ph16_5 = phonemas_ptbr::text_to_phonemes("mouse");
+    std::cout << "Teste 16 (Estrangeirismos): \"wifi\"      -> " << ph16_1 << "\n";
+    std::cout << "                          \"bluetooth\" -> " << ph16_2 << "\n";
+    std::cout << "                          \"software\"  -> " << ph16_3 << "\n";
+    std::cout << "                          \"feedback\"  -> " << ph16_4 << "\n";
+    std::cout << "                          \"mouse\"     -> " << ph16_5 << "\n";
+    assert(ph16_1.find("wˌajfˈaj") != std::string::npos);
+    assert(ph16_2.find("blˌutˈufi") != std::string::npos);
+    assert(ph16_3.find("sˈɔftwɛɾ") != std::string::npos);
+    assert(ph16_4.find("fˌidibˈɛki") != std::string::npos);
+    assert(ph16_5.find("mˈaws") != std::string::npos);
+
     std::cout << "\n>>> TODOS OS TESTES PASSARAM COM SUCESSO! ZERO ARQUIVOS EXTERNOS. <<<\n";
     return 0;
 }
