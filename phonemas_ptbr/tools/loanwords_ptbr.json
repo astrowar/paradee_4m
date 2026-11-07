@@ -670,5 +670,81 @@
   "youtube": {
     "kokoro": "jˌutˈubi",
     "ipa": "jˌutˈubi"
+  },
+  "bar": {
+    "kokoro": "bˈaɾ",
+    "ipa": "bˈaɾ"
+  },
+  "bye": {
+    "kokoro": "bˈaj",
+    "ipa": "bˈaj"
+  },
+  "chef": {
+    "kokoro": "ʃˈɛfi",
+    "ipa": "ʃˈɛfi"
+  },
+  "club": {
+    "kokoro": "klˈɐ̃bi",
+    "ipa": "klˈɐ̃bi"
+  },
+  "drink": {
+    "kokoro": "drˈiŋki",
+    "ipa": "drˈĩki"
+  },
+  "guy": {
+    "kokoro": "ɡˈaj",
+    "ipa": "ɡˈaj"
+  },
+  "hall": {
+    "kokoro": "xˈɔw",
+    "ipa": "xˈɔw"
+  },
+  "hotel": {
+    "kokoro": "otˈɛw",
+    "ipa": "otˈɛw"
+  },
+  "motel": {
+    "kokoro": "motˈɛw",
+    "ipa": "motˈɛw"
+  },
+  "party": {
+    "kokoro": "pˈaɾti",
+    "ipa": "pˈaɾti"
+  },
+  "pizza": {
+    "kokoro": "pˈitsæ",
+    "ipa": "pˈitsə"
+  },
+  "pub": {
+    "kokoro": "pˈɐ̃bi",
+    "ipa": "pˈɐ̃bi"
+  },
+  "rock": {
+    "kokoro": "xˈɔki",
+    "ipa": "xˈɔki"
+  },
+  "round": {
+    "kokoro": "xˈawnd",
+    "ipa": "xˈawnd"
+  },
+  "style": {
+    "kokoro": "stˈajw",
+    "ipa": "stˈajw"
+  },
+  "take": {
+    "kokoro": "tˈejki",
+    "ipa": "tˈejki"
+  },
+  "trailer": {
+    "kokoro": "trˈejleɾ",
+    "ipa": "trˈejleɾ"
+  },
+  "whisky": {
+    "kokoro": "wˈiski",
+    "ipa": "wˈiski"
+  },
+  "yeah": {
+    "kokoro": "jˈɛæ",
+    "ipa": "jˈɛa"
   }
 }

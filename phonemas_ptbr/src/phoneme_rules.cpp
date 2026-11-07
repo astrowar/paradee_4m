@@ -115,7 +115,7 @@ const char* classify_x_ptbr(std::string_view word, const std::string_view* chars
 // 3. BUSCA BINÁRIA NA TABELA DE EXCEÇÕES (.RODATA)
 // ============================================================================
 
-const char* find_exception(std::string_view word) {
+const char* find_exception(std::string_view word, PhonemasOutputMode mode) {
     if (EMBEDDED_EXCEPTIONS_SIZE == 0) return nullptr;
     int low = 0;
     int high = static_cast<int>(EMBEDDED_EXCEPTIONS_SIZE) - 1;
@@ -123,7 +123,9 @@ const char* find_exception(std::string_view word) {
         int mid = low + (high - low) / 2;
         int cmp = word.compare(EMBEDDED_EXCEPTIONS[mid].word);
         if (cmp == 0) {
-            return EMBEDDED_EXCEPTIONS[mid].phonemes;
+            return (mode == PHONEMAS_MODE_STANDARD_IPA)
+                ? EMBEDDED_EXCEPTIONS[mid].phonemes_ipa
+                : EMBEDDED_EXCEPTIONS[mid].phonemes_kokoro;
         } else if (cmp < 0) {
             high = mid - 1;
         } else {
@@ -222,7 +224,7 @@ void phonemize_single_word_buf(std::string_view word_str, char*& dst, const char
     }
 
     // 2. Busca na tabela de exceções gerais em Flash (.rodata)
-    const char* exc = find_exception(lw);
+    const char* exc = find_exception(lw, mode);
     if (exc != nullptr) {
         emit_str(dst, dst_end, exc);
         return;

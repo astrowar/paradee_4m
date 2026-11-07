@@ -15,7 +15,7 @@ const char* classify_x_ptbr(std::string_view word, const std::string_view* chars
 /**
  * @brief Busca binária em O(log N) na tabela embutida de exceções (.rodata).
  */
-const char* find_exception(std::string_view word);
+const char* find_exception(std::string_view word, PhonemasOutputMode mode);
 
 /**
  * @brief Transcreve uma única palavra simples em fonemas IPA, no modo especificado.
